@@ -14,9 +14,20 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
-              "index"
+              "index",
+              "getting-started/claim-ownership",
+              "getting-started/download-app"
+            ]
+          },
+          {
+            "group": "Loyalty Card",
+            "pages": [
+              "loyalty-card/overview",
+              "loyalty-card/for-owners",
+              "loyalty-card/for-customers",
+              "loyalty-card/faq"
             ]
           }
         ]
