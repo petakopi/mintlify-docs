@@ -1,0 +1,25 @@
+---
+title: "Changelog"
+description: "Latest updates and changes to petakopi.my"
+---
+
+Stay up to date with the latest changes to petakopi.my.
+
+<Update label="2026-03-30" description="v0.7.1" tags={["Mobile"]}>
+### New features
+
+- **Card color customization** — Shop owners can now customize loyalty card colors (background, text, stamp area) with a live Apple Wallet and Google Wallet preview
+- **Delete opening hours** — Added the ability to clear all opening hours from the mobile sync tab
+- **Remove card** — Customers can now remove a loyalty card from their collection
+
+### Improvements
+
+- **Per-field editability** — Loyalty program form fields are now locked individually based on backend rules, instead of disabling the entire form when active cards exist
+- **Serial number prefix** — Owner card list now shows the serial number prefix for easier identification
+- **Location tracking** — Replaced custom location layer with native LocationPuck for more reliable always-on tracking
+- **Apple Wallet updates** — Card color and name changes now update Apple Wallet passes immediately (Google Wallet still updates on next stamp or new card)
+
+### Bug fixes
+
+- Fixed misleading "Download cancelled" toast when re-downloading a loyalty card on iOS
+</Update>

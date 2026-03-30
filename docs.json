@@ -21,6 +21,23 @@
               "getting-started/download-app",
               "getting-started/contact"
             ]
+          }
+        ]
+      },
+      {
+        "tab": "For Owners",
+        "groups": [
+          {
+            "group": "Manage Your Shop",
+            "pages": [
+              "manage-shop/overview",
+              "manage-shop/shop-information",
+              "manage-shop/location",
+              "manage-shop/sync-from-google",
+              "manage-shop/online-store",
+              "manage-shop/customer-feedback",
+              "manage-shop/app-vs-web"
+            ]
           },
           {
             "group": "Loyalty Card",
@@ -28,11 +45,27 @@
               "loyalty-card/overview",
               "loyalty-card/quick-start",
               "loyalty-card/for-owners",
-              "loyalty-card/for-customers",
               "loyalty-card/app-vs-web",
               "loyalty-card/faq"
             ]
           }
+        ]
+      },
+      {
+        "tab": "For Customers",
+        "groups": [
+          {
+            "group": "Features",
+            "pages": [
+              "trip-planner"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "pages": [
+          "changelog"
         ]
       }
     ]
