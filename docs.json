@@ -26,8 +26,10 @@
             "group": "Loyalty Card",
             "pages": [
               "loyalty-card/overview",
+              "loyalty-card/quick-start",
               "loyalty-card/for-owners",
               "loyalty-card/for-customers",
+              "loyalty-card/app-vs-web",
               "loyalty-card/faq"
             ]
           }
