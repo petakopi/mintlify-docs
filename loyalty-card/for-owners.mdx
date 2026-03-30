@@ -35,15 +35,36 @@ You can run **multiple programs at the same time** — for example, a coffee car
 
 You can edit your loyalty program from the Manage panel. However, once customers have active cards, some fields are locked to protect their progress:
 
-| Field | Editable? | Reason |
-|-------|-----------|--------|
-| Terms & conditions | Yes | Informational — updates appear on wallet passes after the next stamp |
+| Field | Editable? | Notes |
+|-------|-----------|-------|
+| Program name | Yes | Updates Apple Wallet passes immediately; Google Wallet updates on next stamp or new card |
+| Terms & conditions | Yes | Updates appear on wallet passes after the next stamp |
+| Expiration days | Yes | Only affects newly issued cards, not existing ones |
 | Active status | Yes | Only controls whether new customers can enroll |
-| Program name | No | Displayed on existing Apple Wallet and Google Wallet passes |
 | Stamps required | No | Changing this would unfairly affect customers' progress toward their reward |
-| Expiration days | No | Existing cards already have their expiration date set at enrollment |
 
-To change locked fields, you'll need to wait until all active cards have been redeemed or expired, or create a new program.
+To change **stamps required**, you'll need to wait until all active cards have been redeemed or expired, or create a new program.
+
+## Customizing card appearance
+
+You can customize how your loyalty card looks in Apple Wallet and Google Wallet.
+
+<Steps>
+  <Step title="Open card appearance">
+    From your loyalty program detail page, tap **"Card Appearance"**.
+  </Step>
+  <Step title="Choose your colors">
+    Customize the following colors with a live wallet preview:
+    - **Background** — Main card background color
+    - **Text** (Apple only) — Text color on the card
+    - **Stamp area** (Apple only) — Color behind the stamp grid
+
+    Google Wallet text color is automatically calculated for contrast.
+  </Step>
+  <Step title="Save changes">
+    Tap **Save** to apply. Apple Wallet cards update immediately. Google Wallet cards update on the next stamp or new card.
+  </Step>
+</Steps>
 
 ## Scanning stamps
 
@@ -51,7 +72,7 @@ Use the **petakopi.my mobile app** to scan customer loyalty cards.
 
 <Steps>
   <Step title="Open the scanner">
-    Open the app and tap the **Scan Loyalty** card on the Home tab.
+    Open the app and tap the **Scan** card on the Home tab.
   </Step>
   <Step title="Scan the customer's QR code">
     Point your camera at the customer's loyalty card QR code. This can be shown from:
