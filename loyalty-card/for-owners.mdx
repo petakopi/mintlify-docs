@@ -7,25 +7,29 @@ description: "How to set up and manage loyalty programs on petakopi.my"
 
 This guide covers everything you need to know about setting up and running loyalty programs for your coffee shop.
 
+<Info>New here? Start with the [Quick Start guide](/loyalty-card/quick-start) to get your first program running in minutes.</Info>
+
 ## Setting up a loyalty program
 
-You can create a loyalty program from the **Manage panel** on the web or from the mobile app.
+You can create a loyalty program from the **[Manage ↗](https://petakopi.my/manage/)** on the web or from the mobile app.
 
 <Steps>
   <Step title="Go to your Manage panel">
-    Visit your shop's page and tap **"Manage"**, then navigate to the Loyalty Card section.
+    Visit your shop's page, open the menu, and tap **"Manage"**, then navigate to the **Loyalty Programs** section.
   </Step>
   <Step title="Create a new program">
-    Tap **"New Loyalty Program"** and fill in the details:
-    - **Program name** — e.g. "Coffee Card", "Pastry Card"
+    Tap **"New Program"** and fill in the details:
+    - **Program name** — e.g. "Buy 10 Get 1 Free"
     - **Stamps required** — How many stamps to complete the card (1–10)
+    - **Expiration days** — How long cards stay valid (default: 365 days)
     - **Terms & conditions** — What the reward is and any rules
-    - **Expiration** — Expiration period for cards in days (default: 365 days)
-
-    <Note>Screenshot will be added later</Note>
+    - **Active** — Toggle on to allow customers to enroll
   </Step>
-  <Step title="Activate the program">
-    Once created, the program is active and customers can start adding loyalty cards from your shop's page.
+  <Step title="Skip or customize card appearance">
+    The form includes a **Card Appearance** section where you can customize wallet card colors. The defaults work well — you can always come back to customize later. See [Customizing card appearance](#customizing-card-appearance) below.
+  </Step>
+  <Step title="Create the program">
+    Scroll down and tap **"Create Program"**. Your program is now live and customers can start adding loyalty cards from your shop's page.
   </Step>
 </Steps>
 
@@ -47,45 +51,53 @@ To change **stamps required**, you'll need to wait until all active cards have b
 
 ## Customizing card appearance
 
-You can customize how your loyalty card looks in Apple Wallet and Google Wallet.
+You can customize how your loyalty card looks in Apple Wallet and Google Wallet. This is available when creating a new program or editing an existing one.
 
-<Steps>
-  <Step title="Open card appearance">
-    From your loyalty program detail page, tap **"Card Appearance"**.
-  </Step>
-  <Step title="Choose your colors">
-    Customize the following colors with a live wallet preview:
-    - **Background** — Main card background color
-    - **Text** (Apple only) — Text color on the card
-    - **Stamp area** (Apple only) — Color behind the stamp grid
+Customize the following colors with a live wallet preview:
+- **Background color** — Main card background color
+- **Text color** (Apple only) — Text color on the card
+- **Stamp area color** (Apple only) — Color behind the stamp grid
 
-    Google Wallet text color is automatically calculated for contrast.
-  </Step>
-  <Step title="Save changes">
-    Tap **Save** to apply. Apple Wallet cards update immediately. Google Wallet cards update on the next stamp or new card.
-  </Step>
-</Steps>
+Google Wallet text color is automatically calculated for contrast.
+
+<Frame caption="Card appearance with live Apple and Google Wallet previews">
+  <img src="/images/loyalty-card/for-owners-card-appearance.png" alt="Card appearance customization with color pickers and wallet previews" />
+</Frame>
+
+<Note>Apple Wallet cards update immediately after saving. Google Wallet cards reflect changes on the next stamp or when a new card is created.</Note>
 
 ## Scanning stamps
 
-Use the **petakopi.my mobile app** to scan customer loyalty cards.
+You can scan customer loyalty cards from the **website** or the **mobile app**.
 
 <Steps>
   <Step title="Open the scanner">
-    Open the app and tap the **Scan** card on the Home tab.
+    **On the web:** Open the menu on your shop's page and tap **"Scan QR"**, then tap **"Start Scanning"**.
+
+    **On the app:** Open the petakopi.my app and tap the **Scan** card on the Home tab.
   </Step>
   <Step title="Scan the customer's QR code">
     Point your camera at the customer's loyalty card QR code. This can be shown from:
     - The petakopi.my website or app
     - Apple Wallet or Google Wallet
+
+    On the web, you can also tap **"Upload QR Image"** if you have a screenshot of the QR code.
   </Step>
   <Step title="Award stamps">
-    Select the number of stamps to award and confirm.
+    Select the number of stamps to award and tap **"Add Stamps"**. You'll see a confirmation once the stamps have been added.
 
-    <Note>Screenshot will be added later</Note>
+    <Frame caption="Select stamps to award and confirm">
+      <img src="/images/loyalty-card/quick-start-add-stamps.png" alt="Loyalty card details with stamp selector and Stamps Added confirmation" />
+    </Frame>
   </Step>
   <Step title="Redeem completed cards">
-    When a customer's card is full, the app will prompt you to redeem the reward. After redeeming, a new card is automatically issued to the customer.
+    When all stamps are collected, the card will show a **"Redeem Reward"** button. Tap it to redeem the customer's reward.
+
+    <Frame caption="Redeem the reward when the card is full">
+      <img src="/images/loyalty-card/quick-start-redeem.png" alt="Card ready to redeem and reward redeemed confirmation" />
+    </Frame>
+
+    After redeeming, the customer needs to visit your shop's page on petakopi.my and tap **"Get Loyalty Card"** again to get a new card and start collecting stamps.
   </Step>
 </Steps>
 
@@ -97,7 +109,9 @@ From the Manage panel, you can:
 - **Activity log** — Track all stamp and redemption activity
 - **View individual cards** — See the stamp count for each customer
 
-<Note>Screenshot will be added later</Note>
+<Frame caption="Loyalty program dashboard">
+  <img src="/images/loyalty-card/for-owners-manage-cards.png" alt="Loyalty program dashboard showing enrolled customers and activity" />
+</Frame>
 
 ## Messaging loyalty card holders
 
@@ -105,4 +119,19 @@ You can send messages to customers who hold your loyalty cards. This is useful f
 
 Messages are sent as notifications to your loyalty card holders through the petakopi.my app and website.
 
-<Note>Screenshot will be added later</Note>
+<Frame caption="Send a message to loyalty card holders">
+  <img src="/images/loyalty-card/for-owners-messaging.png" alt="Messaging interface for loyalty card holders" />
+</Frame>
+
+## Printable QR templates
+
+Help customers find your shop faster by displaying a QR code at your counter. Download a template, generate a QR code linking to your shop's petakopi.my page using [QRCode Monkey ↗](https://www.qrcode-monkey.com/), and place it on the template.
+
+<CardGroup cols={2}>
+  <Card title="Design 1" href="https://assets.petakopi.my/media/QR_-_Design_1.png">
+    <img src="/images/loyalty-card/qr-template-design-1.png" alt="QR template design 1" />
+  </Card>
+  <Card title="Design 2" href="https://assets.petakopi.my/media/QR_-_Design_2.png">
+    <img src="/images/loyalty-card/qr-template-design-2.png" alt="QR template design 2" />
+  </Card>
+</CardGroup>
