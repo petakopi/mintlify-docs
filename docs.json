@@ -57,7 +57,8 @@
           {
             "group": "Features",
             "pages": [
-              "trip-planner"
+              "trip-planner",
+              "loyalty-card/for-customers"
             ]
           }
         ]
