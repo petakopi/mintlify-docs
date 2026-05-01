@@ -35,6 +35,8 @@
               "manage-shop/location",
               "manage-shop/sync-from-google",
               "manage-shop/online-store",
+              "manage-shop/costs-and-pricing",
+              "manage-shop/performance",
               "manage-shop/customer-feedback",
               "manage-shop/app-vs-web"
             ]

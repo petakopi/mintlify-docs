@@ -1,0 +1,97 @@
+---
+title: "Performance"
+description: "Track sales, manage expenses, and review how your shop is doing month by month"
+---
+
+# Performance
+
+The **Performance** page is the "how am I doing?" half of the manage panel. It pulls receipts from your Loyverse POS, lets you log cash expenses, and shows the bottom line.
+
+<Info>This is the backward-looking half. The forward-looking half — setting prices and targets — lives in [Costs & Pricing](/manage-shop/costs-and-pricing).</Info>
+
+## A single page, three tabs
+
+<Tabs>
+  <Tab title="All (default)">
+    Period KPIs (gross sales, refunds, net revenue, expenses, true net, margin %) plus a chronological day-by-day breakdown showing receipts and expenses interleaved.
+
+    **Use when:** doing a daily check — "what happened today / this week?"
+  </Tab>
+  <Tab title="Sales">
+    Filtered to receipts only: gross sales, refunds, net revenue, sale count. Day rows show receipt totals only.
+
+    **Use when:** drilling into revenue patterns.
+  </Tab>
+  <Tab title="Expenses">
+    Filtered to expenses: total, count, category breakdown bars. Flat list of expense entries with inline edit / delete and a one-tap **Add expense** button.
+
+    **Use when:** logging cash expenses or reviewing where money went.
+  </Tab>
+</Tabs>
+
+## Period navigation
+
+A month picker at the top of the page with presets:
+
+- This week
+- Last week
+- This month
+- Last month
+- Custom range
+
+The URL stays bookmarkable: `?tab=sales&month=2026-04`. Bookmark a specific month if you want to come back to it.
+
+## Day drill-down
+
+Click any date row to drill into a single day at `/performance/days/2026-04-15`. The day page has two tabs:
+
+<CardGroup cols={2}>
+  <Card title="Receipts" icon="receipt">
+    Read-only, sourced from your connected Loyverse POS. Shows line items and payment methods per receipt.
+  </Card>
+  <Card title="Expenses" icon="money-bill">
+    Add, edit, or delete cash expenses. Photo upload supported (camera capture on mobile).
+  </Card>
+</CardGroup>
+
+For **past days** you also see a **"Pricing assumptions for this month"** collapsible at the top — it shows the Calculator inputs that were live for that month. Useful when you want to know "wait, why did the burn chart look that way back then?"
+
+## What still gets emailed
+
+The verdict mailers haven't changed. Cadence:
+
+| When | Email | What's in it |
+|---|---|---|
+| Tue–Sun 8am MYT | Daily recap | Yesterday's facts only — no judgment |
+| Mon 8am MYT | Weekly verdict | Last week's net, comparison to your trailing 4-week average, biggest expense mover |
+| 1st of month 8am MYT | Monthly verdict | The prior month's net + margin (after ≥ 60 days of history) |
+
+All email CTAs link to **Performance**.
+
+## Adding a cash expense
+
+<Steps>
+  <Step title="Open the Expenses tab">
+    Either from the Performance period view or from a specific day's drill-down.
+  </Step>
+  <Step title="Tap Add expense">
+    Fill in: date, category, amount in MYR, vendor name, optional notes.
+  </Step>
+  <Step title="Attach a receipt photo (optional)">
+    Tap the photo button. On mobile, opens the camera directly.
+  </Step>
+  <Step title="Save">
+    Appears immediately in the day's totals and in the period KPIs.
+  </Step>
+</Steps>
+
+## Quick reference
+
+| I want to... | Go to |
+|---|---|
+| Check today's takings | Performance → All tab |
+| See last week's net | Performance → Last week preset |
+| Add a cash expense (with photo) | Performance → Expenses tab → Add expense |
+| Drill into one day | Performance → click the date |
+| Check what assumptions were live last month | Performance day-detail → "Pricing assumptions" panel |
+| See per-recipe profit this month | [Recipes](/manage-shop/costs-and-pricing#loyverse-items) (after mapping Loyverse items) |
