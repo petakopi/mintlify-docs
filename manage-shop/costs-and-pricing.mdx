@@ -60,6 +60,13 @@ The Calculator page has a **month picker at the top**. Each month is its own sna
   <Step title="Target margin %">
     What you want left after all costs.
   </Step>
+  <Step title="Monthly revenue target (optional)">
+    Type the revenue (RM) you want to hit this month. **Skip this** if you've added recipes — the Calculator derives a target from your suggested price × volume.
+
+    Use the override when your recipes don't yet cover your full menu, or when you don't have recipes at all. The burn chart needs *a* target to plot; the override gives it one without making you set up the full P&L first.
+
+    <Info>The override only feeds the **burn chart's target line**. Recipes still unlock per-recipe sales (with [Loyverse Items](#loyverse-items--link-variants-to-recipes) linking), per-cup suggested pricing, and breakeven analysis.</Info>
+  </Step>
 </Steps>
 
 ### What you get back
@@ -68,7 +75,7 @@ Per recipe: COGS, fixed cost per unit, suggested price.
 
 Plus on the same page:
 - **Actual this month** panel — your real numbers from Loyverse + manual expenses.
-- **Burn chart** — actual revenue vs target, day by day.
+- **Burn chart** — actual revenue vs target, day by day. The target line is sourced from (in order): your manual override, the Calculator's recipe-derived target, or your trailing 3-month average — whichever is available first.
 
 ### Per-month workflow
 
