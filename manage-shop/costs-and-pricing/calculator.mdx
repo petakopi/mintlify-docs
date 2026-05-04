@@ -1,0 +1,46 @@
+---
+title: "Calculator"
+description: "Full P&L per month — volume, costs, target margin, and an optional revenue target override"
+---
+
+The Calculator is the "what should I be charging this month?" page. It has a **month picker at the top** — each month is its own snapshot — and synthesises four inputs into per-recipe suggested prices and a monthly revenue target.
+
+## What you fill in per month
+
+<Steps>
+  <Step title="Volume">
+    Either **Manual** (enter cups directly) or **Capacity-based** (estimated from seats × dwell time × occupancy × operating days × items per visit).
+  </Step>
+  <Step title="Monthly costs">
+    One row per line item: name, category (Labour / Overhead / Other), amount.
+  </Step>
+  <Step title="Target margin %">
+    What you want left after all costs.
+  </Step>
+  <Step title="Monthly revenue target (optional)">
+    Type the revenue (RM) you want to hit this month. **Skip this** if you've added recipes — the Calculator derives a target from your suggested price × volume.
+
+    Use the override when your recipes don't yet cover your full menu, or when you don't have recipes at all. The [burn chart](/manage-shop/pulse/summary#revenue-burn-chart) needs *a* target to plot; the override gives it one without making you set up the full P&L first.
+
+    <Info>The override only feeds the **burn chart's target line**. Recipes still unlock per-recipe sales (with [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items) linking), per-cup suggested pricing, and breakeven analysis.</Info>
+  </Step>
+</Steps>
+
+## What you get back
+
+Per recipe: COGS, fixed cost per unit, suggested price.
+
+Plus on the same page, a Live Summary panel showing your monthly revenue target and breakeven revenue (when recipes have COGS).
+
+The same monthly target feeds [Pulse Summary's burn chart](/manage-shop/pulse/summary#revenue-burn-chart) — that's where you watch your actual revenue accumulate against the target you set here.
+
+## Per-month workflow
+
+| Action | What happens |
+|---|---|
+| Visit a new month for the first time | Form pre-fills from your most recent prior month. Cue at top: "Cloned from April 2026 — adjust as needed." |
+| Edit and save | Updates only that month. |
+| Visit an old month | Shows what you had set then (or blank if you never set it up). |
+| Edit a past month | One-time confirmation: "You're editing a past month. Saved changes will affect historical reports." |
+| Plan ahead (future month) | Soft-warning banner shown. |
+| **Apply forward to next N months** | Power-user shortcut to copy current month's settings forward. Max 11 months. |

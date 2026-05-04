@@ -1,0 +1,36 @@
+---
+title: "Loyverse Items"
+description: "One-time mapping of Loyverse variants to local recipes — unlocks per-recipe sales analytics"
+---
+
+<Info>Visible only when your shop is connected to **Loyverse POS**.</Info>
+
+Without linking: [Pulse](/manage-shop/pulse/overview) shows total revenue. With linking: the [Recipes index](/manage-shop/costs-and-pricing/recipes) shows per-recipe sales count, revenue, and gross margin.
+
+## How to map (one-time per variant)
+
+<Steps>
+  <Step title="Open Loyverse Items">
+    Sidebar → **Loyverse Items**. Each row is a Loyverse variant (e.g. "Latte (Hot)", "Latte (Iced)") grouped by parent item.
+  </Step>
+  <Step title="Pick a Recipe">
+    From the dropdown next to each variant. **Multiple variants can map to the same Recipe** — Hot + Iced Latte → one "Latte" recipe.
+  </Step>
+  <Step title="Sync now (if needed)">
+    The **Sync now** button at the top pulls the latest catalog from Loyverse. 5-minute cooldown between syncs to stay polite to the API.
+  </Step>
+</Steps>
+
+## What you get after mapping
+
+- [Recipes index](/manage-shop/costs-and-pricing/recipes) gains three columns: **Sold this month**, **Revenue**, **Gross margin**.
+- Backfill runs automatically — historical receipts that match the variant get attributed to the recipe within seconds.
+- The Recipes form shows a read-only **"Linked Loyverse items"** block listing what's currently pointing at each recipe.
+
+## Variants without a recipe
+
+- Still count toward your total [Pulse](/manage-shop/pulse/overview) revenue.
+- You just don't get the per-recipe breakdown for them.
+- Sidebar shows an **"(N unmapped)"** badge so you don't forget.
+
+Mapping is incremental: cover your top sellers first, come back to rare items later. The sidebar badge is your nudge — it ticks down as you map, but having unmapped variants doesn't break anything.

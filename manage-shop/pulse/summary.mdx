@@ -1,0 +1,80 @@
+---
+title: "Summary"
+description: "Verdict cards, actual-this-month KPIs, and the revenue burn chart"
+---
+
+The Summary surface is Pulse's answer page. Open it from the **Pulse** entry in the sidebar — it lands you on `/pulse/summary`. Four cards stack in a 2×2 grid: weekly verdict, monthly verdict, actual-this-month, and the revenue burn chart.
+
+## Verdict cards
+
+Two cards mirror the verdict mailers exactly: **Last week** (Mon–Sun) and **Last month**. Each card shows:
+
+- The headline number (last week's net revenue, last month's true net).
+- A comparison line ("up RM 320 from your trailing 4-week average").
+- The biggest expense mover paired with one suggested handle.
+
+Cards only appear once your Loyverse connection is old enough to support a verdict — 6 days for weekly, 30 days for monthly. Until then you see a quieter first-run stub that states the totals without a comparison.
+
+Each card has a **data health icon** in its header. Click it to open a checklist of what needs to be true for the card to render fully (see [Data-health dialogs](#data-health-dialogs) below).
+
+## Actual this month
+
+Live KPIs for the calendar month: gross sales, refunds, net revenue, expenses, true net, margin %. The **chevron** at the top of the panel walks back through prior months — useful when you want to inspect April from May.
+
+## Revenue burn chart
+
+A cumulative line chart that runs from the 1st of the month to month-end. Three lines, each with a different data source:
+
+| Line | What it is | Where the number comes from |
+|---|---|---|
+| **Actual** (solid) | Running total of net revenue, day by day. | Loyverse receipts (gross minus refunds), summed by MYT calendar day from month-start through today. Future days are blank — we don't fabricate them. |
+| **Target** (dashed) | Linearly smoothed cumulative target from 0 on day 1 to your monthly target on the last day. | First available source, in priority: (1) **manual override** typed into the Calculator, (2) **recipe-derived** (`suggested_price × volume`), (3) **trailing 3-month average** net revenue. |
+| **Breakeven** (flat) | Horizontal line at the revenue point where profit = 0. | Calculator math: `fixed_cost × suggested_price / contribution_margin`. Only renders when at least one recipe has COGS — contribution margin needs a per-cup cost. |
+
+The footer copy under the chart translates the gap into plain English: "RM 1,200 behind pace — RM 60 / day for 20 remaining days to catch up." Or, on a past month: "Closed RM 800 above your monthly target."
+
+### Where the actual line comes from
+
+Every Loyverse receipt projects into a single `Sale` row when it lands (via webhook in ~6 seconds). Refunds project as separate rows that subtract from the cumulative total. The chart sums **net revenue** (gross minus refunds) by MYT calendar day — so a receipt rung at 11pm MYT counts toward that day, not the UTC day.
+
+Mapping Loyverse items to local recipes does **not** change this number. Mapping only powers the per-recipe analytics on the [Recipes index](/manage-shop/costs-and-pricing/loyverse-items); the burn chart's actual line counts every ringgit through the till regardless of mapping.
+
+### How the target line is chosen
+
+Pulse picks the first available source from this list:
+
+<Steps>
+  <Step title="Manual override (preferred)">
+    A monthly revenue target you typed into the [Calculator's optional Step 4](/manage-shop/costs-and-pricing/calculator). Owners with partial recipes — or no recipes — use this to give the chart a target to plot. Stored on `PricingMonth.monthly_revenue_target_cents`.
+  </Step>
+  <Step title="Recipe-derived (formula)">
+    `(avg_cogs + fixed_cost_per_unit) ÷ (1 − margin) × volume`. Computed from your Calculator inputs (volume, target margin, fixed costs) plus your recipes' average COGS. Requires at least one recipe with COGS.
+  </Step>
+  <Step title="Trailing 3-month average (fallback)">
+    Net revenue averaged across the prior 3 calendar months. Only used when the Calculator has neither an override nor enough inputs to derive a target — and only when at least 2 of those 3 months had activity.
+  </Step>
+</Steps>
+
+If none of the three is available, the target line hides and the data-health dialog explains what to fill in.
+
+### Why breakeven needs recipes
+
+Breakeven revenue is the point where total profit equals zero. Algebraically: `fixed_cost ÷ (contribution_margin_ratio)`. Contribution margin is `(price − variable_cost) ÷ price` — and **variable_cost** is what your recipes give us. Without recipes, contribution margin is undefined, so the line cannot be drawn.
+
+The override field on the Calculator only feeds the **target** line; there is no breakeven override.
+
+### What "today" means on the chart
+
+For the **current month**, the actual line stops at today (with a vertical "today" marker) and the target line plots through today's smoothed cumulative. For **past months**, both lines run to the end of the month — no marker. Future months show only the target ramp; actual is blank.
+
+## Data-health dialogs
+
+Every Summary card carries a per-card data-health checklist. Open it from the icon in the card header. The dialog lists each prerequisite, marks it ready or needs-attention, and gives you a CTA when something needs filling in.
+
+For the **Revenue burn chart** specifically, the three checks are:
+
+- **Target line** — needs a monthly revenue target set in the Calculator (override or recipe-derived), or ≥2 prior months of sales for the trailing-average fallback.
+- **Actual line** — needs Loyverse connected and ≥1 receipt logged this month.
+- **Breakeven line** — needs monthly costs + target margin filled in, plus at least one recipe with COGS.
+
+Each unmet check links you straight to the right surface to fix it (Calculator, Recipes, or the Manage Dashboard for the Loyverse connection).

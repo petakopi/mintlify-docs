@@ -34,11 +34,32 @@
               "manage-shop/shop-information",
               "manage-shop/location",
               "manage-shop/sync-from-google",
-              "manage-shop/online-store",
-              "manage-shop/costs-and-pricing",
-              "manage-shop/pulse",
               "manage-shop/customer-feedback",
               "manage-shop/app-vs-web"
+            ]
+          },
+          {
+            "group": "Online Store",
+            "pages": [
+              "manage-shop/online-store"
+            ]
+          },
+          {
+            "group": "Costs & Pricing",
+            "pages": [
+              "manage-shop/costs-and-pricing/overview",
+              "manage-shop/costs-and-pricing/items",
+              "manage-shop/costs-and-pricing/recipes",
+              "manage-shop/costs-and-pricing/loyverse-items",
+              "manage-shop/costs-and-pricing/calculator"
+            ]
+          },
+          {
+            "group": "Pulse",
+            "pages": [
+              "manage-shop/pulse/overview",
+              "manage-shop/pulse/summary",
+              "manage-shop/pulse/activity"
             ]
           },
           {
@@ -88,7 +109,7 @@
   "redirects": [
     {
       "source": "/manage-shop/performance",
-      "destination": "/manage-shop/pulse"
+      "destination": "/manage-shop/pulse/overview"
     }
   ]
 }

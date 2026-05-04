@@ -1,0 +1,64 @@
+---
+title: "Activity"
+description: "Period view, day drill-down, and the place you log cash expenses"
+---
+
+The Activity surface is Pulse's data page. Period picker, three filtered tabs, day-by-day breakdown, and a per-day drill-down. It's also where you log cash expenses. Reachable from the **Activity** sub-tab in the Pulse sidebar.
+
+## Three tabs
+
+URL-synced (`?tab=all|sales|expenses`) so you can bookmark the view you actually use.
+
+<Tabs>
+  <Tab title="All (default)">
+    Period KPIs (gross sales, refunds, net revenue, expenses, true net, margin %) plus a chronological day-by-day breakdown showing receipts and expenses interleaved.
+
+    **Use when:** doing a daily check — "what happened today / this week?"
+  </Tab>
+  <Tab title="Sales">
+    Filtered to receipts only: gross sales, refunds, net revenue, sale count. Day rows show receipt totals only.
+
+    **Use when:** drilling into revenue patterns.
+  </Tab>
+  <Tab title="Expenses">
+    Filtered to expenses: total, count, category breakdown bars. Flat list of expense entries with inline edit / delete and a one-tap **Add expense** button.
+
+    **Use when:** logging cash expenses or reviewing where money went.
+  </Tab>
+</Tabs>
+
+## Period picker
+
+Presets at the top: This week, Last week, This month, Last month, Custom range. Custom ranges are capped at 365 days. The URL stays bookmarkable: `?preset=this_month&tab=expenses`.
+
+## Day drill-down
+
+Click any date row to drill into a single day at `/pulse/activity/days/2026-04-15`. The day page has two tabs:
+
+<CardGroup cols={2}>
+  <Card title="Receipts" icon="receipt">
+    Read-only, sourced from your connected Loyverse POS. Shows line items, modifiers, and payment methods per receipt.
+  </Card>
+  <Card title="Expenses" icon="money-bill">
+    Add, edit, or delete cash expenses. Photo upload supported (camera capture on mobile).
+  </Card>
+</CardGroup>
+
+For **past days** you also see a **"Pricing assumptions for this month"** collapsible at the top — it shows the Calculator inputs that were live for that month. Useful when you want to know "wait, why did the burn chart look that way back then?"
+
+## Adding a cash expense
+
+<Steps>
+  <Step title="Open the Expenses tab">
+    Either from the Activity period view (`?tab=expenses`) or from a specific day's drill-down.
+  </Step>
+  <Step title="Tap Add expense">
+    Fill in: date, category, amount in MYR, vendor name, optional notes.
+  </Step>
+  <Step title="Attach a receipt photo (optional)">
+    Tap the photo button. On mobile, opens the camera directly.
+  </Step>
+  <Step title="Save">
+    Appears immediately in the day's totals and in the period KPIs.
+  </Step>
+</Steps>

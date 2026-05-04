@@ -1,0 +1,44 @@
+---
+title: "Pulse"
+description: "See whether last week made money, plot revenue against your monthly target, and log cash expenses"
+---
+
+Pulse is the "did I make money?" half of the manage panel. It pulls receipts from your Loyverse POS, lets you log cash expenses, and synthesises both into a single answer: are you on pace this month, was last week up or down, did last month make money.
+
+The page splits into two surfaces — pick whichever matches what you came to do.
+
+<CardGroup cols={2}>
+  <Card title="Summary" icon="compass" href="/manage-shop/pulse/summary">
+    The answer page. Verdict cards (last week, last month), live actual-this-month KPIs, and the revenue burn chart against your monthly target.
+  </Card>
+  <Card title="Activity" icon="list" href="/manage-shop/pulse/activity">
+    The data page. Period picker with All / Sales / Expenses tabs, day-by-day breakdown, and per-day drill-down. Where you log cash expenses.
+  </Card>
+</CardGroup>
+
+<Info>The forward-looking half — recipes, pricing math, monthly revenue targets — lives in [Costs & Pricing](/manage-shop/costs-and-pricing/overview).</Info>
+
+## Email cadences
+
+The email is the product; the website is the drill-down for email CTAs. Three cadences at fixed times in `Asia/Kuala_Lumpur`:
+
+| When | Email | What's in it |
+|---|---|---|
+| Tue–Sun 8am MYT | Daily recap | Yesterday's facts only — no judgment. Empty days swap in a "nothing rang up yesterday" recovery prompt. |
+| Mon 8am MYT | Weekly verdict | Last week's net, comparison to your trailing 4-week average, biggest expense mover. Falls back to a first-run template until ≥2 of the prior 4 weeks logged activity. |
+| 1st of month 8am MYT | Monthly verdict | Last month's net + margin against the trailing 3-month average. Falls back to a first-run template until ≥2 of the prior 3 months logged activity. |
+
+All email CTAs deep-link into [Pulse Activity](/manage-shop/pulse/activity) with a preset that matches the email's window.
+
+## Quick reference
+
+| I want to... | Go to |
+|---|---|
+| Read last week's verdict | [Summary](/manage-shop/pulse/summary) → Last week card |
+| See if I'm on pace this month | [Summary](/manage-shop/pulse/summary) → Revenue burn chart |
+| Check today's takings | [Activity](/manage-shop/pulse/activity) → All tab |
+| See last week's net | [Activity](/manage-shop/pulse/activity) → Last week preset |
+| Add a cash expense (with photo) | [Activity](/manage-shop/pulse/activity#adding-a-cash-expense) → Expenses tab → Add expense |
+| Drill into one day | [Activity](/manage-shop/pulse/activity) → click the date |
+| Check what assumptions were live last month | [Activity](/manage-shop/pulse/activity#day-drill-down) → day drill-down → "Pricing assumptions" panel |
+| See per-recipe profit this month | [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items) (after mapping) |

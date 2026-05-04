@@ -1,0 +1,48 @@
+---
+title: "Costs & Pricing"
+description: "Set up your menu items, build recipes, calculate per-month prices, and link Loyverse items"
+---
+
+The **Costs & Pricing** sidebar group is where you set up your menu, calculate what each cup costs you, and decide what to charge.
+
+<Info>This is the "what should I sell, and at what price?" half of the manage panel. The other half — checking how you actually did — lives in [Pulse](/manage-shop/pulse/overview).</Info>
+
+## Mental model
+
+```
+Costs & Pricing
+├── Items            ← raw materials (beans, milk, cups)
+├── Recipes          ← sellable drinks built from items
+├── Loyverse Items   ← appears only when Loyverse is connected
+└── Calculator       ← full P&L: volume × margin × costs → suggested prices
+```
+
+You move down the list as you set up: ingredients → recipes → pricing math.
+
+<CardGroup cols={2}>
+  <Card title="Items" icon="flask" href="/manage-shop/costs-and-pricing/items">
+    Raw materials: beans, milk, cups, syrups. Pack price + yield % → app computes per-unit cost.
+  </Card>
+  <Card title="Recipes" icon="mug-hot" href="/manage-shop/costs-and-pricing/recipes">
+    Sellable drinks built from items. Per-cup COGS + a quick price suggestion based on target food-cost %.
+  </Card>
+  <Card title="Loyverse Items" icon="link" href="/manage-shop/costs-and-pricing/loyverse-items">
+    One-time mapping of Loyverse variants to local recipes. Unlocks per-recipe sales analytics.
+  </Card>
+  <Card title="Calculator" icon="calculator" href="/manage-shop/costs-and-pricing/calculator">
+    Full P&L per month. Volume × target margin × monthly costs → suggested prices and a monthly revenue target.
+  </Card>
+</CardGroup>
+
+## Quick reference
+
+| I want to... | Go to |
+|---|---|
+| Add an ingredient | [Items](/manage-shop/costs-and-pricing/items) |
+| Build a new drink | [Recipes](/manage-shop/costs-and-pricing/recipes) |
+| Get a quick "what should I charge?" | [Recipes](/manage-shop/costs-and-pricing/recipes) form → Quick price |
+| Get a "what should I charge to cover everything?" | [Calculator](/manage-shop/costs-and-pricing/calculator) |
+| Set this month's volume / costs / margin | [Calculator](/manage-shop/costs-and-pricing/calculator) |
+| See what next month's targets should be | [Calculator](/manage-shop/costs-and-pricing/calculator) → next-month picker |
+| Map a Loyverse variant to a recipe | [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items) |
+| See per-recipe profit this month | [Recipes](/manage-shop/costs-and-pricing/recipes) (after [mapping](/manage-shop/costs-and-pricing/loyverse-items)) |

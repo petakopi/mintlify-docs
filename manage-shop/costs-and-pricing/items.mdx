@@ -1,0 +1,21 @@
+---
+title: "Items"
+description: "Raw materials with pack price and yield — the building blocks of every recipe"
+---
+
+Items are the raw materials your recipes are built from: beans, milk, cups, lids, syrups, sugar. Each item carries a pack price and a yield %, and the app computes a per-unit cost from those two numbers.
+
+## What you fill in per item
+
+Pack size, pack price, and yield. That's it.
+
+**Example.** Whole milk — pack size 1000 ml, RM 8 per pack, yield 100% → app computes `unit cost = 0.8¢/ml`.
+
+<Info>**Yield matters when waste is real.** Coffee beans usually waste ~10% to grind and spillage. Set yield to 90% and the app applies the waste to your COGS automatically — every recipe that uses those beans pays the inflated unit cost, so a "cheap" bean with 70% yield can quietly cost more than a premium bean at 95%.</Info>
+
+## Where items show up
+
+- In every [Recipe](/manage-shop/costs-and-pricing/recipes) you build — each recipe line is `{Item, quantity}`, and the app sums the line costs to give you per-cup COGS.
+- In the [Calculator](/manage-shop/costs-and-pricing/calculator)'s recipe-derived target line, indirectly: average COGS across recipes is what pushes the suggested price up or down.
+
+If you change an item's price (supplier raised the bean price, packaging got cheaper), every recipe that uses that item recalculates automatically — there's no per-recipe re-save to chase.
