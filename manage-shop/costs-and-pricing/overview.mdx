@@ -7,32 +7,48 @@ The **Costs & Pricing** sidebar group is where you set up your menu, calculate w
 
 <Info>This is the "what should I sell, and at what price?" half of the manage panel. The other half — checking how you actually did — lives in [Pulse](/manage-shop/pulse/overview).</Info>
 
-## Mental model
+## How P&L works (the short version)
+
+Every coffee shop's bottom line is a chain of subtractions:
 
 ```
-Costs & Pricing
-├── Items            ← raw materials (beans, milk, cups)
-├── Recipes          ← sellable drinks built from items
-├── Loyverse Items   ← appears only when Loyverse is connected
-└── Calculator       ← full P&L: volume × margin × costs → suggested prices
+Revenue − COGS         = Gross profit
+Gross profit − Fixed costs = Net profit
+Net profit ÷ Revenue   = Net margin
 ```
 
-You move down the list as you set up: ingredients → recipes → pricing math.
+- **Revenue** is what comes through the till.
+- **COGS** (cost of goods sold) is the variable cost of what you sold — milk, beans, cups. It goes up when you sell more.
+- **Fixed costs** are rent, wages, utilities, internet — they don't move when you sell more cups.
+- **Net margin** is what's left, expressed as a % of revenue. Healthy small coffee shops in Malaysia aim for 10–20% net margin.
 
-<CardGroup cols={2}>
-  <Card title="Items" icon="flask" href="/manage-shop/costs-and-pricing/items">
-    Raw materials: beans, milk, cups, syrups. Pack price + yield % → app computes per-unit cost.
-  </Card>
-  <Card title="Recipes" icon="mug-hot" href="/manage-shop/costs-and-pricing/recipes">
-    Sellable drinks built from items. Per-cup COGS + a quick price suggestion based on target food-cost %.
-  </Card>
-  <Card title="Loyverse Items" icon="link" href="/manage-shop/costs-and-pricing/loyverse-items">
-    One-time mapping of Loyverse variants to local recipes. Unlocks per-recipe sales analytics.
-  </Card>
-  <Card title="Calculator" icon="calculator" href="/manage-shop/costs-and-pricing/calculator">
-    Full P&L per month. Volume × target margin × monthly costs → suggested prices and a monthly revenue target.
-  </Card>
-</CardGroup>
+Costs & Pricing is where you fill in the inputs:
+
+- **Items + Recipes** give you per-cup COGS.
+- **Calculator** combines that COGS with your fixed costs and target margin to suggest per-cup prices and a monthly revenue target.
+
+[Pulse](/manage-shop/pulse/overview) is where actual revenue, expenses, and margin come in through the month — you watch them against the targets you set here.
+
+## Setup walkthrough
+
+If you're starting fresh, do these in order. Each step takes 5–15 minutes.
+
+<Steps>
+  <Step title="Add your raw materials">
+    Open [Items](/manage-shop/costs-and-pricing/items). Add each ingredient you buy — beans, milk, cups, syrups. Pack size, pack price, yield %. Items power per-cup COGS.
+  </Step>
+  <Step title="Build your menu">
+    Open [Recipes](/manage-shop/costs-and-pricing/recipes). One recipe per sellable drink. Each line is `{Item, quantity}`; the app sums to give you per-cup COGS plus a Quick price suggestion. Build your top sellers first — you don't have to map every drink on day one.
+  </Step>
+  <Step title="Run the full P&L for this month">
+    Open [Calculator](/manage-shop/costs-and-pricing/calculator). Fill in monthly volume, monthly costs (rent, wages, utilities), and target margin. The Calculator combines those with your recipes' COGS to give per-cup suggested prices and a monthly revenue target. **This is where P&L actually happens.**
+  </Step>
+  <Step title="(Optional) Map Loyverse variants">
+    If you're connected to Loyverse POS, open [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items) and map your POS variants to recipes. This unlocks per-recipe sales analytics on the Recipes index. Skip if you don't use Loyverse — everything else still works.
+  </Step>
+</Steps>
+
+After this, head to [Pulse](/manage-shop/pulse/overview) — the targets you just set are tracked against actuals through the month.
 
 ## Quick reference
 

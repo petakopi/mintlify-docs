@@ -5,6 +5,17 @@ description: "Verdict cards, actual-this-month KPIs, and the revenue burn chart"
 
 The Summary surface is Pulse's answer page. Open it from the **Pulse** entry in the sidebar — it lands you on `/pulse/summary`. Four cards stack in a 2×2 grid: weekly verdict, monthly verdict, actual-this-month, and the revenue burn chart.
 
+## What this page answers
+
+| Question | Where to look |
+|---|---|
+| Did last week make money? How does it compare to before? | **Last week** card (top-left) |
+| Did last month make money? Is the margin healthy? | **Last month** card (top-right) |
+| What are this month's totals so far? | **Actual this month** panel (bottom-left) |
+| Am I on pace to hit my monthly revenue target? | **Revenue burn chart** (bottom-right) |
+
+If a card looks empty, click the data-health icon in its header — the dialog tells you exactly which prerequisite is missing and links you to the right page to fix it.
+
 ## Verdict cards
 
 Two cards mirror the verdict mailers exactly: **Last week** (Mon–Sun) and **Last month**. Each card shows:
@@ -14,6 +25,10 @@ Two cards mirror the verdict mailers exactly: **Last week** (Mon–Sun) and **La
 - The biggest expense mover paired with one suggested handle.
 
 Cards only appear once your Loyverse connection is old enough to support a verdict — 6 days for weekly, 30 days for monthly. Until then you see a quieter first-run stub that states the totals without a comparison.
+
+### What "first run" means
+
+The comparison line ("up RM 320 from your trailing 4-week average") needs at least 2 of the prior 4 weeks (for weekly) or 2 of the prior 3 months (for monthly) to have activity. Without that baseline, any "up" or "down" call would be misleading — so the card falls back to stating last period's totals plainly and waits for the baseline to fill in. This is most relevant during your first month with Loyverse connected. Don't worry about it; it sorts itself.
 
 Each card has a **data health icon** in its header. Click it to open a checklist of what needs to be true for the card to render fully (see [Data-health dialogs](#data-health-dialogs) below).
 

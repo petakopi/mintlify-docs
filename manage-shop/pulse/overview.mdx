@@ -5,7 +5,48 @@ description: "See whether last week made money, plot revenue against your monthl
 
 Pulse is the "did I make money?" half of the manage panel. It pulls receipts from your Loyverse POS, lets you log cash expenses, and synthesises both into a single answer: are you on pace this month, was last week up or down, did last month make money.
 
-The page splits into two surfaces — pick whichever matches what you came to do.
+<Info>The forward-looking half — recipes, pricing math, monthly revenue targets — lives in [Costs & Pricing](/manage-shop/costs-and-pricing/overview). Most owners set up there first, then watch the numbers come in here.</Info>
+
+## How Pulse fits with Costs & Pricing
+
+The targets you set in the [Calculator](/manage-shop/costs-and-pricing/calculator) — monthly revenue target, breakeven, target margin — are what Pulse plots actuals against. Concretely:
+
+- **Calculator's monthly revenue target** → the dashed target line on Pulse Summary's revenue burn chart.
+- **Calculator's breakeven revenue** → the flat amber line on the same chart.
+- **Recipes' COGS + Calculator's fixed costs** → how Pulse's True net and margin numbers are computed (gross sales − refunds − expenses).
+
+If you haven't set any of that up yet, Pulse still works for the basics (gross sales, refunds, expenses, true net) — but the burn chart's target/breakeven lines won't have anything to plot against.
+
+## Email-first
+
+The verdict emails are designed to be the *primary* way you read Pulse. Owners who try to "check Pulse daily on the website" usually drift away. Owners who let the emails arrive and only open the website when an email links there usually stick. Make it easy on yourself: read the daily recap with morning coffee, click through only when you want a deeper look.
+
+## Email cadences
+
+Three cadences at fixed times in `Asia/Kuala_Lumpur`:
+
+| When | Email | What's in it |
+|---|---|---|
+| Tue–Sun 8am MYT | Daily recap | Yesterday's facts only — no judgment. Empty days swap in a "nothing rang up yesterday" recovery prompt. |
+| Mon 8am MYT | Weekly verdict | Last week's net, comparison to your trailing 4-week average, biggest expense mover. Falls back to a first-run template until ≥2 of the prior 4 weeks logged activity. |
+| 1st of month 8am MYT | Monthly verdict | Last month's net + margin against the trailing 3-month average. Falls back to a first-run template until ≥2 of the prior 3 months logged activity. |
+
+All email CTAs deep-link into [Pulse Activity](/manage-shop/pulse/activity) with a preset that matches the email's window.
+
+## What to expect when you connect
+
+Pulse needs some history before its full feature set lights up. Here's the timeline for a freshly-connected shop:
+
+| Connection age | What you see |
+|---|---|
+| Day 1 | Daily recap email arrives the next morning. Pulse Summary's actual-this-month and burn chart actual line populate within minutes of the first receipt. |
+| Day 6+ | Weekly verdict starts emailing on Mondays. Verdict cards on Summary show full prose (comparison, biggest mover). |
+| Day 30+ | Monthly verdict starts emailing on the 1st. Trailing 3-month average becomes available as a target line fallback for the burn chart. |
+| Always | [Activity](/manage-shop/pulse/activity) period view, day drill-down, and cash expense logging work from day one. |
+
+Until the connection is old enough, the verdict cards show a quiet stub ("Last week's verdict will appear here once you have a few days of data") — that's expected, not a bug.
+
+## Two ways to see the same data
 
 <CardGroup cols={2}>
   <Card title="Summary" icon="compass" href="/manage-shop/pulse/summary">
@@ -15,20 +56,6 @@ The page splits into two surfaces — pick whichever matches what you came to do
     The data page. Period picker with All / Sales / Expenses tabs, day-by-day breakdown, and per-day drill-down. Where you log cash expenses.
   </Card>
 </CardGroup>
-
-<Info>The forward-looking half — recipes, pricing math, monthly revenue targets — lives in [Costs & Pricing](/manage-shop/costs-and-pricing/overview).</Info>
-
-## Email cadences
-
-The email is the product; the website is the drill-down for email CTAs. Three cadences at fixed times in `Asia/Kuala_Lumpur`:
-
-| When | Email | What's in it |
-|---|---|---|
-| Tue–Sun 8am MYT | Daily recap | Yesterday's facts only — no judgment. Empty days swap in a "nothing rang up yesterday" recovery prompt. |
-| Mon 8am MYT | Weekly verdict | Last week's net, comparison to your trailing 4-week average, biggest expense mover. Falls back to a first-run template until ≥2 of the prior 4 weeks logged activity. |
-| 1st of month 8am MYT | Monthly verdict | Last month's net + margin against the trailing 3-month average. Falls back to a first-run template until ≥2 of the prior 3 months logged activity. |
-
-All email CTAs deep-link into [Pulse Activity](/manage-shop/pulse/activity) with a preset that matches the email's window.
 
 ## Quick reference
 

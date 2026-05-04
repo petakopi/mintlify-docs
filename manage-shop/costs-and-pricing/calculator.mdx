@@ -67,6 +67,47 @@ Plus on the same page, a Live Summary panel showing your monthly revenue target 
 
 The same monthly target feeds [Pulse Summary's burn chart](/manage-shop/pulse/summary#revenue-burn-chart) — that's where you watch your actual revenue accumulate against the target you set here.
 
+### Why divide by (1 − margin)?
+
+If you want net margin to be 30% of revenue, then by definition the cost side of the price has to be the other 70%:
+
+`price × 0.70 = COGS + fixed_cost_per_unit`
+
+Rearranging:
+
+`price = (COGS + fixed_cost_per_unit) ÷ 0.70 = (COGS + fixed_cost_per_unit) ÷ (1 − margin)`
+
+There's no magic in the formula — it's the basic margin equation solved for `price`. If you change target margin from 30% to 20%, the divisor goes from 0.70 to 0.80 and the suggested price drops accordingly.
+
+## Reading the result
+
+The Calculator gives you a number, but the *interpretation* matters more than the digit:
+
+- **Suggested price feels too high vs market.** Your fixed cost per unit is the lever — rent or wages too high for this volume. Either drive volume up (capacity-based mode in Step 1 helps) or cut fixed costs.
+- **Suggested price feels reasonable but breakeven exceeds realistic volume × price.** The math says the current setup can't sustain itself. Time to revisit volume assumptions or fixed costs before you ship the menu.
+- **Suggested price is well below market.** Healthy margin headroom. Either keep prices low as a volume play, or hold near market and bank the extra margin.
+
+### Benchmarks for a Malaysian coffee shop
+
+Rough numbers, gathered from talking to owners — your context will vary:
+
+| Metric | Healthy range |
+|---|---|
+| Food cost (% of revenue) | 25–35% |
+| Gross margin | 65–75% |
+| Net margin (after rent + wages) | 10–20% |
+| Fixed cost per unit | RM 1.50 – RM 3.00 |
+
+If your numbers are way outside these, dig in — there's usually a story (premium beans pushing food cost up, low volume making fixed cost per unit balloon, etc.).
+
+## Breakeven
+
+Breakeven is the revenue point where net profit = 0 — every ringgit below it is losing money, every ringgit above it is profit. The Live Summary panel surfaces it so you can sanity-check your monthly revenue target.
+
+If your monthly revenue target is **comfortably above** breakeven, you have margin headroom. If it's **at or below** breakeven, the inputs aren't internally consistent — the math is telling you the shop can't sustain itself at the current volume + costs + margin combination, and it's worth flagging that before you ship the menu.
+
+The breakeven calculation uses contribution margin (`(price − variable_cost) ÷ price`), which is why it requires recipes to be filled in. Without per-cup variable cost, contribution margin is undefined and breakeven can't be drawn.
+
 ## Per-month workflow
 
 | Action | What happens |
@@ -77,3 +118,7 @@ The same monthly target feeds [Pulse Summary's burn chart](/manage-shop/pulse/su
 | Edit a past month | One-time confirmation: "You're editing a past month. Saved changes will affect historical reports." |
 | Plan ahead (future month) | Soft-warning banner shown. |
 | **Apply forward to next N months** | Power-user shortcut to copy current month's settings forward. Max 11 months. |
+
+## What's next
+
+You've set the inputs and the Calculator has answered "what should I be charging this month?" Now head to [Pulse](/manage-shop/pulse/overview) — that's where actual revenue, refunds, expenses, and margin come in through the month, plotted against the targets you just set.
