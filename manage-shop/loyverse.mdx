@@ -1,0 +1,77 @@
+---
+title: "Loyverse Integration"
+description: "Connect Loyverse POS to feed receipts into Pulse, map variants to recipes, and manage your data"
+---
+
+Connecting Loyverse turns petakopi into the analytical layer on top of your point-of-sale: receipts flow into [Pulse](/manage-shop/pulse/overview), variants you map become per-recipe sales on the [Recipes index](/manage-shop/costs-and-pricing/recipes), and the [revenue burn chart](/manage-shop/pulse/summary#revenue-burn-chart) gets a real "actual" line to plot.
+
+This page covers what connecting does, what data we copy, how to disconnect, and how to wipe everything if you change your mind.
+
+## What you get from connecting
+
+- **Receipts in Pulse** — every Loyverse receipt projects into Pulse Summary's actual-this-month panel and the burn chart's actual line within ~6 seconds via webhook.
+- **Verdict emails** — daily recap, weekly verdict, monthly verdict cadences only fire once Loyverse is connected (otherwise there's no revenue to summarise).
+- **Per-recipe analytics** — map Loyverse variants to local recipes via [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items) and the Recipes index gains "Sold this month / Revenue / Gross margin" columns.
+
+## The consent page
+
+Before OAuth runs, petakopi shows you a dedicated consent page at `/manage/<slug>/loyverse/connect`. The page spells out:
+
+- **What we copy.** Encrypted access and refresh tokens, every receipt as a full JSONB payload (line items, modifiers, payments) plus extracted columns for fast queries, your item catalog, and derived `RecipeSale` rows for any variant you've mapped.
+- **What we don't copy.** Customer profiles, employee records, staff timesheets, anything outside the receipt + items endpoints.
+- **Why we copy each piece.** Receipts power Pulse and the verdict emails; items power the variant-to-recipe mapping; the encrypted refresh token lets us pull new receipts in the background without asking you to log in again.
+- **Who can see it.** You and any owners you've added. petakopi staff don't open Loyverse data day-to-day — only when you specifically ask for help (e.g. troubleshooting a missing receipt).
+- **The webhook.** petakopi sets up the Loyverse webhook for you automatically. You don't configure anything in the Loyverse merchant dashboard — the consent copy makes this explicit so you're not waiting for a manual step.
+
+You tick "I have read and agree" and click "Agree and continue". Your acceptance is recorded with a version stamp; if we materially change the disclaimer later, the next reconnect re-prompts you with the new terms.
+
+## Connecting
+
+<Steps>
+  <Step title="Open the Manage Dashboard">
+    `/manage/<slug>` — the Loyverse POS card sits with the rest of the integration cards.
+  </Step>
+  <Step title="Click Connect Loyverse">
+    Lands you on the consent page (above), not directly on Loyverse's OAuth screen.
+  </Step>
+  <Step title="Tick the agreement and continue">
+    petakopi records the consent, then redirects to Loyverse's OAuth authorize page.
+  </Step>
+  <Step title="Authorize on Loyverse">
+    Loyverse asks you to grant petakopi read access to receipts and items. Approve, and Loyverse redirects you back.
+  </Step>
+  <Step title="Backfill runs automatically">
+    `Loyverse::PostConnectFlow` fetches the last ~30 days of receipts (Loyverse's free-tier API only retains 30 days) and registers the webhook subscription on your behalf. Within a minute, Pulse Summary starts showing your real numbers.
+  </Step>
+</Steps>
+
+## Disconnecting (soft)
+
+If you want to stop receipts flowing in but keep what's already imported, click **Disconnect** on the Loyverse POS card on the Manage Dashboard.
+
+What disconnect does:
+
+- Tears down the webhook subscription on Loyverse's side, so no new receipts arrive.
+- Flips an internal `disconnected_at` flag on your Loyverse connection.
+- **Keeps** every previously-imported receipt, every recipe-sale record, and the verdict history. Your existing emails and Pulse pages keep working from the captured window.
+
+You can reconnect later. If you reconnect within 30 days of disconnecting, the gap window backfills automatically. If you reconnect after 30 days, the gap is unrecoverable — Loyverse's free-tier API only retains 30 days of history.
+
+## Wiping all Loyverse data (hard)
+
+Below "Disconnect" on the Loyverse POS card, there's a destructive **Wipe all Loyverse data** button. Use this when you want petakopi to forget you ever connected Loyverse — for example, you're handing the shop over, you're done evaluating petakopi, or you simply want a clean slate.
+
+<Warning>Wiping is irreversible. We delete every Loyverse-sourced receipt, item, recipe-sale record, and the encrypted token. Your in-app data that's not from Loyverse — recipes, items, expenses, pricing months, loyalty cards — is preserved.</Warning>
+
+What wipe does:
+
+- Calls Disconnect (above) — webhook is torn down on Loyverse's side.
+- Deletes every `LoyverseReceipt`, `LoyverseItem`, `RecipeSale`, and Loyverse-sourced `Sale` row for your shop.
+- Destroys the connection record so the encrypted access and refresh tokens are gone from our database.
+- Resets your consent flags so the next time you connect, you re-read and re-accept the disclaimer.
+
+Reconnecting after a wipe is a fresh start — none of your old Loyverse history comes back, but everything else (recipes, expenses, pricing months) is exactly as you left it.
+
+## Asking us to wipe on your behalf
+
+If you can't sign in (e.g. you've lost access to the owner account) but want your Loyverse data deleted, contact petakopi via the support channel listed on the consent page. An admin can run the same wipe from `/admin/coffee_shops/:id` — same scope, same side-effects, just executed by staff at your request. The action is logged with the admin user id for audit.

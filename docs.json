@@ -34,8 +34,8 @@
               "manage-shop/shop-information",
               "manage-shop/location",
               "manage-shop/sync-from-google",
-              "manage-shop/customer-feedback",
-              "manage-shop/app-vs-web"
+              "manage-shop/loyverse",
+              "manage-shop/customer-feedback"
             ]
           },
           {
@@ -60,6 +60,12 @@
               "manage-shop/pulse/overview",
               "manage-shop/pulse/summary",
               "manage-shop/pulse/activity"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "app-vs-web"
             ]
           },
           {
