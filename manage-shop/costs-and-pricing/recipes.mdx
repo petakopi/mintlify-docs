@@ -20,6 +20,28 @@ Each recipe surfaces two suggested prices, and they answer different questions:
 
 Use **Quick price** when you're sense-checking a single recipe ("does RM 12 for this latte make sense at 25% food cost?"). Use the **Calculator** when you're pricing the menu seriously ("at this volume, with this rent and these wages, what does each cup need to charge to leave 10% margin?").
 
+## Example: Iced Coffee Latte
+
+Using the [items defined on the Items page](/manage-shop/costs-and-pricing/items), the Iced Coffee Latte recipe has four lines:
+
+| Item | Quantity | Per-unit cost | Line cost |
+|---|---|---|---|
+| Whole milk | 150 ml | RM 0.008 / ml | RM 1.20 |
+| Coffee beans | 18 g | RM 0.0889 / g | RM 1.60 |
+| PET cup | 1 | RM 0.30 | RM 0.30 |
+| Straw | 1 | RM 0.05 | RM 0.05 |
+| | | **Per-cup COGS** | **RM 3.15** |
+
+### Quick price for this recipe
+
+If you set a target food-cost of 25% on the Recipes form, the Quick price comes back as:
+
+`RM 3.15 ÷ 0.25 = RM 12.60`
+
+That's the minimum sell price to keep food cost at or below 25% of revenue. Round to a clean menu number (RM 12.50, RM 13) for the till.
+
+For the full P&L picture — what to charge once rent, wages, and target net margin are factored in — feed this same recipe through the [Calculator](/manage-shop/costs-and-pricing/calculator). The Calculator surfaces a different price because it's solving a different equation (margin on revenue, not food cost as a % of revenue).
+
 ## Per-recipe sales (after Loyverse linkage)
 
 If you map Loyverse variants to recipes (see [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items)), the Recipes index gains three columns: **Sold this month**, **Revenue**, **Gross margin**.

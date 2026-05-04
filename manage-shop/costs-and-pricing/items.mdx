@@ -9,7 +9,18 @@ Items are the raw materials your recipes are built from: beans, milk, cups, lids
 
 Pack size, pack price, and yield. That's it.
 
-**Example.** Whole milk — pack size 1000 ml, RM 8 per pack, yield 100% → app computes `unit cost = 0.8¢/ml`.
+### Example: items for an Iced Coffee Latte
+
+Throughout the docs we use **Iced Coffee Latte** as the running example. It's built from four items:
+
+| Item | Pack size | Pack price | Yield | Computed unit cost |
+|---|---|---|---|---|
+| Whole milk | 1,000 ml | RM 8.00 | 100% | RM 0.008 / ml |
+| Coffee beans | 1,000 g | RM 80.00 | 90% | RM 0.0889 / g |
+| PET cup | 1 cup | RM 0.30 | 100% | RM 0.30 / cup |
+| Straw | 1 straw | RM 0.05 | 100% | RM 0.05 / straw |
+
+The 90% yield on beans inflates the per-gram cost from RM 0.08 to RM 0.0889 — the app does this automatically so every recipe using those beans pays the real cost, not the on-pack cost.
 
 <Info>**Yield matters when waste is real.** Coffee beans usually waste ~10% to grind and spillage. Set yield to 90% and the app applies the waste to your COGS automatically — every recipe that uses those beans pays the inflated unit cost, so a "cheap" bean with 70% yield can quietly cost more than a premium bean at 95%.</Info>
 
