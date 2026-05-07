@@ -73,6 +73,7 @@
             "pages": [
               "loyalty-card/overview",
               "loyalty-card/quick-start",
+              "loyalty-card/quick-start-bm",
               "loyalty-card/for-owners",
               "loyalty-card/app-vs-web",
               "loyalty-card/faq"
