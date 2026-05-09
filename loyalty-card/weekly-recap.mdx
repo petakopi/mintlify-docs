@@ -1,0 +1,88 @@
+---
+title: "Weekly Recap Email"
+description: "Understand the four numbers in your Monday-morning loyalty recap email"
+---
+
+Every Monday morning, if your shop had any loyalty stamps in the previous week, we send you a recap email summarizing what happened. This page explains what each number means and how we calculate them.
+
+<Info>The recap is opt-in. If you're not receiving it but want to, see [Turning the recap on or off](#turning-the-recap-on-or-off).</Info>
+
+## When it arrives
+
+- **Day & time** — Monday, around 7:00 AM (Asia/Kuala_Lumpur).
+- **Window covered** — The previous Monday through Sunday.
+- **One email per shop** — If you own more than one shop, you'll get one recap per shop. Each recap aggregates across **all currently-active loyalty programs** at that shop (so a shop running both a "Coffee Card" and a "Pastry Card" gets one email with combined numbers).
+- **Skipped if no activity** — If your shop had zero stamps in the previous week, no email goes out. We don't send empty recaps.
+
+## The four numbers
+
+The recap shows four metrics, each with context to help you read the trend.
+
+### 1. Stamps
+
+The total number of stamps you scanned onto customer cards in the previous week, across all your active programs.
+
+The arrow next to the number shows the change vs. the week before:
+
+- **↑ green** — More stamps than the prior week
+- **↓ red** — Fewer stamps than the prior week
+- **—** — No baseline yet (the prior week had zero stamps), so a percentage isn't meaningful
+
+We count stamps **regardless** of who the customer is. Both registered customers (who have a petakopi.my account) and guest customers (who claimed a card without signing up) are included.
+
+### 2. Rewards
+
+The total number of times a customer **redeemed** a completed card during the previous week.
+
+Same arrow conventions as stamps. A higher rewards count means more customers reached their reward target — usually a leading indicator of repeat visits, since they need a fresh card to keep collecting.
+
+### 3. Regulars
+
+Customers who came back **two weeks in a row** — they earned at least one stamp in the previous week AND at least one stamp in the week before that.
+
+This is the metric that tells you "the loyalty program is creating return visits." A growing regulars number means your stamps aren't just one-and-done.
+
+<Note>
+Regulars only counts **registered customers** — customers who have signed up on petakopi.my. We can't tell whether two guest cards belong to the same person, so guests don't count toward this number.
+</Note>
+
+If this row shows **0** but your stamp count is healthy, the email surfaces a hint pointing to the [QR template guide](/loyalty-card/qr-template) — a printed counter QR helps customers grab the card on their first visit (without typing your shop's URL), which makes it easier for them to come back stamped.
+
+### 4. Reactivated
+
+Customers who **came back after a quiet stretch** — they earned a stamp in the previous week, AND their previous stamp at your shop was **more than 4 weeks ago**.
+
+This is your win-back signal. A growing reactivated number means lapsed customers are returning. First-time customers (who never stamped before) are excluded — they're celebrated separately by the **First stamp** email.
+
+<Note>Same as Regulars: only registered customers count, since we need stable identity to detect a 4-week gap.</Note>
+
+### How regulars and reactivated relate
+
+The two numbers don't overlap. A customer is counted in **at most one** bucket:
+
+- Stamped this week + last week → **Regular** (even if their first-ever stamp was years ago).
+- Stamped this week + had a 4+ week gap before that → **Reactivated**.
+- Stamped this week + stamped 1–3 weeks ago (but not last week) → counted in neither (we don't have a name for "irregular returner" yet).
+- Stamped this week + this is their first-ever stamp → counted in neither.
+
+## What the recap is *not*
+
+- **It's not real-time.** For up-to-the-minute activity, open your loyalty program and tap **Activity** — that's the live feed of stamps and redemptions.
+- **It doesn't include inactive programs.** If you turned off a loyalty program partway through the week, its stamps from that week won't appear in the recap. The recap reflects what's currently live.
+- **It doesn't show individual customers.** We don't surface customer names or contact details in the email. For per-customer context, use the activity feed.
+
+## Turning the recap on or off
+
+The recap is **opt-in** by default. To start receiving it:
+
+1. Sign in to petakopi.my (web).
+2. Go to your profile edit page (`/u/<your-username>/edit`).
+3. Toggle **"Weekly loyalty recap email"** on.
+
+To stop receiving it, flip the toggle off — there's also a **"Manage email preferences"** link at the bottom of every recap email that takes you straight there.
+
+<Info>This toggle is independent from the lifecycle emails (welcome / first stamp / dormant nudges, etc.). Turning the recap off does **not** affect those, and vice versa.</Info>
+
+## Questions?
+
+If a number looks wrong or you'd like a metric we don't currently surface, [contact us](/getting-started/contact) — happy to dig into your data.
