@@ -8,6 +8,9 @@
     "dark": "#543626"
   },
   "favicon": "/favicon.svg",
+  "interaction": {
+    "drilldown": false
+  },
   "navigation": {
     "tabs": [
       {
@@ -28,57 +31,78 @@
         "tab": "For Owners",
         "groups": [
           {
-            "group": "Manage Your Shop",
+            "group": "Shop",
             "pages": [
               "manage-shop/overview",
-              "manage-shop/shop-information",
-              "manage-shop/location",
-              "manage-shop/sync-from-google",
-              "manage-shop/loyverse",
-              "manage-shop/customer-feedback"
+              {
+                "group": "Setup",
+                "expanded": false,
+                "pages": [
+                  "manage-shop/shop-information",
+                  "manage-shop/location",
+                  "manage-shop/sync-from-google",
+                  "manage-shop/loyverse",
+                  "manage-shop/customer-feedback"
+                ]
+              },
+              {
+                "group": "Online Store",
+                "expanded": false,
+                "pages": [
+                  "manage-shop/online-store"
+                ]
+              }
             ]
           },
           {
-            "group": "Online Store",
+            "group": "Insights",
             "pages": [
-              "manage-shop/online-store"
-            ]
-          },
-          {
-            "group": "Costs & Pricing",
-            "pages": [
-              "manage-shop/costs-and-pricing/overview",
-              "manage-shop/costs-and-pricing/items",
-              "manage-shop/costs-and-pricing/recipes",
-              "manage-shop/costs-and-pricing/loyverse-items",
-              "manage-shop/costs-and-pricing/calculator"
-            ]
-          },
-          {
-            "group": "Pulse",
-            "pages": [
-              "manage-shop/pulse/overview",
-              "manage-shop/pulse/summary",
-              "manage-shop/pulse/activity"
-            ]
-          },
-          {
-            "group": "Reference",
-            "pages": [
-              "app-vs-web"
+              {
+                "group": "Pulse",
+                "expanded": false,
+                "pages": [
+                  "manage-shop/pulse/overview",
+                  "manage-shop/pulse/summary",
+                  "manage-shop/pulse/activity"
+                ]
+              },
+              {
+                "group": "Costs & Pricing",
+                "expanded": false,
+                "pages": [
+                  "manage-shop/costs-and-pricing/overview",
+                  "manage-shop/costs-and-pricing/items",
+                  "manage-shop/costs-and-pricing/recipes",
+                  "manage-shop/costs-and-pricing/loyverse-items",
+                  "manage-shop/costs-and-pricing/calculator"
+                ]
+              }
             ]
           },
           {
             "group": "Loyalty Card",
             "pages": [
               "loyalty-card/overview",
-              "loyalty-card/quick-start",
-              "loyalty-card/quick-start-bm",
+              {
+                "group": "Quick start",
+                "expanded": false,
+                "pages": [
+                  "loyalty-card/quick-start",
+                  "loyalty-card/quick-start-bm"
+                ]
+              },
               "loyalty-card/for-owners",
               "loyalty-card/qr-template",
               "loyalty-card/weekly-recap",
-              "loyalty-card/app-vs-web",
-              "loyalty-card/faq"
+              {
+                "group": "Reference",
+                "expanded": false,
+                "pages": [
+                  "loyalty-card/app-vs-web",
+                  "loyalty-card/faq",
+                  "app-vs-web"
+                ]
+              }
             ]
           }
         ]
