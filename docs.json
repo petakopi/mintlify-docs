@@ -104,6 +104,12 @@
                 ]
               }
             ]
+          },
+          {
+            "group": "Coffee Pass",
+            "pages": [
+              "coffee-pass/for-owners"
+            ]
           }
         ]
       },

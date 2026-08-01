@@ -1,0 +1,136 @@
+---
+title: "For Shop Owners"
+description: "How to sell and redeem prepaid cup passes on petakopi.my"
+---
+
+A coffee pass is a prepaid bundle of cups — "30 cups, valid 30 days" — that a customer buys once and draws down over several visits.
+
+<Info>Payment happens at your counter, not through petakopi.my. The customer pays you in cash, by transfer, or however you normally take money; you then issue the pass in the app. Nothing is charged online.</Info>
+
+## How it works
+
+1. You create a **pass** once — the template that says how many cups and how long it stays valid.
+2. A customer pays at the counter, and you **issue** them a pass by scanning their QR.
+3. On each visit you **scan their pass** and deduct the cups they used.
+
+Steps 1 and 2 are separate on purpose. One pass can be issued to as many customers as you like, over and over.
+
+## Creating a pass
+
+<Steps>
+  <Step title="Open Coffee Passes">
+    In the app, tap **Home**, then **Manage**, pick your shop, and tap **Coffee Passes**.
+  </Step>
+  <Step title="Tap New">
+    Fill in the details:
+    - **Name** — e.g. "Monthly 30 Cups"
+    - **Cups** — How many cups the pass includes (1–100)
+    - **Valid for** — How many days the pass stays usable after it is issued
+    - **Terms & conditions** — What the pass covers and any rules, e.g. "Limited to Americano"
+    - **Card appearance** — Pick a colour and brightness for the pass card the customer sees
+    - **Active** — Toggle on to make the pass issuable
+  </Step>
+  <Step title="Save">
+    The pass now appears in your list and can be issued at the counter.
+  </Step>
+</Steps>
+
+{/* TODO: screenshot — pass creation form with the card preview
+<Frame caption="Creating a coffee pass with a live card preview">
+  <img src="/images/coffee-pass/for-owners-create-pass.png" alt="Coffee pass form showing name, cups, validity, terms, and card colour" />
+</Frame>
+*/}
+
+You can run several passes at once — a 10-cup starter and a 50-cup regular, for example.
+
+## Issuing a pass to a customer
+
+<Steps>
+  <Step title="Take payment at the counter">
+    Cash, transfer, or whatever you normally accept. petakopi.my does not handle the money.
+  </Step>
+  <Step title="Ask the customer to open My QR">
+    They tap their profile card on the app **Home** screen to show their personal QR.
+  </Step>
+  <Step title="Scan it">
+    On your **Home** screen, tap **Scan** and point the camera at their QR.
+  </Step>
+  <Step title="Pick the pass">
+    Your active passes appear. Tap the one they paid for, and the pass is issued immediately.
+  </Step>
+</Steps>
+
+The customer sees a confirmation on their own screen within a few seconds. Their QR expires after ten minutes, so if the scan fails, ask them to reopen it.
+
+{/* TODO: screenshot — scanner showing the issue-a-pass panel
+<Frame caption="Choosing which pass to issue after scanning a customer's QR">
+  <img src="/images/coffee-pass/for-owners-issue-pass.png" alt="Scanner panel listing active passes to issue" />
+</Frame>
+*/}
+
+**Issued the wrong one?** Tap **Cancel** on the confirmation screen straight after issuing. You can also cancel later from the pass detail.
+
+## Redeeming cups
+
+<Steps>
+  <Step title="Customer shows their pass">
+    They open their passes in the app and tap the card to flip it and reveal the QR.
+  </Step>
+  <Step title="Scan and deduct">
+    Tap **Scan** on your Home screen, scan their pass QR, then choose how many cups to deduct (1–5) and confirm.
+  </Step>
+</Steps>
+
+Their remaining count updates while the QR is still on screen, so both of you can see it drop. Every deduction is recorded with who performed it — tap any issued pass to see its full history.
+
+{/* TODO: screenshot — deduct panel showing remaining cups
+<Frame caption="Deducting cups from a scanned pass">
+  <img src="/images/coffee-pass/for-owners-deduct-cups.png" alt="Scanner deduct panel showing cups remaining and a cup selector" />
+</Frame>
+*/}
+
+## Pass statuses
+
+Open a pass and tap it to see everyone you have issued it to, each with a status:
+
+| Status | What it means |
+|--------|---------------|
+| Active | Cups remaining and not past its expiry date |
+| Used up | All cups redeemed |
+| Expired | Past its validity period, with cups possibly unused |
+| Cancelled | You cancelled it; can be reactivated |
+
+Expiry is applied automatically — a pass flips to expired once its validity period is over, without you doing anything.
+
+## Editing a pass
+
+Most details stay editable after customers hold passes, but one does not:
+
+| Field | Editable? | Notes |
+|-------|-----------|-------|
+| Name | Yes | Applies to passes already issued |
+| Terms & conditions | Yes | Applies to passes already issued |
+| Valid for (days) | Yes | Only affects passes issued from now on |
+| Card appearance | Yes | Applies to passes already issued |
+| Active | Yes | Only controls whether you can issue new ones |
+| Cups | No | Changing it would alter what existing customers already paid for |
+
+To change the number of cups, create a new pass and switch off the old one. A pass that has been issued to anyone cannot be deleted, so switching it off is how you retire it.
+
+## Cancelling and reactivating
+
+Cancel an issued pass from its detail screen — useful for a mis-scan, a refund, or a customer who asks to stop. Cancelling does not delete anything: the pass and its history stay, and you can reactivate it later if the customer comes back.
+
+## Common questions
+
+**Does the pass go into Apple Wallet or Google Wallet?**
+No. Wallet passes are built around stamp cards of about ten stamps, which does not suit a 30- or 50-cup pass. Coffee passes live in the app instead, where the remaining count is always accurate.
+
+**Can a customer use their pass at another shop?**
+No. A pass belongs to the shop that issued it.
+
+**What if the customer's phone is flat?**
+Both the customer's QR and the pass QR need their phone. Nothing can be redeemed without it, which is what keeps someone else from spending their cups.
+
+**Can I see how many cups are left across all my customers?**
+Open the pass and look at the issued list — each entry shows the remaining count out of the total.
