@@ -120,7 +120,8 @@
             "group": "Features",
             "pages": [
               "trip-planner",
-              "loyalty-card/for-customers"
+              "loyalty-card/for-customers",
+              "coffee-pass/for-customers"
             ]
           }
         ]
