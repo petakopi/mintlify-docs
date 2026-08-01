@@ -31,7 +31,54 @@ URL-synced (`?tab=all|sales|expenses`) so you can bookmark the view you actually
 
 ## Period picker
 
-Presets at the top: This week, Last week, This month, Last month, Custom range. Custom ranges are capped at 365 days. The URL stays bookmarkable: `?preset=this_month&tab=expenses`.
+Presets at the top: This week, Last week, This month, Last month. To go further back, use the **Earlier month** dropdown beside them — it lists the twelve months behind those presets, so in August you can still pull up June. Custom ranges are capped at 365 days. The URL stays bookmarkable: `?preset=this_month&tab=expenses`.
+
+Every KPI card also carries its change against the previous period — a whole calendar month is compared with the month before it, anything else with the equal-length window ending the day before. Colour follows the meaning rather than the arrow: expenses falling is green, gross sales falling is red.
+
+## Busiest hours
+
+A day-by-hour grid of when customers actually walk in, below the daily breakdown on the **All** and **Sales** tabs. It answers the question the daily totals can't: not *how much* you sold, but *when*.
+
+Use it to set opening hours and rosters. A shop that opens at 8am but sees nothing before 10am is paying for two hours of staff and electricity; a Saturday evening rush that outruns your cover is a lost queue.
+
+### The summary
+
+Three figures sit above the grid, each with its share of the period's receipts:
+
+<CardGroup cols={3}>
+  <Card title="Busiest day" icon="calendar-days">
+    The weekday carrying the most receipts. Roster around this one first — a Monday and a Saturday are effectively different businesses.
+  </Card>
+  <Card title="Peak window" icon="arrow-trend-up">
+    The run of hours around your busiest hour, not a single hour. "6pm–10pm" is a staffing decision; a lone hour is usually just where the clock boundary fell.
+  </Card>
+  <Card title="Quietest stretch" icon="moon">
+    The slackest two hours you're *open* for. The first candidate if you're thinking about trimming hours.
+  </Card>
+</CardGroup>
+
+### Reading the grid
+
+Rows are Monday to Sunday, columns are hours of the day. The darker a cell, the busier that hour. Hover or focus any cell for the exact figures, and switch to the **Table** tab for the same numbers as text, ranked busiest-first with each hour's share of the period.
+
+<Note>The grid counts **receipts, not ringgit**. One large catering order is a single customer arriving — shading by revenue would light up an hour nobody queued in. Refunds are left out entirely, because a refund gets processed whenever you get round to it and says nothing about when the shop was full.</Note>
+
+### How the numbers are worked out
+
+<AccordionGroup>
+  <Accordion title="Why an average rather than a total">
+    Each cell is receipts per occurrence of that weekday, not the raw total. A month holding five Fridays and four Sundays would otherwise shade Friday darker on the strength of the calendar rather than the customers.
+  </Accordion>
+  <Accordion title="Hours shown">
+    Columns are trimmed to the span that saw trade, so a shop open 8am–5pm doesn't read its week across a grid two-thirds full of midnight. A quiet period falls back to a 7am–10pm window.
+  </Accordion>
+  <Accordion title="Trading past midnight">
+    The quietest stretch only ever looks at hours you're actually open. For a bar trading 3pm–2am the day wraps past midnight, so the longest unbroken run of empty hours is treated as the closure and everything else as the trading day. You won't be told your quietest stretch is 4am.
+  </Accordion>
+  <Accordion title="How long until it's meaningful">
+    A single week is enough to see a shape, but one unusual day skews it. Give it three or four weeks of receipts — or pick a full month from the period picker — before you move anyone's shift.
+  </Accordion>
+</AccordionGroup>
 
 ## Day drill-down
 
