@@ -13,7 +13,8 @@ The page opens on **Best sellers** — variants ranked by units sold in the last
 
 | Column | What it tells you |
 |---|---|
-| **Sold (30d)** | Units rung up in the last 30 days. The higher the number, the sooner mapping it pays off. |
+| **Sold (30d)** | Units rung up in the last 30 days, across every variation. The higher the number, the sooner mapping it pays off. |
+| **Price** | What it last rang up for, per unit, before any discount. |
 | **Last sold** | When it last appeared on a receipt. Anything quiet for 90 days reads **not in 90d** — usually a discontinued item you can skip entirely. |
 
 Switch to **A–Z** when you're hunting for one specific variant rather than working down the list.
@@ -21,6 +22,29 @@ Switch to **A–Z** when you're hunting for one specific variant rather than wor
 <Note>Both columns count **receipts, not ringgit** — you're ranking by how often you'd use the recipe, and revenue would push a RM 45 bag of beans above a latte you sell 200 of. Refunds are ignored: a refund means a transaction was reversed, not that the drink is unpopular.</Note>
 
 The figures appear whether or not a variant is mapped — they're read from your receipt history directly, so they're there from the moment Loyverse is connected and backfilled.
+
+## Variations
+
+If you price through **modifiers** — one `Cafe Latte` item with `hot` and `ice` options rather than two separate items — each row shows a **N variations** link. Open it to see every combination customers have actually ordered, with its own sold count and price.
+
+This is where the price column earns its place:
+
+| Cafe Latte | Sold (30d) | Price |
+|---|---|---|
+| hot | 21 | RM 10.90 |
+| ice | 18 | RM 11.90 |
+
+A gap like that says the two aren't the same drink — iced needs ice, often more milk, sometimes a different cup — so costing them as one recipe would quietly overstate the margin on one and understate the other.
+
+### Variations follow the base row
+
+You don't map every combination. A variation shows **Follows base**, meaning it counts against whatever recipe you mapped the item to. Map `Cafe Latte` once and all 20 of its variations are covered.
+
+Override a variation only where the ingredients genuinely differ. Open its picker and pick a recipe, and only that combination changes — everything else keeps following the base. The item row then shows how many you've costed separately.
+
+<Tip>Start by overriding hot vs iced on your top few drinks. That's usually where the real cost difference sits; sizes and syrups matter less than they look.</Tip>
+
+<Warning>Price differences don't always mean recipe differences. Delivery-platform orders often carry their own higher-priced modifier options to cover commission — same drink, different price. Compare the option names, not just the figures.</Warning>
 
 ## How to map (one-time per variant)
 
