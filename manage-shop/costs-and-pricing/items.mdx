@@ -7,7 +7,25 @@ Items are the raw materials your recipes are built from: beans, milk, cups, lids
 
 ## What you fill in per item
 
-Pack size, pack price, and yield. That's it.
+Six fields, split across two cards on the form.
+
+**What it is**
+
+| Field | Notes |
+|---|---|
+| **Name** | What you call it — "Whole milk", "House blend beans". |
+| **Category** | **Consumable** (anything that ends up in the cup — beans, milk, syrups, sugar, ice), **Packaging** (cups, lids, sleeves, straws, napkins, bags), or **Other**. Grouping only; it doesn't change the math. |
+
+**Pack & cost** — how you buy it
+
+| Field | Notes |
+|---|---|
+| **Unit** | gram (g), millilitre (ml), or piece (pc). Pick the unit you'll measure by in recipes, then buy-size follows it. |
+| **Pack size** | How much is in one pack, in that unit — 1,000 g for a 1 kg bag of beans. |
+| **Pack price (RM)** | What you pay for one pack. |
+| **Yield %** | The share you actually get to use. See below. |
+
+Unit cost is computed, not entered: `pack price ÷ (pack size × yield %)`.
 
 ### Example: items for a Hot Coffee Latte
 

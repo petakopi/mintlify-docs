@@ -63,23 +63,29 @@ Suggested price: `(3.10 + 1.96) ÷ (1 − 0.30) = RM 7.23`
 
 Round to a clean menu number (RM 7, RM 7.50, RM 8). The Calculator price (RM 7.23 here) is lower than the Quick price (RM 12.40 from the [Recipes example](/manage-shop/costs-and-pricing/recipes#quick-price-for-this-recipe)) because the two are answering different questions — Quick price targets a food-cost ratio, Calculator targets a net-margin ratio after fixed costs.
 
-Plus on the same page, a [Live Summary](#live-summary) panel that rolls those per-recipe numbers into a monthly view.
+Plus on the same page, a [Live summary](#live-summary) panel that rolls those per-recipe numbers into a monthly view.
 
 The same monthly target feeds [Pulse Summary's burn chart](/manage-shop/pulse/summary#revenue-burn-chart) — that's where you watch your actual revenue accumulate against the target you set here.
 
-## Live Summary
+## Live summary
 
-The card on the right of the Calculator rolls your inputs and recipes into three at-a-glance numbers:
+The card on the right of the Calculator updates as you type on the left. Seven rows — the first four echo what you entered, the last three are what the Calculator worked out from it. Every row has an info icon carrying the same explanation in one line.
 
 | Row | What it is |
 |---|---|
-| **Breakeven (RM)** | Monthly revenue at which net profit = 0. See [Breakeven](#breakeven) below for the derivation. |
+| **Monthly volume** | Items per month, from Step 1 — either your manual figure or the capacity estimate. |
+| **Total monthly fixed cost** | Every line in Step 2, summed. |
+| **Fixed cost / unit** | `total fixed cost ÷ monthly volume`. The slice of rent and wages each cup has to carry. |
+| **Target margin** | What you set in Step 3. |
+| **Breakeven** | Monthly revenue at which net profit = 0. See [Breakeven](#breakeven) below for the derivation. |
 | **Breakeven volume** | Cups per month you'd need to sell at your market prices to cover all fixed costs. Same number that drives the [Unit economics check](#unit-economics-check) verdict. Shows "—" when no recipe has a market price set. |
-| **Monthly revenue target (RM)** | What you're aiming to ring up this month — `avg price × volume`. |
+| **Monthly revenue target** | What you're aiming to ring up this month — `avg price × volume`. Carries a **Manual** chip when you typed the figure into Step 4 yourself, so you can tell an override from a derived number at a glance. |
 
-**Breakeven (RM)** and **Monthly revenue target (RM)** both prefer your recipes' **market prices** — averaged across recipes that have one set — and fall back to the Calculator's suggested price for any recipe without a market price. This is the same rule the [Pulse burn chart's target line](/manage-shop/pulse/summary#revenue-burn-chart) uses, so the number you see here is the number you'll see plotted there.
+The first four are a sanity check: if **Fixed cost / unit** looks wrong, one of the two rows above it is the culprit, and you don't have to leave the page to find out which.
 
-<Tip>If breakeven and target both feel off, fill in [Market prices](/manage-shop/costs-and-pricing/recipes#market-price-optional-recommended) on your top sellers — the Live Summary switches from "what the math suggests" to "what you actually charge" as soon as one is set.</Tip>
+**Breakeven** and **Monthly revenue target** both prefer your recipes' **market prices** — averaged across recipes that have one set — and fall back to the Calculator's suggested price for any recipe without a market price. This is the same rule the [Pulse burn chart's target line](/manage-shop/pulse/summary#revenue-burn-chart) uses, so the number you see here is the number you'll see plotted there.
+
+<Tip>If breakeven and target both feel off, fill in [Market prices](/manage-shop/costs-and-pricing/recipes#market-price-optional-recommended) on your top sellers — the Live summary switches from "what the math suggests" to "what you actually charge" as soon as one is set.</Tip>
 
 ### Why divide by (1 − margin)?
 
@@ -116,7 +122,7 @@ If your numbers are way outside these, dig in — there's usually a story (premi
 
 ## Breakeven
 
-Breakeven is the revenue point where net profit = 0 — every ringgit below it is losing money, every ringgit above it is profit. The [Live Summary](#live-summary) panel surfaces it so you can sanity-check your monthly revenue target.
+Breakeven is the revenue point where net profit = 0 — every ringgit below it is losing money, every ringgit above it is profit. The [Live summary](#live-summary) panel surfaces it so you can sanity-check your monthly revenue target.
 
 If your monthly revenue target is **comfortably above** breakeven, you have margin headroom. If it's **at or below** breakeven, the inputs aren't internally consistent — the math is telling you the shop can't sustain itself at the current volume + costs + margin combination, and it's worth flagging that before you ship the menu.
 
@@ -153,13 +159,13 @@ Every variable in the formula traces back to something you set somewhere in the 
 
 `avg_cogs` is computed, not entered directly: each recipe's COGS = sum of `quantity × item.unit_cost` across its ingredient lines, then averaged across all recipes.
 
-So the chain is **Items → Recipes → recipe lines compute COGS → Calculator's three steps + recipe market prices → breakeven revenue**. If a number on the Live Summary feels off, walk back one step at a time until you find the input that's wrong.
+So the chain is **Items → Recipes → recipe lines compute COGS → Calculator's three steps + recipe market prices → breakeven revenue**. If a number on the Live summary feels off, walk back one step at a time until you find the input that's wrong.
 
 ## Unit economics check
 
 Suggested prices answer "what *should* I charge?" — but the market price you actually charge today might be different (rounded for tidiness, anchored to what neighbours charge, locked in last quarter and not yet revisited). The **Unit economics check** card on the Calculator tells you, at a glance, whether your real market prices clear your real fixed costs at your planned volume.
 
-It uses the **Market price (RM)** field on each [Recipe](/manage-shop/costs-and-pricing/recipes#market-price-optional-recommended). For every recipe with a market price set, the card computes the contribution margin (`market price − COGS`), averages it across those recipes, and divides your monthly fixed costs by that average to get the **breakeven volume at market price** — how many cups per month you'd need to sell to break even at the prices you actually charge. This is the same number shown as **Breakeven volume** in the [Live Summary](#live-summary).
+It uses the **Market price (RM)** field on each [Recipe](/manage-shop/costs-and-pricing/recipes#market-price-optional-recommended). For every recipe with a market price set, the card computes the contribution margin (`market price − COGS`), averages it across those recipes, and divides your monthly fixed costs by that average to get the **breakeven volume at market price** — how many cups per month you'd need to sell to break even at the prices you actually charge. This is the same number shown as **Breakeven volume** in the [Live summary](#live-summary).
 
 It compares that breakeven volume against the **planned monthly volume** from Step 1, then surfaces a verdict pill:
 
