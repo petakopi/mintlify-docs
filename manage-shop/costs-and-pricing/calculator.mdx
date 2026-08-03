@@ -18,7 +18,7 @@ The Calculator is the "what should I be charging this month?" page. It has a **m
     What you want left after all costs.
   </Step>
   <Step title="Monthly revenue target (optional)">
-    Type the revenue (RM) you want to hit this month. **Skip this** if you've added recipes with menu prices — the Calculator derives a target from your menu price × volume (or suggested price for any recipe that doesn't have a menu price set).
+    Type the revenue (RM) you want to hit this month. **Skip this** if you've added recipes with market prices — the Calculator derives a target from your market price × volume (or suggested price for any recipe that doesn't have a market price set).
 
     Use the override when your recipes don't yet cover your full menu, or when you don't have recipes at all. The [burn chart](/manage-shop/pulse/summary#revenue-burn-chart) needs *a* target to plot; the override gives it one without making you set up the full P&L first.
 
@@ -74,12 +74,12 @@ The card on the right of the Calculator rolls your inputs and recipes into three
 | Row | What it is |
 |---|---|
 | **Breakeven (RM)** | Monthly revenue at which net profit = 0. See [Breakeven](#breakeven) below for the derivation. |
-| **Breakeven volume** | Cups per month you'd need to sell at your menu prices to cover all fixed costs. Same number that drives the [Unit economics check](#unit-economics-check) verdict. Shows "—" when no recipe has a menu price set. |
+| **Breakeven volume** | Cups per month you'd need to sell at your market prices to cover all fixed costs. Same number that drives the [Unit economics check](#unit-economics-check) verdict. Shows "—" when no recipe has a market price set. |
 | **Monthly revenue target (RM)** | What you're aiming to ring up this month — `avg price × volume`. |
 
-**Breakeven (RM)** and **Monthly revenue target (RM)** both prefer your recipes' **menu prices** — averaged across recipes that have one set — and fall back to the Calculator's suggested price for any recipe without a menu price. This is the same rule the [Pulse burn chart's target line](/manage-shop/pulse/summary#revenue-burn-chart) uses, so the number you see here is the number you'll see plotted there.
+**Breakeven (RM)** and **Monthly revenue target (RM)** both prefer your recipes' **market prices** — averaged across recipes that have one set — and fall back to the Calculator's suggested price for any recipe without a market price. This is the same rule the [Pulse burn chart's target line](/manage-shop/pulse/summary#revenue-burn-chart) uses, so the number you see here is the number you'll see plotted there.
 
-<Tip>If breakeven and target both feel off, fill in [Menu prices](/manage-shop/costs-and-pricing/recipes#menu-price-optional-recommended) on your top sellers — the Live Summary switches from "what the math suggests" to "what you actually charge" as soon as one is set.</Tip>
+<Tip>If breakeven and target both feel off, fill in [Market prices](/manage-shop/costs-and-pricing/recipes#market-price-optional-recommended) on your top sellers — the Live Summary switches from "what the math suggests" to "what you actually charge" as soon as one is set.</Tip>
 
 ### Why divide by (1 − margin)?
 
@@ -122,7 +122,7 @@ If your monthly revenue target is **comfortably above** breakeven, you have marg
 
 The breakeven calculation uses contribution margin (`(price − variable_cost) ÷ price`), which is why it requires recipes to be filled in. Without per-cup variable cost, contribution margin is undefined and breakeven can't be drawn.
 
-The **price** in that formula prefers your recipes' menu prices — averaged across recipes that have one set — and falls back to the Calculator's suggested price for any recipe without a menu price. So once you start filling in menu prices, breakeven shifts from "what the P&L says you'd need" to "what you'd need at the prices you actually charge."
+The **price** in that formula prefers your recipes' market prices — averaged across recipes that have one set — and falls back to the Calculator's suggested price for any recipe without a market price. So once you start filling in market prices, breakeven shifts from "what the P&L says you'd need" to "what you'd need at the prices you actually charge."
 
 ### The full formula
 
@@ -136,7 +136,7 @@ The intuition in two lines:
 1. **Contribution per cup** = `per_cup_price − avg_cogs`. The slice of each cup's price left over after paying for the ingredients in the cup — available to pay down fixed costs.
 2. **Cups needed to fully cover fixed costs** = `fixed_cost ÷ contribution`. Multiply that cup count by `per_cup_price` and you have the revenue at breakeven.
 
-That's why setting a menu price *below* the suggested P&L price *raises* breakeven — you earn less contribution per cup, so you need more cups (and more revenue) to cover the same fixed costs.
+That's why setting a market price *below* the suggested P&L price *raises* breakeven — you earn less contribution per cup, so you need more cups (and more revenue) to cover the same fixed costs.
 
 ### Where each input comes from
 
@@ -146,33 +146,33 @@ Every variable in the formula traces back to something you set somewhere in the 
 | --- | --- | --- |
 | `fixed_cost` | Step 2 "Monthly costs" — every line item summed | Calculator |
 | `volume` | Step 1 "Monthly volume" (manual estimate or capacity-derived from seats × hours × occupancy × items/visit × operating days) | Calculator |
-| `target_margin` | Step 3 "Target margin" — only used when no menu prices are set, in the suggested-price fallback | Calculator |
-| `per_cup_price` *(menu-price path)* | "Market price (RM)" field per recipe — averaged across recipes that have one set | Recipes → edit |
+| `target_margin` | Step 3 "Target margin" — only used when no market prices are set, in the suggested-price fallback | Calculator |
+| `per_cup_price` *(market-price path)* | "Market price (RM)" field per recipe — averaged across recipes that have one set | Recipes → edit |
 | `recipe_line.quantity` | Each recipe's ingredient line ("18g of beans") | Recipes → edit |
 | `item.unit_cost` | Per-item cost basis ("RM 0.20 per gram of beans") | Items → edit |
 
 `avg_cogs` is computed, not entered directly: each recipe's COGS = sum of `quantity × item.unit_cost` across its ingredient lines, then averaged across all recipes.
 
-So the chain is **Items → Recipes → recipe lines compute COGS → Calculator's three steps + recipe menu prices → breakeven revenue**. If a number on the Live Summary feels off, walk back one step at a time until you find the input that's wrong.
+So the chain is **Items → Recipes → recipe lines compute COGS → Calculator's three steps + recipe market prices → breakeven revenue**. If a number on the Live Summary feels off, walk back one step at a time until you find the input that's wrong.
 
 ## Unit economics check
 
-Suggested prices answer "what *should* I charge?" — but the menu price you actually charge today might be different (rounded for tidiness, anchored to what neighbours charge, locked in last quarter and not yet revisited). The **Unit economics check** card on the Calculator tells you, at a glance, whether your real menu prices clear your real fixed costs at your planned volume.
+Suggested prices answer "what *should* I charge?" — but the market price you actually charge today might be different (rounded for tidiness, anchored to what neighbours charge, locked in last quarter and not yet revisited). The **Unit economics check** card on the Calculator tells you, at a glance, whether your real market prices clear your real fixed costs at your planned volume.
 
-It uses the **Menu price (RM)** field on each [Recipe](/manage-shop/costs-and-pricing/recipes#menu-price-optional-recommended). For every recipe with a menu price set, the card computes the contribution margin (`menu price − COGS`), averages it across those recipes, and divides your monthly fixed costs by that average to get the **breakeven volume at menu price** — how many cups per month you'd need to sell to break even at the prices you actually charge. This is the same number shown as **Breakeven volume** in the [Live Summary](#live-summary).
+It uses the **Market price (RM)** field on each [Recipe](/manage-shop/costs-and-pricing/recipes#market-price-optional-recommended). For every recipe with a market price set, the card computes the contribution margin (`market price − COGS`), averages it across those recipes, and divides your monthly fixed costs by that average to get the **breakeven volume at market price** — how many cups per month you'd need to sell to break even at the prices you actually charge. This is the same number shown as **Breakeven volume** in the [Live Summary](#live-summary).
 
 It compares that breakeven volume against the **planned monthly volume** from Step 1, then surfaces a verdict pill:
 
 | Verdict | What it means |
 |---|---|
-| **Viable** | Breakeven volume is at or below your planned volume. The plan clears fixed costs at your current menu prices. |
+| **Viable** | Breakeven volume is at or below your planned volume. The plan clears fixed costs at your current market prices. |
 | **Stretch** | Breakeven volume is above your planned volume. You'd need to sell more cups than you've planned for to cover fixed costs at these prices — either lift prices, drive volume, or trim fixed costs. |
-| **Not viable** | Average contribution margin is zero or negative — your menu prices are at or below COGS on average. Every cup loses money before fixed costs are even considered. |
-| **Set a menu price** | No recipe has a menu price filled in yet. Open a recipe, add the price you charge today, and the card lights up. |
+| **Not viable** | Average contribution margin is zero or negative — your market prices are at or below COGS on average. Every cup loses money before fixed costs are even considered. |
+| **Set a price** | No recipe has a market price filled in yet. Open a recipe, add the price you charge today, and the card lights up. |
 
-Everything updates live as you edit monthly costs, planned volume, or any recipe's menu price — so you can dry-run a price change ("what if I lift the latte from RM 12 to RM 13?") and see the verdict shift before you commit.
+Everything updates live as you edit monthly costs, planned volume, or any recipe's market price — so you can dry-run a price change ("what if I lift the latte from RM 12 to RM 13?") and see the verdict shift before you commit.
 
-<Note>The breakeven number on this card is in **cups per month**, against actual menu prices. The breakeven number in [the section above](#breakeven) is the same idea expressed in **revenue per month** — fixed costs divided by contribution margin at the same menu-price-preferred average. Two units, one underlying answer: "what does the shop need to do to clear fixed costs at the prices you charge?"</Note>
+<Note>The breakeven number on this card is in **cups per month**, against actual market prices. The breakeven number in [the section above](#breakeven) is the same idea expressed in **revenue per month** — fixed costs divided by contribution margin at the same market-price-preferred average. Two units, one underlying answer: "what does the shop need to do to clear fixed costs at the prices you charge?"</Note>
 
 ## Per-month workflow
 
