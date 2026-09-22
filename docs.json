@@ -58,6 +58,20 @@
             "group": "Insights",
             "pages": [
               {
+                "group": "Performance",
+                "expanded": false,
+                "pages": [
+                  "manage-shop/performance/overview",
+                  "manage-shop/performance/menu",
+                  "manage-shop/performance/costing",
+                  "manage-shop/performance/expenses",
+                  "manage-shop/performance/sales",
+                  "manage-shop/performance/monthly-answer",
+                  "manage-shop/performance/email-reports",
+                  "manage-shop/performance/missing-information"
+                ]
+              },
+              {
                 "group": "Pulse",
                 "expanded": false,
                 "pages": [
@@ -149,7 +163,7 @@
   "redirects": [
     {
       "source": "/manage-shop/performance",
-      "destination": "/manage-shop/pulse/overview"
+      "destination": "/manage-shop/performance/overview"
     }
   ]
 }

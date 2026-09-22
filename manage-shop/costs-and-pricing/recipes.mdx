@@ -1,9 +1,11 @@
 ---
 title: "Recipes"
-description: "Sellable drinks built from items — per-cup COGS plus two pricing paths"
+description: "Ingredient quantities and per-serving costs, plus two pricing paths"
 ---
 
-A Recipe is a sellable drink (or pastry, or anything you ring up at the till). You build it by adding lines — each line is `{Item, quantity}` — and the app sums the line costs to give you per-cup COGS.
+A recipe describes the ingredients and quantities used to make a serving. Your storefront product is a separate record with its own selling price and customer choices. You build it by adding lines — each line is `{Item, quantity}` — and the app sums the line costs to give you per-cup COGS.
+
+For Performance, [link recipes to saved products and options](/manage-shop/performance/costing). This does not require Loyverse or change storefront selling prices. The Loyverse sales columns described below belong to the existing integration.
 
 ## Two prices
 
