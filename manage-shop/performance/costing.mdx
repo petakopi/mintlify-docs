@@ -7,12 +7,19 @@ description: "Link products and options to recipes or bought-in costs."
 
 Before starting, [save your menu](/manage-shop/performance/menu). Use **Costs & Pricing → Items** for ingredient purchase units and **Recipes** for quantities used per serving. The [Items guide](/manage-shop/costs-and-pricing/items) and [Recipes guide](/manage-shop/costs-and-pricing/recipes) cover those forms.
 
-## Base cost
+## Open product costing
+
+Go to **Online Store → Products** and edit your saved product. Find the **Costing** section and click **Set up or review product costing**.
+
+On that page, **Base cost** links the product to its recipe or bought-in unit cost. Creating a recipe alone does not link it to a product.
+
+## Set the base cost
 
 1. Enter each ingredient’s pack price, pack size, and usable yield in Items.
 2. Create a recipe using the amount consumed per serving.
-3. Open the saved product’s **Costing** page.
-4. Choose its recipe or a bought-in unit cost, then save costing.
+3. Return to the product’s **Costing** page and find **Base cost**.
+4. Under **How is this product costed?**, choose the costing method and select the recipe or enter the bought-in unit cost.
+5. Save costing to link those costs to the product.
 
 For our fictional latte, beans cost RM 1.44, milk RM 1.26, and a cup RM 0.30: **RM 3 per serving**. Selling it for RM 10 leaves RM 7 before other costs.
 
@@ -30,6 +37,30 @@ Review every offered option and choose its effect:
 | Needs review | You have not decided yet; costing remains incomplete |
 
 For multiple replacement choices, map the full combination to one complete recipe. Avoid adding both the original and replacement recipe together.
+
+### Replacement or added ingredient?
+
+Use a **replacement recipe/cost** when the base recipe already contains the ingredient being replaced. Use **Adds ingredients** when the base recipe leaves that part out and the option supplies it.
+
+For example, if the Latte recipe already contains espresso, dairy milk, and a cup:
+
+| Option | Costing choice |
+| --- | --- |
+| Dairy milk | No cost change |
+| Oat milk | Replacement recipe/cost → Oat Latte recipe |
+| Soy milk | Replacement recipe/cost → Soy Latte recipe |
+
+Each replacement recipe must contain the complete drink cost. Do not add oat milk on top of a recipe that already includes dairy milk, or the calculation will count both milks.
+
+You can use **Adds ingredients** instead when the base Latte recipe contains only espresso and the cup:
+
+| Option | Costing choice |
+| --- | --- |
+| Dairy milk | Adds ingredients → Dairy milk portion |
+| Oat milk | Adds ingredients → Oat milk portion |
+| Soy milk | Adds ingredients → Soy milk portion |
+
+For an Americano, a House Blend base recipe can use **No cost change** for House Blend. If Single Origin uses different beans, map it to a complete **Single Origin Americano** replacement recipe.
 
 ## Shared portions
 
