@@ -42,6 +42,7 @@
                   "manage-shop/location",
                   "manage-shop/sync-from-google",
                   "manage-shop/loyverse",
+                  "manage-shop/loyverse-transactions",
                   "manage-shop/customer-feedback"
                 ]
               },
@@ -89,7 +90,8 @@
                   "manage-shop/costs-and-pricing/items",
                   "manage-shop/costs-and-pricing/recipes",
                   "manage-shop/costs-and-pricing/loyverse-items",
-                  "manage-shop/costs-and-pricing/calculator"
+                  "manage-shop/costs-and-pricing/calculator",
+                  "manage-shop/costs-and-pricing/legacy-expenses"
                 ]
               }
             ]

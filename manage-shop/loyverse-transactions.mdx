@@ -1,0 +1,41 @@
+---
+title: "Loyverse transactions"
+description: "Inspect imported backup receipts separately from Performance"
+---
+
+Open **Manage → Settings → Loyverse transactions** to inspect the receipt copy held by petakopi. Loyverse is a backup integration; its transactions are excluded from [Performance](/manage-shop/performance/overview).
+
+## Find a receipt
+
+<Steps>
+  <Step title="Choose dates">
+    Set **From date** and **To date**, then click **Apply dates**. Dates use the Malaysia calendar, with a maximum range of 366 days.
+  </Step>
+  <Step title="Open the receipt number">
+    The list shows transaction time, sale or refund type, currency, imported amount, and cancellation state. Use **Previous page** or **Next page** for more receipts.
+  </Step>
+  <Step title="Inspect its stored details">
+    The detail page shows line items, modifiers, payments, and the original receipt for a refund when that original is in the backup. Missing payload fields are labelled as unavailable.
+  </Step>
+  <Step title="Return to your list">
+    **Back to Loyverse transactions** keeps your selected dates and page.
+  </Step>
+</Steps>
+
+## Understand the backup
+
+Cancelled receipts retain their imported amount and are marked **Cancelled**. Refunds are labelled separately. This page does not calculate profit or combine different currencies into a headline total.
+
+The connection panel shows the last successful scheduled receipt poll when available. It does not promise that every transaction in Loyverse has been imported. An empty list means no copied receipts were found in those dates; it does not confirm that the external shop had no activity.
+
+## After disconnecting
+
+Previously imported receipts remain readable. New receipts stop importing until you reconnect. Connection, backfill, disconnect, and explicit data-wipe controls remain on the [Manage Dashboard](/manage-shop/loyverse).
+
+**Wipe all Loyverse data** deletes the local backup. Disconnecting and wiping are different actions.
+
+## After Pulse retires
+
+Old Pulse links open a transition page with separate destinations for first-party Performance, Loyverse transactions, and legacy expenses. Valid old date selections carry into the history links as Malaysia calendar dates. Performance uses its own reporting cutoff and different financial definitions; Pulse's “True net” and burn chart have not moved into it.
+
+Pulse daily recaps and weekly/monthly verdict emails stop at cutover. Loyverse receipt importing continues while connected.

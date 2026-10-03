@@ -20,9 +20,9 @@ The Calculator is the "what should I be charging this month?" page. It has a **m
   <Step title="Monthly revenue target (optional)">
     Type the revenue (RM) you want to hit this month. **Skip this** if you've added recipes with menu prices — the Calculator derives a target from your menu price × volume (or suggested price for any recipe that doesn't have a menu price set).
 
-    Use the override when your recipes don't yet cover your full menu, or when you don't have recipes at all. The [burn chart](/manage-shop/pulse/summary#revenue-burn-chart) needs *a* target to plot; the override gives it one without making you set up the full P&L first.
+    Use the override when your recipes don't yet cover your full menu, or when you don't have recipes at all. The override records your monthly planning target without requiring a full recipe setup.
 
-    <Info>The override only feeds the **burn chart's target line**. Recipes still unlock per-recipe sales (with [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items) linking), per-cup suggested pricing, and breakeven analysis.</Info>
+    <Info>The override does not change Performance calculations. Recipes still unlock per-recipe sales (with [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items) linking), per-cup suggested pricing, and breakeven analysis.</Info>
   </Step>
 </Steps>
 
@@ -41,7 +41,7 @@ For the running Hot Coffee Latte example, here's a realistic breakdown for a sma
 | Maintenance & misc | Other | RM 100 |
 | | **Total** | **RM 4,900** |
 
-The category labels (Labour / Overhead / Other) don't change the math — the Calculator just sums everything into a single fixed-cost number. They're for your own categorisation when you want to scan "where is my money going?" on the Pulse expenses tab later.
+The category labels (Labour / Overhead / Other) don't change the math — the Calculator just sums everything into a single fixed-cost number. They help you organise this Calculator plan. They do not create Performance expense records or change your [legacy expenses](/manage-shop/costs-and-pricing/legacy-expenses).
 
 This RM 4,900 total is what feeds the **Fixed cost per unit** number in the Hot Coffee Latte example below: RM 4,900 ÷ 2,500 cups = RM 1.96 per cup.
 
@@ -67,7 +67,7 @@ Round to a clean menu number (RM 7, RM 7.50, RM 8). The Calculator price (RM 7.2
 
 Plus on the same page, a [Live summary](#live-summary) panel that rolls those per-recipe numbers into a monthly view.
 
-The same monthly target feeds [Pulse Summary's burn chart](/manage-shop/pulse/summary#revenue-burn-chart) — that's where you watch your actual revenue accumulate against the target you set here.
+The recorded-activity footer links separately to [first-party Performance](/manage-shop/performance/overview) and [Loyverse backup transactions](/manage-shop/loyverse-transactions). Performance uses different financial rules from Pulse’s “True net” and does not show Pulse’s burn chart. Calculator’s planning target does not change Performance calculations.
 
 ## Live summary
 
@@ -85,7 +85,7 @@ The card on the right of the Calculator updates as you type on the left. Seven r
 
 The first four are a sanity check: if **Fixed cost / unit** looks wrong, one of the two rows above it is the culprit, and you don't have to leave the page to find out which.
 
-**Breakeven** and **Monthly revenue target** both prefer your recipes' **menu prices** — averaged across recipes that have one set — and fall back to the Calculator's suggested price for any recipe without a menu price. This is the same rule the [Pulse burn chart's target line](/manage-shop/pulse/summary#revenue-burn-chart) uses, so the number you see here is the number you'll see plotted there.
+**Breakeven** and **Monthly revenue target** both prefer your recipes' **menu prices** — averaged across recipes that have one set — and fall back to the Calculator's suggested price for any recipe without a menu price. These are planning values; Performance calculates its monthly result from separate sales and cost evidence.
 
 <Note>Recipe menu prices are legacy saved values and are no longer editable on the recipe form. Storefront product prices are separate. See [previously saved pricing values](/manage-shop/costs-and-pricing/recipes#previously-saved-pricing-values).</Note>
 
@@ -195,4 +195,4 @@ The check updates as you edit monthly costs or planned volume. It uses legacy re
 
 ## What's next
 
-You've set the inputs and the Calculator has answered "what should I be charging this month?" Now head to [Pulse](/manage-shop/pulse/overview) — that's where actual revenue, refunds, expenses, and margin come in through the month, plotted against the targets you just set.
+You've set the inputs and the Calculator has answered "what should I be charging this month?" Open [Performance](/manage-shop/performance/overview) for first-party sales and cost coverage, or [Loyverse transactions](/manage-shop/loyverse-transactions) for imported backup receipts. The two pages use separate data and financial meanings.

@@ -1,17 +1,19 @@
 ---
 title: "Loyverse Integration"
-description: "Connect Loyverse POS to feed receipts into Pulse, map variants to recipes, and manage your data"
+description: "Keep a backup of Loyverse receipts, inspect transactions, and manage your connection"
 ---
 
-Connecting Loyverse turns petakopi into the analytical layer on top of your point-of-sale: receipts flow into [Pulse](/manage-shop/pulse/overview), variants you map become per-recipe sales on the [Recipes index](/manage-shop/costs-and-pricing/recipes), and the [revenue burn chart](/manage-shop/pulse/summary#revenue-burn-chart) gets a real "actual" line to plot.
+Use Loyverse as a backup integration: imported receipts are available on the [standalone transaction page](/manage-shop/loyverse-transactions). Receipt data stays outside first-party Performance. Mapped variants still contribute to the [Recipes index](/manage-shop/costs-and-pricing/recipes).
+
+Pulse remains available during the transition. Its daily recaps and weekly/monthly verdict emails stop at cutover; receipt importing continues.
 
 This page covers what connecting does, what data we copy, how to disconnect, and how to wipe everything if you change your mind.
 
 ## What you get from connecting
 
-- **Receipts in Pulse** — every Loyverse receipt projects into Pulse Summary's actual-this-month panel and the burn chart's actual line within ~6 seconds via webhook.
-- **Verdict emails** — daily recap, weekly verdict, monthly verdict cadences only fire once Loyverse is connected (otherwise there's no revenue to summarise).
-- **Per-recipe analytics** — map Loyverse variants to local recipes via [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items) and the Recipes index gains "Sold this month / Revenue / Gross margin" columns.
+- **Stored transactions** — inspect receipt dates, sale/refund amounts, cancellation state, line items, and payments on the standalone page. Available history depends on what was successfully imported.
+- **Per-recipe analytics** — map Loyverse variants to local recipes via [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items). The Recipes index retains its legacy sales columns.
+- **Legacy Pulse reports during the transition** — these use different financial rules from Performance and stop at cutover.
 
 ## The consent page
 
@@ -19,7 +21,7 @@ Before OAuth runs, petakopi shows you a dedicated consent page at `/manage/<slug
 
 - **What we copy.** Encrypted access and refresh tokens, every receipt as a full JSONB payload (line items, modifiers, payments) plus extracted columns for fast queries, your item catalog, and derived `RecipeSale` rows for any variant you've mapped.
 - **What we don't copy.** Customer profiles, employee records, staff timesheets, anything outside the receipt + items endpoints.
-- **Why we copy each piece.** Receipts power Pulse and the verdict emails; items power the variant-to-recipe mapping; the encrypted refresh token lets us pull new receipts in the background without asking you to log in again.
+- **Why we copy each piece.** Receipts provide backup transaction history; items power the variant-to-recipe mapping; the encrypted refresh token lets us pull new receipts in the background without asking you to log in again.
 - **Who can see it.** You and any owners you've added. petakopi staff don't open Loyverse data day-to-day — only when you specifically ask for help (e.g. troubleshooting a missing receipt).
 - **The webhook.** petakopi sets up the Loyverse webhook for you automatically. You don't configure anything in the Loyverse merchant dashboard — the consent copy makes this explicit so you're not waiting for a manual step.
 
@@ -41,7 +43,7 @@ You tick "I have read and agree" and click "Agree and continue". Your acceptance
     Loyverse asks you to grant petakopi read access to receipts and items. Approve, and Loyverse redirects you back.
   </Step>
   <Step title="Backfill runs automatically">
-    `Loyverse::PostConnectFlow` fetches the last ~30 days of receipts (Loyverse's free-tier API only retains 30 days) and registers the webhook subscription on your behalf. Within a minute, Pulse Summary starts showing your real numbers.
+    `Loyverse::PostConnectFlow` fetches the last ~30 days of receipts (Loyverse's free-tier API only retains 30 days) and registers the webhook subscription on your behalf. Open Loyverse transactions to inspect receipts after importing finishes. An empty page does not prove that there were no sales.
   </Step>
 </Steps>
 
@@ -53,7 +55,7 @@ What disconnect does:
 
 - Tears down the webhook subscription on Loyverse's side, so no new receipts arrive.
 - Flips an internal `disconnected_at` flag on your Loyverse connection.
-- **Keeps** every previously-imported receipt, every recipe-sale record, and the verdict history. Your existing emails and Pulse pages keep working from the captured window.
+- **Keeps** every previously-imported receipt, every recipe-sale record, and the verdict history. The standalone transaction page keeps showing retained history. Disconnecting does not migrate these records into Performance.
 
 You can reconnect later. If you reconnect within 30 days of disconnecting, the gap window backfills automatically. If you reconnect after 30 days, the gap is unrecoverable — Loyverse's free-tier API only retains 30 days of history.
 
