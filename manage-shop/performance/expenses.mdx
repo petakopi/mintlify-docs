@@ -1,22 +1,43 @@
 ---
-title: "3. Record expenses"
-description: "Replace assumptions with reviewed, itemized bills."
+title: "Expenses"
+description: "Review monthly operating costs and invoices, then add, correct or delete records."
 ---
 
 **Outcome:** the month includes your operating costs without counting ingredient purchases twice.
 
-Open **Performance → Expenses and estimates**. Have your bills and the month each cost belongs to ready. Performance expenses are separate from Pulse records.
+Open **Performance → Expenses**. Use **Previous month** and **Next month** to choose the month. Your selected tab stays open when you change months.
 
-## Estimates
+Performance expenses are separate from the older records in [Legacy expenses](/manage-shop/costs-and-pricing/legacy-expenses) and Pulse. Those records are not automatically moved into Performance.
 
-1. Choose the reporting month.
-2. Add a cost name and category, such as Rent.
+## Choose a tab
+
+| Tab | What you see |
+| --- | --- |
+| Monthly operating costs | Costs assigned to the service month, showing their category, basis and included amount |
+| Recent invoices | Invoices dated in the selected month, showing their supplier, status and recorded total |
+
+An invoice dated September can pay for October rent. Find the invoice in September's **Recent invoices** and its allocated cost in October's **Monthly operating costs**. An undated draft appears in the month you added it, using Malaysia time, with **Date unknown** and its added date. Editing an undated draft does not move it to another month.
+
+Invoices have pages of up to 25 rows. **Previous page** and **Next page** move through that month's invoices; the month controls choose another month.
+
+## Add or edit an estimate
+
+Open **Monthly operating costs**.
+
+1. Choose **Add estimate**, or **Edit estimate** on an existing row.
+2. Enter a cost name and category, such as Rent. An existing estimate keeps its category and service month.
 3. Enter the expected amount, leaving an unknown amount blank.
-4. Confirm zero explicitly only if no cost is expected, then save.
+4. Confirm zero explicitly only if no cost is expected, then choose **Save estimate**.
+
+The form opens in a dialog. **Cancel** closes it without saving. The table distinguishes estimates, actual costs, missing estimates and confirmed zero. A row covered by invoices shows its actual allocated amount; **Edit estimate** changes its underlying estimate, not those invoices.
+
+**Reuse earlier estimate** opens a list of earlier Performance or Calculator assumptions. Choose **Use estimate**, review the copied amount and category, then save it as a new estimate for the selected month. The source stays unchanged; copying does not bring earlier invoices into this month.
 
 Our café starts with RM 500 rent, RM 100 utilities, and RM 50 payment fees. Other operating categories are confirmed as having no cost for this fictional example.
 
 ## Invoices
+
+Open **Recent invoices**. **Add expense** opens a separate page; **Open** opens an existing invoice. **Back to Expenses** returns to your selected month, tab and result page.
 
 1. Create a draft for one invoice and attach its files, or enter it manually.
 2. Check the supplier, invoice details, currency, and total.
@@ -28,6 +49,8 @@ You can attach up to five JPEG, PNG, WEBP, or PDF files for one invoice: at most
 
 If AI extraction is available, it suggests invoice details and items. **Review and apply suggestions yourself.** Extraction does not confirm a bill. Manual drafts remain available when extraction is disabled.
 
+Drafts stay outside operating totals. The invoice table shows **Draft** or **Confirmed**, and its draft count belongs to the selected invoice month. Unknown totals stay unknown; invoices in another currency show that currency rather than an RM total.
+
 ## Categories and service months
 
 Use the invoice category as a starting point, then override individual lines when needed. Put costs in the month they relate to, even if you paid later. Split lines or allocations when costs cover different months or purposes.
@@ -38,11 +61,30 @@ Ingredient purchases are recorded separately from ingredients consumed in sales.
 
 Link the actual cost to the matching estimate. **A linked actual replaces the whole estimate.** Do not link a partial bill as though it covers the full expected cost.
 
+Choose **Open linked invoices** on an actual row to see the bills behind it. An unmatched actual row has **Open invoice**.
+
 If our café’s utilities bill is RM 180, it replaces the RM 100 estimate. The month now includes RM 180 for utilities, not RM 280.
 
 ## Correct a bill
 
 Use the correction flow and give a reason. Check possible duplicates before acknowledging them. Drafts are not confirmed expenses; review outstanding drafts before confirming monthly completeness.
+
+If a saved allocation refers to an estimate you deleted, its match is labelled **Deleted estimate**. You can keep that historical match when the allocation is unchanged. To change its amount, month or category, clear the match or choose a current estimate. The actual cost remains counted.
+
+## Delete an estimate or invoice
+
+Choose **Delete** on its table row, or **Delete expense** on an existing invoice page. Check the confirmation, then choose **Delete**. **Cancel** leaves the record unchanged.
+
+| Record | What changes |
+| --- | --- |
+| Estimate | Its estimate is removed. Linked actual invoice costs remain counted as actual costs |
+| Draft invoice | The draft is removed and pending extraction is stopped; operating totals stay unchanged |
+| Confirmed invoice | Its operating allocations are removed from every affected service month, listed in the confirmation |
+| Purchase-only invoice | The invoice is removed; operating totals stay unchanged |
+
+If you delete a confirmed invoice, a linked estimate uses any other surviving invoices. When none remain, its estimated amount returns. If an estimate was already deleted, no estimate returns.
+
+Deleted records leave the active Expenses tables. Their audit records and attachments are retained; this action does not erase the retained invoice files. Costs and monthly review status are recalculated. Recheck **Monthly review** after deletion; actual costs released from a deleted estimate need their fixed or variable treatment reviewed again.
 
 **Ready when:** confirmed bills reconcile, costs belong to the right service months, and estimates cover bills still missing.
 
