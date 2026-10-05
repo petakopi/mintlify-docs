@@ -11,67 +11,95 @@ Before starting, [save your menu](/manage-shop/performance/menu). Use **Costs & 
 
 Edit your saved product in **Online Store → Products**. Open its **Costing** tab and click **Set up or review product costing**.
 
-The costing page has **Base cost**, **Options**, and **Preview** tabs. Creating a recipe alone does not link it to a product.
+The costing page has **Base cost**, a tab for each option group such as **Options: Temperature**, and **Preview**. Edit the fields directly in their tabs. Switching tabs keeps your draft and Preview selections.
+
+Only **Save product costing** persists the configuration. **Cancel** returns to the product editor and asks before discarding unsaved changes. A failed save keeps your edits; a version conflict means another save changed the configuration while you were editing. Menu selling prices stay unchanged.
+
+Use the Help link beside each section heading for its explanation. Help opens separately so your draft stays available.
 
 ## Set the base cost
 
 1. Enter each material’s pack price, pack size, and usable yield in Materials.
-2. Create a recipe with the amount consumed per serving.
-3. Open **Base cost → Edit base cost** and choose **Recipe** or **Bought-in unit cost**.
-4. Select the recipe or enter the cost, then click **Done**.
+2. Create a recipe with the amount consumed per serving, including packaging.
+3. Open **Base cost** and choose **Recipe** or **Bought-in unit cost** under Cost basis.
+4. Select the recipe or enter the cost of one product.
 5. Click **Save product costing** to persist the draft.
 
-**Done** keeps an editor’s changes in the page draft. **Cancel** discards only that editor’s changes. Closing a changed editor asks before discarding. Only **Save product costing** writes the configuration. Menu prices stay unchanged.
-
-Confirm zero only when the cost really is zero. **Not configured** means missing information.
+Creating a recipe alone does not link it to a product. Confirm zero only when the cost really is zero. **Not configured** means missing information and produces an incomplete Preview.
 
 ## Configure option costs
 
-Open **Options → Edit options**. Each menu option group has its own tab. Review every offered option:
+Open each **Options: [group name]** tab and review its choices. **Needs setup** identifies groups with missing rules. Choose the action under **Cost rule**, then fill in the fields it reveals. The changes stay in your draft until you save product costing.
 
-| Cost rule | Use it when |
+### Cost rules
+
+| Cost rule | Meaning and example |
 | --- | --- |
-| No cost change | The choice changes no ingredient cost |
-| Add ingredients / portion | The choice adds ingredients, such as an extra shot |
-| Replace an ingredient | The choice swaps one base ingredient while keeping its quantity |
-| Use a different recipe / unit cost | The choice needs a different complete base recipe or bought-in cost |
-| Not configured | You have not decided yet; costing stays incomplete |
+| Not configured | You have not reviewed the cost rule. This choice leaves costing incomplete. |
+| No cost change | The base already covers this choice; add no ingredient cost. For example, House Blend uses the beans in the base recipe. |
+| Add ingredients / portion | Add quantities or a shared portion on top of the base. Use this for an extra shot or ice. |
+| Replace an ingredient | Swap one base ingredient, keeping its quantity. For example, replace 18 g House Blend beans with 18 g Single Origin beans. The materials must use the same unit. |
+| Use a different recipe / unit cost | Replace the entire base with a complete alternative recipe or bought-in cost. Use this when the full drink or its quantities change. Additive extras remain separate. |
+
+**Replace an ingredient** changes one ingredient in the resolved base recipe. **Use a different recipe / unit cost** changes the whole base. Neither changes the selling price.
 
 ### Replace House Blend with Single Origin
 
 For a base recipe containing 18 g of House Blend beans:
 
-1. Keep **House Blend** as **No cost change**.
-2. Set **Single Origin** to **Replace an ingredient**.
-3. Choose House Blend beans as the source and Single Origin beans as the replacement.
-4. Click **Done**, check **Preview**, and save costing.
+1. Open the bean option group’s tab.
+2. Keep **House Blend** as **No cost change**.
+3. Set **Single Origin** to **Replace an ingredient**.
+4. Choose House Blend beans as the source and Single Origin beans as the replacement.
+5. Check **Preview**, then save product costing.
 
-The replacement uses the original 18 g. Both materials must have the same unit. It affects only the selected base recipe; an extra House Blend shot still uses House Blend. You do not need a separate recipe for this swap.
+The replacement uses the original 18 g. It affects only the selected base recipe; an extra House Blend shot still uses House Blend. You do not need a separate recipe for this swap.
 
-If several choices replace the same source ingredient, the selection remains incomplete. A source missing from the selected recipe also remains incomplete. Ingredient replacements cannot be repeated more than once per drink.
+If several selected choices replace the same source ingredient, the selection remains incomplete. A source missing from the selected recipe or a different material unit also remains incomplete. Ingredient replacements cannot be repeated more than once per drink.
 
 ### Use a different complete recipe
 
-Choose **Use a different recipe / unit cost** when quantities or the complete drink change. Select its full recipe or bought-in unit cost directly under that option.
+Choose **Use a different recipe / unit cost** when the complete base changes. Select its full recipe or bought-in unit cost directly under that option. Include packaging in the recipe; leave extra portions out so they are added once afterward.
 
-For combinations of these choices, use **Combined recipe exceptions** in the same editor. Select the exact choices and quantities, add the exception, then configure its complete base cost. Include packaging in the recipe and leave additive extra portions out. The replacement base is costed once; extra portions are added afterward.
+### Combined recipe exceptions
+
+Use this advanced section when whole-base replacement choices can be selected together, or when a repeated replacement quantity needs its own complete recipe. It appears when relevant or when an existing exception needs review. Mutually exclusive alternatives do not need a combined exception merely because there are several of them.
+
+For example, **Large** and **Oat milk** can together select one **Large Oat Latte** recipe. Choose the exact options and quantities, then assign that complete recipe to the combination. The calculator uses that base once; it does not add a Large recipe to an Oat recipe. Ingredient swaps and extras are handled separately.
+
+Existing incomplete or removed-option exceptions remain visible for review or explicit removal. If the product has no active option groups, review them under **Base cost**.
 
 ## Shared portions
 
-Choose a shared portion beside **Ingredient portion**, or keep ingredients for this product only. **Customize for [product] only** copies the shared lines into the product draft.
+Choose a shared portion beside **Ingredient portion**, or keep ingredients for this product only. **Customize for [product] only** copies the shared lines into the product draft; later changes to that shared portion do not update the copied lines.
 
-Manage shared definitions on **Costs & Pricing → Portions**, using the link beside the selector. Before saving a shared change, review and confirm the listed affected products. Sharing a menu option group alone does not establish ingredient quantities.
+Use **Manage → Portions** to open shared definitions separately. Before saving a shared change, review and confirm the listed affected products. Saving a shared portion is separate from saving the product draft and can make an already-open costing draft’s version stale. Sharing a menu option group alone does not establish ingredient quantities.
+
+## Refresh materials, recipes and portions
+
+1. Use the section’s **Manage** menu to open the relevant Materials, Recipes or Portions page in another tab.
+2. Create or update the reference there and save it.
+3. Return to product costing and click **Refresh** beside Manage.
+4. Select the new entry or review the changed ingredients, then check Preview.
+5. Save product costing when your draft is ready.
+
+Refresh updates picker data and shared-portion summaries. It preserves your unsaved costing rules, selected tab, Preview choices and quantities; it never saves the draft. Missing selected records stay visibly missing so you can repair the reference. If pack inputs change for a zero-cost material, confirm its zero cost again.
+
+A failed refresh keeps your previous reference lists and edits. Retry Refresh to load the latest entries. Refresh does not bypass a save conflict after another screen changes an affected product; review that conflict rather than discarding the draft silently.
 
 ## Preview selections
 
-1. Open **Preview** and choose options as a customer would: one-choice groups use radios, multiple-choice groups use checkboxes.
-2. Adjust repeated extras and product quantity with the quantity controls.
-3. Inspect the base, ingredient replacements, and extras in the breakdown.
-4. Repeat for other offered combinations, then save costing.
+1. Open **Preview** and choose a combination: one-choice groups use radios, multiple-choice groups use checkboxes.
+2. Choose **None** for an optional single-choice group when you want no extra.
+3. Adjust repeated extras and product quantity with the quantity controls.
+4. Inspect **Cost per drink** and the ingredient breakdown; multiple products also show a total.
+5. Repeat for other combinations, then save costing.
 
-Costs refresh as choices change. Quantities in the breakdown are per drink. Costs round once per drink, then multiply by product quantity. Unavailable menu options cannot be selected.
+Owner Preview can cost active choices marked **Unavailable for ordering**. This lets you prepare costs before offering a choice to customers. Preview does not change availability or place an order; customers still cannot order unavailable choices.
 
-An incomplete preview has no total. Resolve the named missing inputs rather than treating its known components as a complete cost. A successful preview proves only that selection, not the entire menu.
+Costs refresh as selections or costing rules change. Refreshing reference data clears old results and recalculates against current inputs. Ingredient quantities and component costs describe one drink. The calculator sums precise component costs, rounds once per drink, then multiplies by product quantity. Displayed component values are individually rounded and may not add up exactly to the per-drink total.
+
+An incomplete Preview has no total. Resolve its named missing inputs; **known components** are only a partial breakdown. A successful Preview proves that selection, not the entire menu.
 
 ## Historical costs
 
@@ -79,6 +107,6 @@ Performance uses the cost at preparation time. If preparation was not recorded, 
 
 Adding a mapping today may not fix older orders with missing selection identities or historical inputs. Use [missing-information guidance](/manage-shop/performance/missing-information).
 
-**Ready when:** offered combinations preview with complete costs and the configuration is saved.
+**Ready when:** intended combinations preview with complete costs and the configuration is saved.
 
 **Next:** [Record expenses](/manage-shop/performance/expenses).
