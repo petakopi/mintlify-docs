@@ -1,32 +1,43 @@
 ---
 title: "Calculator"
-description: "Full P&L per month — volume, costs, target margin, and an optional revenue target override"
+description: "Plan a month — expected cups, fixed costs, and target margin give you suggested prices and a breakeven"
 ---
 
-The Calculator is the "what should I be charging this month?" page. It has a **month picker at the top** — each month is its own snapshot — and synthesises four inputs into per-recipe suggested prices and a monthly revenue target.
+The Calculator is the "what should I be charging this month?" page. Each month is its own plan: use **‹ Previous month** and **Next month ›** beside the page title to move between months.
 
-## What you fill in per month
+The answer sits at the top. Your assumptions sit below it, and the answer updates as you type.
+
+## The answer
 
 <Steps>
-  <Step title="Volume">
-    Either **Manual** (enter cups directly) or **Capacity-based** (estimated from seats × dwell time × occupancy × operating days × items per visit).
+  <Step title="Can your prices cover fixed costs?">
+    A verdict pill (**Viable**, **Stretch**, **Not viable** or **Set a price**), the line "Breakeven *n* cups a month vs *planned* planned", and one sentence on what to do next. See [Can your prices cover fixed costs?](#can-your-prices-cover-fixed-costs) below.
   </Step>
-  <Step title="Monthly costs">
-    One row per line item: name, category (Labour / Overhead / Other), amount. See the [example breakdown below](#example-monthly-costs).
+  <Step title="Suggested prices">
+    One row per recipe: **Suggested** (what you'd need to charge), **Menu** (what you charge today) and **Change** (the gap between them).
   </Step>
-  <Step title="Target margin %">
-    What you want left after all costs.
-  </Step>
-  <Step title="Monthly revenue target (optional)">
-    Type the revenue (RM) you want to hit this month. **Skip this** if you've added recipes with menu prices — the Calculator derives a target from your menu price × volume (or suggested price for any recipe that doesn't have a menu price set).
-
-    Use the override when your recipes don't yet cover your full menu, or when you don't have recipes at all. The override records your monthly planning target without requiring a full recipe setup.
-
-    <Info>The override does not change Performance calculations. Recipes still unlock per-recipe sales (with [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items) linking), per-cup suggested pricing, and breakeven analysis.</Info>
+  <Step title="How it's worked out">
+    Closed by default. Open it to see the fixed cost per cup, breakeven sales, average profit per cup and total fixed costs. See [How it's worked out](#how-its-worked-out).
   </Step>
 </Steps>
 
-## Example monthly costs
+## Your assumptions
+
+One card, three parts. Press **Save settings** at the bottom when you're done.
+
+<Steps>
+  <Step title="Cups a month">
+    Type the number of cups (or items) you expect to sell. Not sure? Press **Estimate from seats instead** and fill in seats, hours per day, time each customer stays, how full the shop is, items per customer and days open. Press **Enter cups directly instead** to go back. A month saved with the seats estimate opens with it showing.
+  </Step>
+  <Step title="Fixed costs">
+    One row per monthly cost: name, category (Labour / Overhead / Other), amount. See the [example breakdown below](#example-fixed-costs).
+  </Step>
+  <Step title="Target margin %">
+    The slice of every sale you want to keep as profit.
+  </Step>
+</Steps>
+
+## Example fixed costs
 
 For the running Hot Coffee Latte example, here's a realistic breakdown for a small Malaysian coffee shop:
 
@@ -41,15 +52,15 @@ For the running Hot Coffee Latte example, here's a realistic breakdown for a sma
 | Maintenance & misc | Other | RM 100 |
 | | **Total** | **RM 4,900** |
 
-The category labels (Labour / Overhead / Other) don't change the math — the Calculator just sums everything into a single fixed-cost number. They help you organise this Calculator plan. They do not create Performance expense records or change your [legacy expenses](/manage-shop/performance/legacy-expenses).
+The categories don't change the math — the Calculator adds everything into one fixed-cost number. They help you organise this plan. They do not create Performance expense records or change your [legacy expenses](/manage-shop/performance/legacy-expenses).
 
-This RM 4,900 total is what feeds the **Fixed cost per unit** number in the Hot Coffee Latte example below: RM 4,900 ÷ 2,500 cups = RM 1.96 per cup.
+This RM 4,900 total is what feeds the **fixed cost per cup** in the Hot Coffee Latte example below: RM 4,900 ÷ 2,500 cups = RM 1.96 per cup.
 
-## What you get back
+## Suggested prices
 
-Per recipe: COGS, fixed cost per unit, suggested price.
+The **Suggested prices** table puts three columns side by side — **Suggested** (what you'd need to charge to hit your target margin), **Menu** (what you charge today, from the recipe's [Menu price](/manage-shop/costs-and-pricing/recipes#previously-saved-pricing-values)), and **Change**, the gap between them as a percentage. Change is red when your menu price is more than 5% below suggested, amber within 5%, green when it meets or beats it. Scanning that column is the fastest way to spot which drinks are underpriced.
 
-The **Suggested prices** table puts three columns side by side — **Suggested** (what the P&L math says), **Menu** (what you actually charge, from the recipe's [Menu price](/manage-shop/costs-and-pricing/recipes#previously-saved-pricing-values)), and **Δ**, the gap between them as a percentage. Δ is red when your menu price is more than 5% below suggested, amber within 5%, green when it meets or beats it. Scanning that column is the fastest way to spot which drinks are underpriced.
+A recipe with no ingredient cost yet shows **Add ingredient cost** instead of a price.
 
 ### Example: Hot Coffee Latte
 
@@ -57,57 +68,86 @@ Continuing the running example from [Recipes](/manage-shop/costs-and-pricing/rec
 
 | Input | Value |
 |---|---|
-| COGS (from the recipe's items) | RM 3.10 |
-| Fixed cost per unit (RM 4,900 monthly costs ÷ 2,500 cups) | RM 1.96 |
-| Target net margin | 30% |
+| Ingredient cost per cup (from the recipe's items) | RM 3.10 |
+| Fixed cost per cup (RM 4,900 fixed costs ÷ 2,500 cups) | RM 1.96 |
+| Target margin | 30% |
 
 Suggested price: `(3.10 + 1.96) ÷ (1 − 0.30) = RM 7.23`
 
-Round to a clean menu number (RM 7, RM 7.50, RM 8). The Calculator price (RM 7.23 here) is lower than the Quick price (RM 12.40 from the [Recipes example](/manage-shop/costs-and-pricing/recipes#quick-price-for-this-recipe)) because the two are answering different questions — Quick price targets a food-cost ratio, Calculator targets a net-margin ratio after fixed costs.
-
-Plus on the same page, a [Live summary](#live-summary) panel that rolls those per-recipe numbers into a monthly view.
-
-The recorded-activity footer links separately to [first-party Performance](/manage-shop/performance/overview) and [Loyverse backup transactions](/manage-shop/loyverse-transactions). Performance uses different financial rules from Pulse’s “True net” and does not show Pulse’s burn chart. Calculator’s planning target does not change Performance calculations.
-
-## Live summary
-
-The card on the right of the Calculator updates as you type on the left. Seven rows — the first four echo what you entered, the last three are what the Calculator worked out from it. Every row has an info icon carrying the same explanation in one line.
-
-| Row | What it is |
-|---|---|
-| **Monthly volume** | Items per month, from Step 1 — either your manual figure or the capacity estimate. |
-| **Total monthly fixed cost** | Every line in Step 2, summed. |
-| **Fixed cost / unit** | `total fixed cost ÷ monthly volume`. The slice of rent and wages each cup has to carry. |
-| **Target margin** | What you set in Step 3. |
-| **Breakeven** | Monthly revenue at which net profit = 0. See [Breakeven](#breakeven) below for the derivation. |
-| **Breakeven volume** | Cups per month you'd need to sell at your menu prices to cover all fixed costs. Same number that drives the [Unit economics check](#unit-economics-check) verdict. Shows "—" when no recipe has a menu price set. |
-| **Monthly revenue target** | What you're aiming to ring up this month — `avg price × volume`. Carries a **Manual** chip when you typed the figure into Step 4 yourself, so you can tell an override from a derived number at a glance. |
-
-The first four are a sanity check: if **Fixed cost / unit** looks wrong, one of the two rows above it is the culprit, and you don't have to leave the page to find out which.
-
-**Breakeven** and **Monthly revenue target** both prefer your recipes' **menu prices** — averaged across recipes that have one set — and fall back to the Calculator's suggested price for any recipe without a menu price. These are planning values; Performance calculates its monthly result from separate sales and cost evidence.
-
-<Note>Recipe menu prices are legacy saved values and are no longer editable on the recipe form. Storefront product prices are separate. See [previously saved pricing values](/manage-shop/costs-and-pricing/recipes#previously-saved-pricing-values).</Note>
+Round to a clean menu number (RM 7, RM 7.50, RM 8). The Calculator price (RM 7.23 here) is lower than the Quick price (RM 12.40 from the [Recipes example](/manage-shop/costs-and-pricing/recipes#quick-price-for-this-recipe)) because the two answer different questions — Quick price targets an ingredient-cost ratio, Calculator targets a margin after fixed costs.
 
 ### Why divide by (1 − margin)?
 
-If you want net margin to be 30% of revenue, then by definition the cost side of the price has to be the other 70%:
+If you want to keep 30% of every sale as profit, the costs have to fit in the other 70%:
 
-`price × 0.70 = COGS + fixed_cost_per_unit`
+`price × 0.70 = ingredient cost + fixed cost per cup`
 
 Rearranging:
 
-`price = (COGS + fixed_cost_per_unit) ÷ 0.70 = (COGS + fixed_cost_per_unit) ÷ (1 − margin)`
+`price = (ingredient cost + fixed cost per cup) ÷ (1 − margin)`
 
-There's no magic in the formula — it's the basic margin equation solved for `price`. If you change target margin from 30% to 20%, the divisor goes from 0.70 to 0.80 and the suggested price drops accordingly.
+If you change target margin from 30% to 20%, the divisor goes from 0.70 to 0.80 and the suggested price drops accordingly.
+
+## Can your prices cover fixed costs?
+
+Suggested prices answer "what *should* I charge?" — but the menu price you charge today might be different. This card tells you whether your real menu prices pay your fixed costs at the cups you plan to sell.
+
+It uses the previously saved **Menu price (RM)** on each [Recipe](/manage-shop/costs-and-pricing/recipes#previously-saved-pricing-values). For every recipe with a menu price, it works out the profit per cup (`menu price − ingredient cost`), averages it, and divides your fixed costs by that average. The result is **breakeven** — the cups a month you need to sell to pay every fixed cost at today's prices. It sits next to the cups you planned.
+
+| Verdict | What it means |
+|---|---|
+| **Viable** | Breakeven is at or below the cups you plan to sell. |
+| **Stretch** | Breakeven is above your plan. Raise prices, sell more cups, or cut fixed costs. |
+| **Not viable** | On average, your menu prices don't cover the ingredient cost per cup. Every cup loses money before fixed costs. |
+| **Set a price** | No recipe has a previously saved menu price, so the check can't run. Use Performance for the current monthly result. |
+
+The verdict updates as you edit fixed costs or cups a month. It uses legacy recipe prices; changing a storefront product price does not update them.
+
+<Note>Recipe menu prices are legacy saved values and are no longer editable on the recipe form. Storefront product prices are separate. See [previously saved pricing values](/manage-shop/costs-and-pricing/recipes#previously-saved-pricing-values).</Note>
+
+## How it's worked out
+
+Open **How it's worked out** under the answer to see four numbers, one per line:
+
+| Line | What it is |
+|---|---|
+| **Fixed cost per cup** | `total fixed costs ÷ cups a month`. The slice of rent and wages each cup has to carry. |
+| **Breakeven sales** | Sales (RM) a month at which profit is zero. See [Breakeven sales](#breakeven-sales). |
+| **Average profit per cup** | Menu price minus ingredient cost, averaged across recipes with a menu price. |
+| **Total fixed costs** | Every fixed-cost row, added up. |
+
+If **fixed cost per cup** looks wrong, either the cups a month or one of your fixed-cost rows is the culprit.
+
+### Breakeven sales
+
+```
+breakeven_sales = fixed_costs × per_cup_price ÷ profit_per_cup
+where profit_per_cup = per_cup_price − avg_ingredient_cost
+```
+
+1. **Profit per cup** = `per_cup_price − avg_ingredient_cost`. What's left of each cup's price after the ingredients — available to pay fixed costs.
+2. **Cups needed to pay fixed costs** = `fixed_costs ÷ profit_per_cup`. Multiply by `per_cup_price` to get breakeven sales.
+
+The **price** prefers your recipes' menu prices — averaged across recipes that have one — and falls back to the Calculator's suggested price when no recipe has a menu price. That's why a menu price *below* suggested *raises* breakeven: less profit per cup means you need more cups to pay the same fixed costs. These are planning numbers; Performance calculates its monthly result from separate sales and cost evidence.
+
+### Where each input comes from
+
+| Variable | Where you set it | Page |
+| --- | --- | --- |
+| `fixed_costs` | **Fixed costs** — every row added up | Calculator |
+| `cups a month` | **Cups a month** — typed in, or estimated from seats | Calculator |
+| `target_margin` | **Target margin** — only used in the suggested-price fallback | Calculator |
+| `per_cup_price` *(menu-price path)* | Previously saved recipe menu prices, averaged | Legacy recipe data |
+| `recipe_line.quantity` | Each recipe's ingredient line ("18g of beans") | Recipes → edit |
+| `item.unit_cost` | Per-item cost ("RM 0.20 per gram of beans") | Items → edit |
+
+`avg_ingredient_cost` is worked out, not entered: each recipe's ingredient cost = sum of `quantity × item.unit_cost` across its lines, then averaged across all recipes.
 
 ## Reading the result
 
-The Calculator gives you a number, but the *interpretation* matters more than the digit:
-
-- **Suggested price feels too high vs market.** Your fixed cost per unit is the lever — rent or wages too high for this volume. Either drive volume up (capacity-based mode in Step 1 helps) or cut fixed costs.
-- **Suggested price feels reasonable but breakeven exceeds realistic volume × price.** The math says the current setup can't sustain itself. Time to revisit volume assumptions or fixed costs before you ship the menu.
-- **Suggested price is well below market.** Healthy margin headroom. Either keep prices low as a volume play, or hold near market and bank the extra margin.
+- **Suggested price feels too high vs market.** Fixed cost per cup is the lever — rent or wages are too high for this many cups. Sell more cups or cut fixed costs.
+- **Verdict says Stretch.** At today's prices you need more cups than you planned. Revisit your cup estimate, prices or fixed costs before you ship the menu.
+- **Suggested price is well below market.** Healthy headroom. Keep prices low to win volume, or hold near market and bank the extra profit.
 
 ### Benchmarks for a Malaysian coffee shop
 
@@ -115,84 +155,24 @@ Rough numbers, gathered from talking to owners — your context will vary:
 
 | Metric | Healthy range |
 |---|---|
-| Food cost (% of revenue) | 25–35% |
-| Gross margin | 65–75% |
-| Net margin (after rent + wages) | 10–20% |
-| Fixed cost per unit | RM 1.50 – RM 3.00 |
+| Ingredient cost (% of sales) | 25–35% |
+| Left after ingredients (% of sales) | 65–75% |
+| Profit after rent + wages (% of sales) | 10–20% |
+| Fixed cost per cup | RM 1.50 – RM 3.00 |
 
-If your numbers are way outside these, dig in — there's usually a story (premium beans pushing food cost up, low volume making fixed cost per unit balloon, etc.).
-
-## Breakeven
-
-Breakeven is the revenue point where net profit = 0 — every ringgit below it is losing money, every ringgit above it is profit. The [Live summary](#live-summary) panel surfaces it so you can sanity-check your monthly revenue target.
-
-If your monthly revenue target is **comfortably above** breakeven, you have margin headroom. If it's **at or below** breakeven, the inputs aren't internally consistent — the math is telling you the shop can't sustain itself at the current volume + costs + margin combination, and it's worth flagging that before you ship the menu.
-
-The breakeven calculation uses contribution margin (`(price − variable_cost) ÷ price`), which is why it requires recipes to be filled in. Without per-cup variable cost, contribution margin is undefined and breakeven can't be drawn.
-
-The **price** in that formula prefers your recipes' menu prices — averaged across recipes that have one set — and falls back to the Calculator's suggested price for any recipe without a menu price. For recipes with previously saved menu prices, breakeven shifts from "what the P&L says you'd need" to "what you'd need at the prices you actually charge."
-
-### The full formula
-
-```
-breakeven_revenue = fixed_cost × per_cup_price ÷ contribution
-where contribution = per_cup_price − avg_cogs
-```
-
-The intuition in two lines:
-
-1. **Contribution per cup** = `per_cup_price − avg_cogs`. The slice of each cup's price left over after paying for the ingredients in the cup — available to pay down fixed costs.
-2. **Cups needed to fully cover fixed costs** = `fixed_cost ÷ contribution`. Multiply that cup count by `per_cup_price` and you have the revenue at breakeven.
-
-That's why setting a menu price *below* the suggested P&L price *raises* breakeven — you earn less contribution per cup, so you need more cups (and more revenue) to cover the same fixed costs.
-
-### Where each input comes from
-
-Every variable in the formula traces back to something you set somewhere in the app:
-
-| Variable | Where you set it | Page |
-| --- | --- | --- |
-| `fixed_cost` | Step 2 "Monthly costs" — every line item summed | Calculator |
-| `volume` | Step 1 "Monthly volume" (manual estimate or capacity-derived from seats × hours × occupancy × items/visit × operating days) | Calculator |
-| `target_margin` | Step 3 "Target margin" — only used when no menu prices are set, in the suggested-price fallback | Calculator |
-| `per_cup_price` *(menu-price path)* | Previously saved recipe menu prices — averaged across recipes that have one set | Legacy recipe data |
-| `recipe_line.quantity` | Each recipe's ingredient line ("18g of beans") | Recipes → edit |
-| `item.unit_cost` | Per-item cost basis ("RM 0.20 per gram of beans") | Items → edit |
-
-`avg_cogs` is computed, not entered directly: each recipe's COGS = sum of `quantity × item.unit_cost` across its ingredient lines, then averaged across all recipes.
-
-So the chain is **Items → Recipes → recipe lines compute COGS → Calculator's three steps + recipe menu prices → breakeven revenue**. If a number on the Live summary feels off, walk back one step at a time until you find the input that's wrong.
-
-## Unit economics check
-
-Suggested prices answer "what *should* I charge?" — but the menu price you actually charge today might be different (rounded for tidiness, anchored to what neighbours charge, locked in last quarter and not yet revisited). The **Unit economics check** card on the Calculator tells you, at a glance, whether your real menu prices clear your real fixed costs at your planned volume.
-
-It uses the previously saved **Menu price (RM)** value on each [Recipe](/manage-shop/costs-and-pricing/recipes#previously-saved-pricing-values). For every recipe with a menu price set, the card computes the contribution margin (`menu price − COGS`), averages it across those recipes, and divides your monthly fixed costs by that average to get the **breakeven volume at menu price** — how many cups per month you'd need to sell to break even at the prices you actually charge. This is the same number shown as **Breakeven volume** in the [Live summary](#live-summary).
-
-It compares that breakeven volume against the **planned monthly volume** from Step 1, then surfaces a verdict pill:
-
-| Verdict | What it means |
-|---|---|
-| **Viable** | Breakeven volume is at or below your planned volume. The plan clears fixed costs at your current menu prices. |
-| **Stretch** | Breakeven volume is above your planned volume. You'd need to sell more cups than you've planned for to cover fixed costs at these prices — either lift prices, drive volume, or trim fixed costs. |
-| **Not viable** | Average contribution margin is zero or negative — your menu prices are at or below COGS on average. Every cup loses money before fixed costs are even considered. |
-| **Set a price** | No recipe has a previously saved menu price. This legacy check is unavailable; use Performance for the current monthly result. |
-
-The check updates as you edit monthly costs or planned volume. It uses legacy recipe prices; changing a storefront product price does not update those values.
-
-<Note>The breakeven number on this card is in **cups per month**, against actual menu prices. The breakeven number in [the section above](#breakeven) is the same idea expressed in **revenue per month** — fixed costs divided by contribution margin at the same menu-price-preferred average. Two units, one underlying answer: "what does the shop need to do to clear fixed costs at the prices you charge?"</Note>
+If your numbers are way outside these, dig in — there's usually a story (premium beans pushing ingredient cost up, few cups making fixed cost per cup balloon, etc.).
 
 ## Per-month workflow
 
 | Action | What happens |
 |---|---|
-| Visit a new month for the first time | Form pre-fills from your most recent prior month. Cue at top: "Cloned from April 2026 — adjust as needed." |
+| Visit a new month for the first time | Form pre-fills from your most recent prior month, with a "Cloned from April 2026" cue at the top. |
 | Edit and save | Updates only that month. |
-| Visit an old month | Shows what you had set then (or blank if you never set it up). |
-| Edit a past month | One-time confirmation: "You're editing a past month. Saved changes will affect historical reports." |
-| Plan ahead (future month) | Soft-warning banner shown. |
-| **Apply forward to next N months** | Power-user shortcut to copy current month's settings forward. Max 11 months. |
+| Visit an old month | Use **‹ Previous month**. Shows what you had set then (or blank if you never set it up). |
+| Edit a past month | One-time confirmation: saving changes that month's suggested prices and cost history. |
+| Plan ahead (future month) | Use **Next month ›**. A soft warning is shown. |
+| **Apply forward to the next N months** | Open the **⋯** menu beside the title and choose **Apply forward…**. Copies the saved month's settings forward, up to 11 months. Not offered on future months. |
 
 ## What's next
 
-You've set the inputs and the Calculator has answered "what should I be charging this month?" Open [Performance](/manage-shop/performance/overview) for first-party sales and cost coverage, or [Loyverse transactions](/manage-shop/loyverse-transactions) for imported backup receipts. The two pages use separate data and financial meanings.
+Use **See actual results in Performance** at the bottom of the page to open [Performance](/manage-shop/performance/overview) for first-party sales and cost coverage. Imported Loyverse receipts live separately under [Loyverse transactions](/manage-shop/loyverse-transactions).
