@@ -70,7 +70,8 @@
                   "manage-shop/performance/weekly-activity",
                   "manage-shop/performance/monthly-answer",
                   "manage-shop/performance/email-reports",
-                  "manage-shop/performance/missing-information"
+                  "manage-shop/performance/missing-information",
+                  "manage-shop/performance/legacy-expenses"
                 ]
               },
               {
@@ -90,8 +91,7 @@
                   "manage-shop/costs-and-pricing/items",
                   "manage-shop/costs-and-pricing/recipes",
                   "manage-shop/costs-and-pricing/loyverse-items",
-                  "manage-shop/costs-and-pricing/calculator",
-                  "manage-shop/costs-and-pricing/legacy-expenses"
+                  "manage-shop/costs-and-pricing/calculator"
                 ]
               }
             ]
