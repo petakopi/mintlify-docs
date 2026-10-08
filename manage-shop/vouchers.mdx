@@ -1,0 +1,148 @@
+---
+title: "Vouchers"
+description: "Give customers a code that takes money off their online order"
+---
+
+A voucher is a code a customer types at checkout to get a discount on their online order. You pick the discount, share the code, and petakopi.my applies it and keeps count.
+
+<Info>Vouchers work on **web checkout** only for now. Orders placed in the app and sales rung up at the counter do not accept codes yet.</Info>
+
+## How it works
+
+1. You create a voucher in **Manage → Online Store → Vouchers**. It is active as soon as you save.
+2. You share the code: on a flyer, a receipt, Instagram, WhatsApp, wherever.
+3. A customer types the code at checkout. The field turns green when the code applies and shows the new total before they pay.
+4. Each customer can use a code once unless you say otherwise. The order confirmation and your Orders page both show the discount.
+
+One voucher applies per order.
+
+## Creating a voucher
+
+<Steps>
+  <Step title="Open Vouchers and tap New voucher">
+    In the Manage panel, go to **Online Store → Vouchers**.
+  </Step>
+  <Step title="Fill in the card">
+    - **Name** — for you, not the customer. "Weekend 10%" or "Grand opening".
+    - **Code** — what the customer types. One is generated for you; tap **Regenerate** for another or type your own. Letters, numbers, dashes and underscores, 2 to 30 characters. Codes are not case-sensitive.
+    - **Discount** — **% off** or **RM off** the whole order.
+    - **Active** — on by default. Switch it off to save a voucher you are not ready to share.
+  </Step>
+  <Step title="Save">
+    That is the whole thing. The sentence under the discount tells you exactly what the voucher does, for example "Any cart. Give 10% off the order."
+  </Step>
+</Steps>
+
+<Tip>Tap **Test with a cart** before sharing. It builds a sample order with your real menu prices and shows the subtotal, the discount and what the customer would pay. Nothing is saved or charged.</Tip>
+
+{/* TODO: screenshot — the New voucher card with name, code, discount and the active switch
+<Frame caption="A voucher needs a name and a discount. Everything else is optional.">
+  <img src="/images/vouchers/new-voucher.png" alt="New voucher form with name, generated code, percent discount and active switch" />
+</Frame>
+*/}
+
+## More options
+
+Below the card, **More options** stays closed until you need it. Each row shows a one-line summary of what is set.
+
+### What it applies to
+
+| Choice | What the customer gets |
+| --- | --- |
+| **The whole order** | The default. The discount comes off the order total. |
+| **Selected items only** | The discount applies to the items you tick, cheapest first. Leave nothing ticked to mean every item. |
+| **Buy some items, get others free or cheaper** | The customer must have the "buy" items in the cart. The "get" items are then free or discounted. An item cannot count as both. |
+
+For item discounts, the discount uses base prices. Switch on **Include paid extras** to discount add-ons such as oat milk or an extra shot too. **Discounted items per order** caps how many items get the discount.
+
+### Who qualifies
+
+Tick any of these and fill in the number:
+
+- **Minimum spend** — the cart must come to at least this amount before the discount. Extras count.
+- **Minimum number of items** — handy for "buy 2, get 10% off".
+- **First order at this shop only** — for welcome offers. Customers who have ordered from you before are turned away with a clear message.
+
+**Advanced rules** opens a rule builder for anything else: any-of conditions, or conditions on specific products or categories. Most vouchers never need it.
+
+### When
+
+Set a **start** and **end** date and time, in Malaysia time. Tick **weekdays** or set **daily hours** to make a happy-hour voucher. Leave everything blank for a voucher with no expiry.
+
+### Limits
+
+- **Total uses** — how many orders can use this voucher in all. Blank means no limit.
+- **Uses per customer** — once by default.
+- **Maximum saving** — caps the discount on a single order, for example 20% off but never more than RM10.
+
+<Note>An order holds a use from the moment it is placed, even before it is paid. If you cancel the order or refund it in full, the use is given back.</Note>
+
+## After you save
+
+### The voucher page
+
+Tapping a voucher in the list opens its page. The code is at the top with a **Copy** button. From here you can:
+
+- **Pause and resume** with the **Active** switch. A paused code tells the customer it is not available right now.
+- **Edit** the name, the active switch, the total uses and the end date.
+- See every order that used the voucher under **Redemptions**.
+- Make **bulk codes** and revoke codes under **Codes**.
+
+### What you cannot change
+
+Once a voucher is saved, the discount, what it applies to, who qualifies, the per-customer limit and the maximum saving are locked. A customer who read "10% off" on your flyer should always get 10% off.
+
+Need a different discount? **Revoke** the voucher and make a new one. It takes a minute.
+
+### Revoking
+
+**Revoke voucher** on the voucher page stops every code at once and cannot be undone. Orders that already used it keep their discount, and the history stays on the Redemptions tab.
+
+You can also revoke a single code or a single batch from the **Codes** tab, which leaves the rest of the voucher running.
+
+## Bulk codes
+
+A shared code is fine for a flyer. For receipts, giveaways or a partner who needs their own tracking, make a batch of one-time codes instead.
+
+<Steps>
+  <Step title="Open the Codes tab">
+    On the voucher page, open **Bulk codes** at the bottom of the Codes tab.
+  </Step>
+  <Step title="Choose how many and an optional prefix">
+    Up to 10,000 codes per batch. A prefix such as `WEEKEND` makes codes like `WEEKEND-7K2M4Q`.
+  </Step>
+  <Step title="Generate, then download the CSV">
+    Codes are generated in the background and are usable once the whole batch is ready, usually under a minute. Download the CSV to print or send them.
+  </Step>
+</Steps>
+
+Every bulk code follows the same rules as the voucher but works once, for one customer.
+
+## What the customer sees
+
+At web checkout there is a **Voucher code** field above the total. As they type, the field checks the code:
+
+- **Green** — the code applies. The discount and the new total show right away.
+- **Red** — the code does not apply, with the reason: not started yet, expired, fully claimed, already used, minimum spend or item count not met, first orders only, or not found.
+
+The discount appears again on the order confirmation page and in the WhatsApp message you receive.
+
+## Questions
+
+<AccordionGroup>
+  <Accordion title="Can a customer use two vouchers on one order?">
+    No. One voucher per order.
+  </Accordion>
+  <Accordion title="Does the voucher work in the app or at the counter?">
+    Not yet. For now, codes are accepted on web checkout only.
+  </Accordion>
+  <Accordion title="A customer says their code shows red. What do I check?">
+    Open the voucher page. Check the voucher is active, the end date has not passed, and the total uses are not exhausted. Then check the customer's cart meets the minimum spend or item count. The red message at checkout names the reason.
+  </Accordion>
+  <Accordion title="Can I change the percent after people have used it?">
+    No. Revoke the voucher and make a new one with the new percent. Past orders keep the discount they were given.
+  </Accordion>
+  <Accordion title="What happens to the count when I cancel an order?">
+    Cancelling, or refunding in full, gives the use back to the customer and to the total. The order stays listed under Redemptions so you can see what happened.
+  </Accordion>
+</AccordionGroup>

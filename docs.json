@@ -50,7 +50,8 @@
                 "group": "Online Store",
                 "expanded": false,
                 "pages": [
-                  "manage-shop/online-store"
+                  "manage-shop/online-store",
+                  "manage-shop/vouchers"
                 ]
               }
             ]
