@@ -5,7 +5,17 @@ description: "Keep payment, preparation, and completion clear."
 
 **Outcome:** Performance can tell what was sold, what was made, and when it happened.
 
-Before starting, [configure menu costs](/manage-shop/performance/costing). Open **Performance → Sales activity** for the selected month’s net sales, order count, average order value, and order evidence. Orders that need attention are listed first; every order is under **All orders**. Open **Weekly activity** for one Monday-to-Monday week. Open **Online Store → Orders** to handle web orders.
+Before starting, [configure menu costs](/manage-shop/performance/costing). Open **Performance → Sales activity** for the selected month’s net sales, order count, average order value, and order evidence. Orders that need attention are grouped by cause at the top; every order is under **By day**. Open **Weekly activity** for one Monday-to-Monday week. Open **Online Store → Orders** to handle web orders.
+
+## How sales are counted
+
+- Orders include zero-value orders and orders refunded later.
+- Average order value is gross sales divided by orders.
+- Payment exceptions are not cash received.
+- Ingredient cost (est.) includes confirmed preparation losses.
+- The days stay inside the selected month. A week that crosses into another month keeps its remaining days on Weekly activity.
+- The cards show **Net sales** (with gross and refunds underneath when there were refunds), **Orders** with the average, and **Ingredient cost (est.)**, the estimated ingredient and packaging cost. An amber **N uncosted** means some orders have no cost set yet.
+- **By day** lists Day, Sales and Orders, with Refunds only when a day has one. Open a day to see its orders.
 
 ## Follow the order
 
@@ -18,7 +28,7 @@ Before starting, [configure menu costs](/manage-shop/performance/costing). Open 
 
 Every order action above (verify payment, start preparing, mark ready, complete, cancel, refund) writes a dated financial event automatically. Performance reads those events to build the monthly answer. **Performance evidence** is the per-order view of that trail: open it from the order's **⋯** menu, or from a missing-information link in Monthly review or Sales activity.
 
-The page shows three things: whether the order can be counted yet and the reasons if not (for example, an online order not completed), the estimated ingredients consumed and their cost, and the event history with any corrections. A normal order never needs this page opened; use it to add an event the trail is missing or to correct a wrong date.
+The page shows three things: whether the order can be counted yet and the reasons if not (for example, an online order not completed), the estimated ingredients used and their cost (Ingredient cost (est.)), and the event history with any corrections. A normal order never needs this page opened; use it to add an event the trail is missing or to correct a wrong date.
 
 A POS sale counts when it is paid, because the customer is served at the counter. An online order counts when it is completed, because payment alone does not prove the customer received it. Completing a POS sale in Orders does not move its sale date.
 
@@ -37,7 +47,7 @@ Evidence entries affect reporting. They do not collect money, issue a refund, or
 
 ## Cancellations and refunds
 
-If cancelled goods were made, their ingredient consumption remains a cost. If you do not know whether they were made, choose unknown rather than treating the cost as zero.
+If cancelled goods were made, their ingredient cost remains a cost. If you do not know whether they were made, choose unknown rather than treating the cost as zero.
 
 For an order sold in September and refunded in October, the revenue reduction belongs to October. Original ingredient costs remain with September’s sale.
 

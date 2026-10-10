@@ -12,16 +12,21 @@ Record links open in a new tab so your chosen month stays in place. Your unsaved
 
 ## Order warnings
 
+Orders that need attention are grouped by cause: one row per problem with the number of orders and an action button. The first three orders are linked; **+N more** shows the rest.
+
 | Message | Next action |
 | --- | --- |
 | Order not completed yet | Check what happened. Complete the online order only if the customer received it |
 | Payment not verified | Open the order and resolve its payment status; completion does not verify payment |
 | Financial history is pending reconciliation | Open order history and compare recorded events with what actually happened |
 | Historical cost inputs or selection identities are missing | Check the product’s costing and historical records; a new mapping may not repair an old order |
+| {Product} had no cost when sold | Choose **Set cost** to open the product’s costing. Saving a first cost also fills in sales still in the open month |
+| Cancelled: were the drinks made? | Choose **Answer** and record made, not made, or unknown on the order evidence |
+| POS sale not uploaded yet | Choose **Sync POS** and sync the device |
 
-## Unknown ingredient consumption
+## Unknown ingredient cost
 
-Unknown does not mean RM 0. Check that the product, selected options, recipe quantities, and ingredient costs are configured.
+Unknown does not mean RM 0. Pages show **N uncosted** next to Ingredient cost (est.) when some orders have no cost set. Check that the product, selected options, recipe quantities, and ingredient costs are configured.
 
 If the order predates reliable cost or option records, retain the incomplete state rather than inventing a historical cost. Correct factual evidence where you can establish what happened. Contact support if the missing historical record cannot be resolved through the available forms.
 
