@@ -15,7 +15,7 @@ Open **Costs & Pricing → Menu Pricing**. Every active product is listed once, 
 | On target | The price is within 5% of the target price | No change |
 | Above target | The price is more than 5% above the target and a lower price would still hit the target | No change if it sells well, otherwise Could drop to RM 10.00 (−RM 1.00) |
 | Needs cost | The product has no cost yet | Add a cost |
-| Needs fixed costs | Cost + overhead + margin is selected but no month has been reviewed | Review a month first |
+| Needs fixed costs | You chose to cover rent and wages, but there are no fixed costs yet (no reviewed month and none entered) | Review a month first |
 
 Except for No change, the action line is a link to the product, where you change the price. The action is always about price, one instruction per product. A product above target that sells well shows **No change**, because that is pricing power, not a problem.
 
@@ -25,33 +25,46 @@ The suggested price is the target price rounded up to the next 50 sen. The page 
 
 Cost is the sales-weighted average of what each sale actually cost, over the period you picked. If the product has not sold in that period, the page uses its Product Costing setup cost instead. A product with options can cost different amounts per sale, so a setup cost shows as **Cost from**.
 
-## Choose how the target is set
+## Choose what prices should cover
 
-Tap **Settings** beside the period picker to change the method. Settings save for the whole shop. Cancel closes the window without saving.
+Tap **Settings** beside the period picker and answer **What should prices cover?** Settings save for the whole shop. Cancel closes the window without saving.
 
-**Cost as % of price** (the default)
+The line under the title always says which basis is in use, for example "Targets: ingredients at 30% of price · 103 items sold". Use it to check the numbers on the page match your choice.
+
+**Ingredients only** (the default)
 
 ```text
 target price = cost ÷ target %
 ```
 
-Worked example: a latte costs RM 3.30 and the target is 30%. RM 3.30 ÷ 0.30 = **RM 11.00**. If it sells at RM 9.50 the verdict is Underpriced, and the suggested price is RM 11.00.
+Priced like a typical cafe: ingredients are a set percentage of the price, and it needs nothing else. Worked example: a latte costs RM 3.30 and the target is 30%. RM 3.30 ÷ 0.30 = **RM 11.00**. If it sells at RM 9.50 the verdict is Underpriced, and the suggested price is RM 11.00.
 
 Drinks start at 30% and food at 35%. Food is guessed from the category name. Set your own percentage per category.
 
-**Cost + overhead + margin**
+**Ingredients plus my rent and wages**
 
 ```text
 target price = (cost + fixed cost per item) ÷ (1 − margin)
 ```
 
-Fixed cost per item is your monthly fixed costs, taken from the latest month you reviewed in Monthly review, divided by items sold per month. Leave **Items sold per month** blank to use what you actually sold in the period, scaled to 30 days. Type a number to plan for a different volume. Worked example: cost RM 3.30, fixed cost RM 2.00 per item, 20% margin gives (3.30 + 2.00) ÷ 0.80 = RM 6.63, suggested RM 7.00.
+Fixed cost per item is your monthly fixed costs divided by items sold per month. Set a **Profit margin** (20% is common). Leave **Items sold per month** blank to use what you actually sold in the period, scaled to 30 days, or type a number to plan for a different volume. Worked example: cost RM 3.30, fixed cost RM 2.00 per item, 20% margin gives (3.30 + 2.00) ÷ 0.80 = RM 6.63, suggested RM 7.00.
 
-When you pick Cost + overhead + margin in **Settings**, the working shows below the volume field as three lines: fixed costs, items per month, and overhead per item, followed by an example price for a RM 3.00 cost item. It updates as you type, and **Change** opens Monthly review. If you sold fewer than 30 items in the last 30 days, or overhead per item is over RM 20.00, a warning appears under the volume field. Enter your usual monthly volume to get a steadier number.
+Where the fixed costs come from:
+
+- **A reviewed month.** If you have reviewed a month in Performance, the page uses your latest reviewed month. The option shows which month and the amount, for example "Using your October 2026 review (RM 9,600.00)". **Change** opens Monthly review.
+- **Your own estimate.** With no reviewed month, type **Monthly fixed costs** (rent, wages, utilities) in Settings. The line under the title says "(your estimate)", and a note reminds you to review a month in Performance to use your real costs. Once you review a month, it replaces your estimate.
+
+If you have neither, the verdict is Needs fixed costs and a notice at the top offers three ways forward: enter them in Settings, review a month, or switch to ingredients only.
+
+In Settings the working shows below the volume field as three lines (fixed costs, items per month, overhead per item), followed by an example price for a RM 3.00 cost item. It updates as you type. If you sold fewer than 30 items in the last 30 days, or overhead per item is over RM 20.00, a warning appears under the volume field. Enter your usual monthly volume to get a steadier number.
+
+## This page checks items, not the shop
+
+Menu Pricing checks each item against its target. To see whether the shop as a whole is making money, open **Performance → Overview**. A link to it sits at the bottom of the page.
 
 ## Change the period
 
-Use the menu beside the title: **Last 30 days**, **Last 90 days**, and, once you have chosen a Daily report time, **This month** and **Last month**. The line under the title shows how many items were sold in the period. Costs, units sold, popularity, and the realised price all follow it.
+Use the menu beside the title: **Last 30 days**, **Last 90 days**, and, once you have chosen a Daily report time, **This month** and **Last month**. The line under the title ends with how many items were sold in the period. Costs, units sold, popularity, and the realised price all follow it.
 
 ## Read the sales mix
 
