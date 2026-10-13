@@ -5,17 +5,19 @@ description: "See which products are underpriced, what to charge instead, and wh
 
 **Outcome:** you know which prices to change, to what, and which products deserve attention.
 
-Open **Costs & Pricing → Menu Pricing**. Every active product is listed under its category with its cost, price, target price, units sold, one verdict, and one action. Prices here are **before SST**.
+Open **Costs & Pricing → Menu Pricing**. Every active product is listed under its category with one verdict and one action. Tap a product to see its cost, price, suggested price, units sold, and sales mix. Only one product is open at a time. Prices here are **before SST**.
 
-## Read the verdicts
+## Read the verdicts and actions
 
-| Verdict | Meaning | What to do |
+| Verdict | Meaning | What the action says |
 | --- | --- | --- |
-| Underpriced | The price is more than 5% below the target price | Raise to the suggested price shown |
+| Underpriced | The price is more than 5% below the target price | Raise to the suggested price |
 | On target | The price is within 5% of the target price | Keep it |
-| Overpriced | The price is more than 5% above the target and a lower price would still hit the target | Drop to the suggested price, or keep the extra margin |
+| Above target | The price is more than 5% above the target and a lower price would still hit the target | Keep it if it sells well, otherwise try the suggested price |
 | Needs cost | The product has no cost yet | Add one in Product Costing |
-| Needs fixed costs | Cost-plus is selected but no month has been reviewed | Review a month in Monthly review |
+| Needs fixed costs | Cost + overhead + margin is selected but no month has been reviewed | Review a month in Monthly review |
+
+The action line is a link to the product, where you change the price. The action also reflects how the product sells (see below), so you only ever get one instruction per product. A product above target that sells well shows **Keep it. Customers pay RM 11.00 and still buy**, because that is pricing power, not a problem.
 
 The suggested price is the target price rounded up to the next 50 sen. The page never changes a price for you.
 
@@ -25,9 +27,9 @@ Cost is the sales-weighted average of what each sale actually cost, over the per
 
 ## Choose how the target is set
 
-Open the summary line above the list to change the method. Settings save for the whole shop.
+Open **Pricing settings** below the list to change the method. Settings save for the whole shop. Use Cancel in the bottom bar to undo a change before saving.
 
-**Target food cost %** (the default)
+**Cost as % of price** (the default)
 
 ```text
 target price = cost ÷ target %
@@ -37,7 +39,7 @@ Worked example: a latte costs RM 3.30 and the target is 30%. RM 3.30 ÷ 0.30 = *
 
 Drinks start at 30% and food at 35%. Food is guessed from the category name. Set your own percentage per category.
 
-**Cost-plus with overhead**
+**Cost + overhead + margin**
 
 ```text
 target price = (cost + fixed cost per item) ÷ (1 − margin)
@@ -47,20 +49,20 @@ Fixed cost per item is your monthly fixed costs, taken from the latest month you
 
 ## Change the period
 
-Use the menu beside the title: **Last 30 days**, **Last 90 days**, and, once you have chosen a Daily report time, **This month** and **Last month**. The line under the title shows the period in use. Costs, units sold, popularity, and the realised price all follow it.
+Use the menu beside the title: **Last 30 days**, **Last 90 days**, and, once you have chosen a Daily report time, **This month** and **Last month**. The line under the title shows how many items the period covers. Costs, units sold, popularity, and the realised price all follow it.
 
-## Read the sales badges
+## Read the sales mix
 
-Once a product has sales, a second badge says how it performs against the rest of its category. **Popular** means it sold at least 70% of an equal share of its category. **Good margin** means it earns at least the category's average per item.
+Once a product has sales, the page compares it with the rest of its category. Tap the product to read it. **Sells well** means it sold at least 70% of an equal share of its category. **Earns well** means it earns at least the category's average per item. The product row shows a short reason such as "Sells well, earns little", and the action adjusts to match.
 
-| Badge | Classic name | Popular | Good margin | What to do |
-| --- | --- | --- | --- | --- |
-| Winner | Star | Yes | Yes | Keep it front and centre |
-| Popular, thin margin | Plowhorse | Yes | No | Raise the price a little or trim the portion |
-| Good margin, slow seller | Puzzle | No | Yes | Move it up the menu, rename it, or cut the price a little |
-| Slow and thin | Dog | No | No | Rework it or take it off the menu |
+| Sales mix | Sells well | Earns well | What to do |
+| --- | --- | --- | --- |
+| Sells well, earns well | Yes | Yes | Keep it front and centre |
+| Sells well, earns little | Yes | No | Trim the portion or raise the price a little |
+| Earns well, sells slowly | No | Yes | Move it up the menu, rename it, or cut the price a little |
+| Slow seller, thin margin | No | No | Rework it or take it off the menu |
 
-Products with no sales show **No sales yet**. Products without a cost get no badge.
+Products with no sales show **No sales yet** and sink to the bottom of their category. Products without a cost get no sales mix.
 
 ## Good to know
 
