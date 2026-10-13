@@ -1,0 +1,71 @@
+---
+title: "Check your menu prices"
+description: "See which products are underpriced, what to charge instead, and which ones to promote or rework."
+---
+
+**Outcome:** you know which prices to change, to what, and which products deserve attention.
+
+Open **Costs & Pricing → Menu Pricing**. Every active product is listed under its category with its cost, price, target price, units sold, one verdict, and one action. Prices here are **before SST**.
+
+## Read the verdicts
+
+| Verdict | Meaning | What to do |
+| --- | --- | --- |
+| Underpriced | The price is more than 5% below the target price | Raise to the suggested price shown |
+| On target | The price is within 5% of the target price | Keep it |
+| Overpriced | The price is more than 5% above the target and a lower price would still hit the target | Drop to the suggested price, or keep the extra margin |
+| Needs cost | The product has no cost yet | Add one in Product Costing |
+| Needs fixed costs | Cost-plus is selected but no month has been reviewed | Review a month in Monthly review |
+
+The suggested price is the target price rounded up to the next 50 sen. The page never changes a price for you.
+
+## Where the cost comes from
+
+Cost is the sales-weighted average of what each sale actually cost, over the period you picked. If the product has not sold in that period, the page uses its Product Costing setup cost instead. A product with options can cost different amounts per sale, so a setup cost shows as **Cost from**.
+
+## Choose how the target is set
+
+Open the summary line above the list to change the method. Settings save for the whole shop.
+
+**Target food cost %** (the default)
+
+```text
+target price = cost ÷ target %
+```
+
+Worked example: a latte costs RM 3.30 and the target is 30%. RM 3.30 ÷ 0.30 = **RM 11.00**. If it sells at RM 9.50 the verdict is Underpriced, and the suggested price is RM 11.00.
+
+Drinks start at 30% and food at 35%. Food is guessed from the category name. Set your own percentage per category.
+
+**Cost-plus with overhead**
+
+```text
+target price = (cost + fixed cost per item) ÷ (1 − margin)
+```
+
+Fixed cost per item is your monthly fixed costs, taken from the latest month you reviewed in Monthly review, divided by items sold per month. Leave **Items sold per month** blank to use what you actually sold in the period, scaled to 30 days. Type a number to plan for a different volume. Worked example: cost RM 3.30, fixed cost RM 2.00 per item, 20% margin gives (3.30 + 2.00) ÷ 0.80 = RM 6.63, suggested RM 7.00.
+
+## Change the period
+
+Use the menu beside the title: **Last 30 days**, **Last 90 days**, and, once you have chosen a Daily report time, **This month** and **Last month**. The line under the title shows the period in use. Costs, units sold, popularity, and the realised price all follow it.
+
+## Read the sales badges
+
+Once a product has sales, a second badge says how it performs against the rest of its category. **Popular** means it sold at least 70% of an equal share of its category. **Good margin** means it earns at least the category's average per item.
+
+| Badge | Classic name | Popular | Good margin | What to do |
+| --- | --- | --- | --- | --- |
+| Winner | Star | Yes | Yes | Keep it front and centre |
+| Popular, thin margin | Plowhorse | Yes | No | Raise the price a little or trim the portion |
+| Good margin, slow seller | Puzzle | No | Yes | Move it up the menu, rename it, or cut the price a little |
+| Slow and thin | Dog | No | No | Rework it or take it off the menu |
+
+Products with no sales show **No sales yet**. Products without a cost get no badge.
+
+## Good to know
+
+- Margins use the price customers actually paid per item, averaged over the period. Voucher discounts are taken off the whole order, not the item, so they are not in that price.
+- Figures are shown rounded to the sen. A product can sit at the edge of a 5% band, so the verdict may disagree with a hand calculation by a sen.
+- Option price adjustments are not part of the target. Compare the target with the base price.
+
+**Next:** [Review the monthly answer](/manage-shop/performance/monthly-answer).
