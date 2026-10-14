@@ -1,88 +1,46 @@
 ---
-title: "Check your menu prices"
-description: "See which products are underpriced, what to charge instead, and and how each one sells."
+title: "Price your menu"
+description: "Work out what each item should sell for so it covers ingredients, rent, wages and bills, and your profit."
 ---
 
-**Outcome:** you know which prices to change, to what, and how each product sells.
+**Outcome:** you know which prices to raise, and to what.
 
-Open **Costs & Pricing → Menu Pricing**. Every active product is listed once, with one verdict and one action. The most urgent come first (underpriced, then needs cost, then needs overhead, then above target, then on target), and within each the best sellers first. Tap a product to see its cost, price, suggested price, units sold, and sales mix. Only one product is open at a time. The chips under the title (**All**, **To raise**, **To check**, **Needs cost**, **Fine**) show how many products need each action. Tap one to list only those. Type in the search box above them to find a product by name; it works together with the chips. On a wider screen the list is a table with the same columns: product, verdict, price, suggested price, sold, and action. Prices here are **before SST**.
+Open **Costs & Pricing → Menu Pricing**. The first time, the page walks you through four short steps. Prices here are **before SST**.
 
-## Read the verdicts and actions
+## How a price is worked out
 
-| Verdict | Meaning | What the action says |
-| --- | --- | --- |
-| Underpriced | The price is more than 5% below the target price | Raise to RM 10.00 (+RM 1.00) |
-| On target | The price is within 5% of the target price | No change |
-| Above target | The price is more than 5% above the target and a lower price would still hit the target | No change if it sells well, otherwise Could drop to RM 10.00 (−RM 1.00) |
-| Needs cost | The product has no cost yet | Add a cost |
-| Needs fixed costs | You chose to cover rent and wages, but there are no fixed costs yet (no reviewed month and none entered) | Review a month first |
-
-Except for No change, the action line is a link to the product, where you change the price. The action is always about price, one instruction per product. A product above target that sells well shows **No change**, because that is pricing power, not a problem.
-
-The suggested price is the target price rounded up to the next 50 sen. The page never changes a price for you. The info button next to Suggested price in an opened product shows the working, step by step, with your own numbers.
-
-## Where the cost comes from
-
-Cost is the sales-weighted average of what each sale actually cost, over the period you picked. If the product has not sold in that period, the page uses its Product Costing setup cost instead. A product with options can cost different amounts per sale, so a setup cost shows as **Cost from**.
-
-## Choose what prices should cover
-
-Tap **Settings** beside the period picker and answer **What should prices cover?** Settings save for the whole shop. Cancel closes the window without saving.
-
-The line under the title always says which basis is in use, for example "Targets: ingredients at 30% of price · 103 items sold". Use it to check the numbers on the page match your choice.
-
-**Ingredients only** (the default)
+Every price has to pay for three things: the ingredients, your operations (rent, wages and bills), and the profit you keep.
 
 ```text
-target price = cost ÷ target %
+operations % = rent, wages and bills a month ÷ sales a month
+suggested price = ingredients ÷ (100% − operations % − profit %)
 ```
 
-Priced like a typical cafe: ingredients are a set percentage of the price, and it needs nothing else. Worked example: a latte costs RM 3.30 and the target is 30%. RM 3.30 ÷ 0.30 = **RM 11.00**. If it sells at RM 9.50 the verdict is Underpriced, and the suggested price is RM 11.00.
+Worked example: rent, wages and bills are RM 9,600.00 a month and you sell about RM 800.00 a day, 26 days a month (RM 20,800.00). Operations take 46%. Keep 20% profit and 34% is left for ingredients. A latte with RM 3.30 of ingredients needs RM 3.30 ÷ 0.34 = RM 9.71, rounded up to the next 50 sen: **RM 10.00**.
 
-Drinks start at 30% and food at 35%. Food is guessed from the category name. Set your own percentage per category.
+## Walk through the four steps
 
-**Ingredients plus my rent and wages**
+1. **Ingredients.** Check each item has a cost. Tap **Add a cost** to open that product's Costing page in a new tab.
+2. **Operations.** Enter what you pay each month even with no sales, then sales a day and days open a month. If you sell through petakopi, these are filled in from your recent orders. Not sure of the daily total? Tap **Add it up item by item** and type how many of each item you sell a day.
+3. **Profit.** Slide to the share of every ringgit you want to keep. Most cafés keep 10–20%.
+4. **Your prices.** See how many times its ingredients each item should sell for, what you keep on each item today, and the suggested price. Tap **Save targets**.
 
-```text
-target price = (cost + fixed cost per item) ÷ (1 − margin)
-```
+## Read your prices
 
-Fixed cost per item is your monthly fixed costs divided by items sold per month. Set a **Profit margin** (20% is common). Leave **Items sold per month** blank to use what you actually sold in the period, scaled to 30 days, or type a number to plan for a different volume. Worked example: cost RM 3.30, fixed cost RM 2.00 per item, 20% margin gives (3.30 + 2.00) ÷ 0.80 = RM 6.63, suggested RM 7.00.
+After you save, the page opens on your prices. The line under the title shows your targets, for example "Operations 46% · Profit 20%". Tap **Change** to go through the steps again.
 
-Where the fixed costs come from:
+| Action | Meaning |
+| --- | --- |
+| Raise to RM 10.00 (+RM 0.50) | Today's price does not cover ingredients, operations and your profit |
+| No change | Today's price already covers them |
+| Add a cost | The item has no ingredients cost yet |
 
-- **A reviewed month.** If you have reviewed a month in Performance, the page uses your latest reviewed month. The option shows which month and the amount, for example "Using your October 2026 review (RM 9,600.00)". **Change** opens Monthly review.
-- **Your own estimate.** With no reviewed month, type **Monthly fixed costs** (rent, wages, utilities) in Settings. The line under the title says "(your estimate)", and a note reminds you to review a month in Performance to use your real costs. Once you review a month, it replaces your estimate.
+**You keep** is what is left of today's price after ingredients and the item's share of operations. A negative amount, in red, means the item loses money at that price. The page never suggests dropping a price: selling for less means your rent, wages and bills take a bigger share of every sale.
 
-If you have neither, the verdict is Needs fixed costs and a notice at the top offers three ways forward: enter them in Settings, review a month, or switch to ingredients only.
-
-In Settings the working shows below the volume field as three lines (fixed costs, items per month, overhead per item), followed by an example price for a RM 3.00 cost item. It updates as you type. The info icon beside the example shows the example worked out step by step, in both pricing methods. If you sold fewer than 30 items in the last 30 days, or overhead per item is over RM 20.00, a warning appears under the volume field. Enter your usual monthly volume to get a steadier number.
+Use the chips (**To raise**, **Needs cost**, **Fine**) and the search box to find items. The period menu beside the title changes which recent orders fill in your sales.
 
 ## This page checks items, not the shop
 
-Menu Pricing checks each item against its target. To see whether the shop as a whole is making money, open **Performance → Overview**. A link to it sits at the bottom of the page.
-
-## Change the period
-
-Use the menu beside the title: **Last 30 days**, **Last 90 days**, and, once you have chosen a Daily report time, **This month** and **Last month**. The line under the title ends with how many items were sold in the period. Costs, units sold, popularity, and the realised price all follow it.
-
-## Read the sales mix
-
-Once a product has sales, the page compares it with the rest of its category. Tap the product to read it. **Sells well** means it sold at least 70% of an equal share of its category. **Earns well** means it earns at least the category's average per item. The open product shows a short reason such as "Sells well, earns little".
-
-| Sales mix | Sells well | Earns well |
-| --- | --- | --- |
-| Sells well, earns well | Yes | Yes |
-| Sells well, earns little | Yes | No |
-| Earns well, sells slowly | No | Yes |
-| Slow seller, thin margin | No | No |
-
-Products with no sales come last within their verdict. Products without a cost get no sales mix.
-
-## Good to know
-
-- Margins use the price customers actually paid per item, averaged over the period. Voucher discounts are taken off the whole order, not the item, so they are not in that price.
-- Figures are shown rounded to the sen. A product can sit at the edge of a 5% band, so the verdict may disagree with a hand calculation by a sen.
-- Option price adjustments are not part of the target. Compare the target with the base price.
+Menu Pricing checks each item. To see whether the shop as a whole is making money, open **Performance → Overview**.
 
 **Next:** [Review the monthly answer](/manage-shop/performance/monthly-answer).
