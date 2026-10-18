@@ -21,15 +21,6 @@
             "pages": [
               "index",
               "getting-started/claim-ownership",
-              {
-                "group": "Untung ke rugi?",
-                "expanded": false,
-                "pages": [
-                  "getting-started/untung-ke-rugi/ten-minutes",
-                  "getting-started/untung-ke-rugi/first-week",
-                  "getting-started/untung-ke-rugi/end-of-month"
-                ]
-              },
               "getting-started/download-app",
               "getting-started/contact"
             ]
@@ -39,6 +30,15 @@
       {
         "tab": "For Owners",
         "groups": [
+          {
+            "group": "Untung ke rugi?",
+            "expanded": false,
+            "pages": [
+              "untung-ke-rugi/ten-minutes",
+              "untung-ke-rugi/first-week",
+              "untung-ke-rugi/end-of-month"
+            ]
+          },
           {
             "group": "Shop",
             "pages": [
