@@ -62,6 +62,13 @@
                   "manage-shop/online-store",
                   "manage-shop/vouchers"
                 ]
+              },
+              {
+                "group": "Point of Sale",
+                "expanded": false,
+                "pages": [
+                  "manage-shop/receipt"
+                ]
               }
             ]
           },
