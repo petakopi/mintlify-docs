@@ -85,6 +85,34 @@ From the **Settings** section, configure:
 - **Bank payment details** — Bank name, account number, account holder, and payment QR code for bank transfer orders
 - **Store notes** — Custom instructions shown to customers at checkout (e.g. "Bring your own cup for 10% off")
 
+## Online payments with CHIP
+
+When you connect CHIP in **Payments**, customers pay online and the order is marked paid on its own. Two switches control what they can pick:
+
+- **Offer DuitNow QR** — Customers can scan a QR to pay. No fee for the customer.
+- **Customer pays the RM 1.00 FPX fee** — Customers who pay by online banking (FPX) pay RM 1.00 more. Off by default.
+
+### What customers see
+
+With either switch on, customers pick one of these at checkout:
+
+- **DuitNow (Automatic)** — Scan QR, confirmed instantly, no fee. Shows your order total.
+- **Online Banking (FPX)** — Shows your order total plus RM 1.00, marked "Includes RM 1.00 fee".
+
+If you also take DuitNow with your own QR, that choice reads **DuitNow (Manual)**. The customer scans your QR, then uploads their receipt.
+
+After paying by FPX, the customer's order page and email show what they paid, for example "Paid RM 8.90 (incl. RM 1.00 FPX fee)".
+
+### Your sales stay the same
+
+The fee goes to cover CHIP's FPX charge. It is not part of your order. A RM 7.90 order is still RM 7.90 in your orders, receipts, and Performance. Only the amount on CHIP is RM 8.90.
+
+### Refunds
+
+<Warning>Refund the **full amount the customer paid**, fee included, in your CHIP dashboard. The order page tells you how much, for example "Refund the full RM 8.90 in CHIP."</Warning>
+
+Then tap **Record refund** on the order in petakopi.my.
+
 ## Vouchers
 
 Give customers a code that takes a percent or an amount off their order at checkout. See the [Vouchers guide](/manage-shop/vouchers).
