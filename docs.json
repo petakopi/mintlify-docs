@@ -114,7 +114,6 @@
           },
           {
             "group": "AI assistant",
-            "hidden": true,
             "expanded": false,
             "pages": [
               "ai-assistant/overview",
