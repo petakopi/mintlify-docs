@@ -17,6 +17,9 @@ Pick where you use Claude. Most owners pick **claude.ai and Desktop**.
     {/* source: https://claude.com/docs/connectors/custom/add-unlisted */}
 
     <Steps>
+      <Step title="Switch on AI access">
+        Open **Manage → AI Apps** for the shop and switch on AI access. See [Switch on AI access for the shop](/ai-assistant/overview#switch-on-ai-access-for-the-shop).
+      </Step>
       <Step title="Open Connectors">
         On [claude.ai](https://claude.ai) or in Claude Desktop, open **Customize**, then **Connectors**.
         {/* source: https://claude.com/docs/connectors/getting-started */}
@@ -67,6 +70,9 @@ Pick where you use Claude. Most owners pick **claude.ai and Desktop**.
     For people who use Claude Code in a terminal.
 
     <Steps>
+      <Step title="Switch on AI access">
+        Open **Manage → AI Apps** for the shop and switch on AI access. See [Switch on AI access for the shop](/ai-assistant/overview#switch-on-ai-access-for-the-shop).
+      </Step>
       <Step title="Add the server">
         In your terminal, run:
 
@@ -93,6 +99,9 @@ Pick where you use Claude. Most owners pick **claude.ai and Desktop**.
     **claude.ai and Desktop**
 
     <Steps>
+      <Step title="Switch on AI access">
+        Open **Manage → AI Apps** for the shop and switch on AI access. See [Switch on AI access for the shop](/ai-assistant/overview#switch-on-ai-access-for-the-shop).
+      </Step>
       <Step title="Add the petakopi.my marketplace">
         Open **Customize → Plugins**, click **Add**, then **Add marketplace**. Enter `petakopi/claude-plugin`.
         {/* source: https://claude.com/docs/plugins/overview#find-and-add-a-plugin */}
@@ -109,6 +118,9 @@ Pick where you use Claude. Most owners pick **claude.ai and Desktop**.
     **Claude Code**
 
     <Steps>
+      <Step title="Switch on AI access">
+        Open **Manage → AI Apps** for the shop and switch on AI access. See [Switch on AI access for the shop](/ai-assistant/overview#switch-on-ai-access-for-the-shop).
+      </Step>
       <Step title="Install the plugin">
         In Claude Code, run:
 
@@ -193,6 +205,12 @@ Claude reads the same eight reports on every surface. It never sees customer nam
 ## Troubleshooting
 
 <AccordionGroup>
+  <Accordion title="&quot;AI access is off for &lt;shop&gt;&quot;">
+    AI access is switched off for that shop. Open **Manage → AI Apps** for the shop, switch on AI access, then ask again. You don't need to connect again.
+  </Accordion>
+  <Accordion title="The approval page says no shop is switched on">
+    None of your shops has AI access switched on yet. Open **Manage → AI Apps**, switch on AI access for a shop, then connect again.
+  </Accordion>
   <Accordion title="&quot;Couldn't connect&quot; or a 404 error">
     Check the address is exactly `https://petakopi.my/mcp`. If it is, Ask AI isn't switched on for your account yet. Message us on WhatsApp and we will turn it on.
   </Accordion>
@@ -205,7 +223,7 @@ Claude reads the same eight reports on every surface. It never sees customer nam
     {/* source: https://code.claude.com/docs/en/mcp */}
   </Accordion>
   <Accordion title="One of my shops is missing">
-    Claude only sees shops your account owns. If a shop is missing from **Shops it can read**, sign in with the account that owns that shop.
+    Claude only sees shops your account owns and has switched on. If a shop is missing from **Shops it can read**, switch on AI access for it under **Manage → AI Apps**. If it is still missing, sign in with the account that owns that shop.
   </Accordion>
   <Accordion title="Claude doesn't use petakopi.my">
     Click **+** in the message box, open **Connectors** and switch petakopi.my on for this chat. Then name it in your question, for example "Using petakopi.my, how did we do this month?"

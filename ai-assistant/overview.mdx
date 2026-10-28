@@ -9,6 +9,22 @@ petakopi.my has a read-only connection for AI assistants. You sign in once on pe
 
 To introduce the feature to another owner, send them [petakopi.my/features/ask-ai](https://petakopi.my/features/ask-ai).
 
+## Switch on AI access for the shop
+
+AI access is off for every shop until you switch it on. Do this first, once per shop:
+
+1. Open **Manage** for your shop.
+2. In the sidebar, tap **AI Apps**.
+3. Switch on **AI access for** your shop.
+
+The card reads "Let the AI apps you connect read this shop's reports. Off by default." Assistants can read only the shops you switch on.
+
+{/* TODO: screenshot: Manage → AI Apps with the "AI access for <shop>" switch card switched on, showing "Let the AI apps you connect read this shop's reports. Off by default."
+<Frame>
+  <img src="/images/ai-assistant/ai-access-switch.png" alt="The AI access switch for a shop on the AI Apps page, switched on" />
+</Frame>
+*/}
+
 ## Connect an assistant
 
 <Columns cols={3}>
@@ -35,7 +51,7 @@ https://petakopi.my/mcp
 
 ## What is shared
 
-When you approve the connection, petakopi.my shows the shops the assistant can read and the kinds of data it can see:
+When you approve the connection, petakopi.my shows the shops the assistant can read and the kinds of data it can see. Only shops with AI access switched on appear there:
 
 - Your shops and how they are set up
 - Sales totals by period, channel and payment method
@@ -46,11 +62,17 @@ When you approve the connection, petakopi.my shows the shops the assistant can r
 - Monthly expenses by category
 - Loyalty stamps, rewards and voucher use
 
-It never sees customer names, phone numbers, order notes or feedback text. It only sees shops you own.
+It never sees customer names, phone numbers, order notes or feedback text. It only sees shops you own and have switched on. If you own several shops, the assistant can still list them all and tell you which ones have AI access off, but it cannot read their reports.
 
 The reports go to the AI provider you connected, such as Anthropic or OpenAI, and are handled under that provider's terms and your settings there. petakopi.my logs which report was requested and when, so you can see when an app was last used.
 
 ## Switch it off
+
+You have two switches. Use whichever fits.
+
+**Stop every app reading one shop.** Open **Manage → AI Apps** for that shop and switch off **AI access**. Your apps stay connected, so they can read your other switched-on shops. Switch it back on and they can read this shop again, with no new approval.
+
+**Disconnect one app from all your shops:**
 
 1. Open **Manage** for your shop.
 2. In the sidebar, tap **AI Apps**.

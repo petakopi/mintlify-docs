@@ -18,6 +18,9 @@ On a **Business** workspace, only admins and owners can add a custom plugin. Ask
 ## Connect
 
 <Steps>
+  <Step title="Switch on AI access">
+    Open **Manage → AI Apps** for the shop and switch on AI access. See [Switch on AI access for the shop](/ai-assistant/overview#switch-on-ai-access-for-the-shop).
+  </Step>
   <Step title="Open Plugins">
     Go to [chatgpt.com/plugins](https://chatgpt.com/plugins).
     {/* source: https://developers.openai.com/api/docs/guides/custom-mcp-server */}
@@ -83,6 +86,12 @@ Open **Manage** for your shop, tap **AI Apps** in the sidebar, find ChatGPT and 
 ## Troubleshooting
 
 <AccordionGroup>
+  <Accordion title="&quot;AI access is off for &lt;shop&gt;&quot;">
+    AI access is switched off for that shop. Open **Manage → AI Apps** for the shop, switch on AI access, then ask again. You don't need to connect again.
+  </Accordion>
+  <Accordion title="The approval page says no shop is switched on">
+    None of your shops has AI access switched on yet. Open **Manage → AI Apps**, switch on AI access for a shop, then connect again.
+  </Accordion>
   <Accordion title="&quot;Couldn't connect&quot; or a 404 error">
     Check the address is exactly `https://petakopi.my/mcp`. If it is, Ask AI isn't switched on for your account yet. Message us on WhatsApp and we will turn it on.
   </Accordion>
@@ -93,7 +102,7 @@ Open **Manage** for your shop, tap **AI Apps** in the sidebar, find ChatGPT and 
     Connect again: open the plugin at [chatgpt.com/plugins](https://chatgpt.com/plugins), sign in again when asked, and tap **Approve** on petakopi.my.
   </Accordion>
   <Accordion title="One of my shops is missing">
-    ChatGPT only sees shops your account owns. If a shop is missing from **Shops it can read**, sign in with the account that owns that shop.
+    ChatGPT only sees shops your account owns and has switched on. If a shop is missing from **Shops it can read**, switch on AI access for it under **Manage → AI Apps**. If it is still missing, sign in with the account that owns that shop.
   </Accordion>
   <Accordion title="ChatGPT answers without your numbers">
     Start a new chat, type `@` and pick **petakopi.my** before your question.

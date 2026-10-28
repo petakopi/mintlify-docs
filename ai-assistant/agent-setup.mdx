@@ -27,8 +27,11 @@ Agent: follow the steps below, then report the shops you can see.
 | Tokens | Access tokens last 1 hour. Refresh tokens rotate: each refresh returns a new one, and a reused refresh token gets `invalid_grant`. |
 | `resource` parameter | Optional. If you send it, it must equal `https://petakopi.my/mcp`. |
 | Access | Read-only |
+| Shop access | Off for every shop by default. The owner switches each shop on under **Manage → AI Apps**. Tools read only switched-on shops. You cannot switch a shop on. |
 | 401 response | Carries a `WWW-Authenticate` header that points at the protected resource metadata. Start OAuth discovery from there. |
 | 404 on every endpoint | The feature is not switched on for this account yet. Stop and tell the owner to contact petakopi.my. |
+
+Before you start, ask the owner to switch on AI access for at least one shop under **Manage → AI Apps**. Otherwise the approval page shows an error asking them to do that first.
 
 The owner signs in on petakopi.my in a browser and taps **Approve** on a page that lists the shops you can read. You cannot complete this step for them. Tell the owner a browser window will open, and wait.
 
@@ -133,7 +136,9 @@ Call `petakopi_list_shops` with no arguments.
 
 | Result | Meaning |
 | --- | --- |
-| A table of shops with **Slug**, **Daily report time**, **Menu pricing**, **Loyalty** and **Vouchers** columns | Connected. Report the shop names and slugs to the owner, and which reports are not ready yet. |
+| A table of shops with **Slug**, **AI access**, **Daily report time**, **Menu pricing**, **Loyalty** and **Vouchers** columns | Connected. Report the shop names and slugs to the owner, and which reports are not ready yet. |
+| A row with **AI access** set to **Off** | The owner has not switched that shop on. Ask them to switch it on under **Manage → AI Apps**. Do not retry until they say it is on. |
+| "AI access is off for &lt;Shop&gt;. Turn it on at …" from another tool | Same as an **Off** row. Pass the message and its link to the owner. Do not retry. |
 | "You don't manage any shops on petakopi.my yet" | The signed-in account is not an owner. Ask the owner to sign in again with the account they use in Manage. |
 | "Shop not found" from another tool | The slug is not one of the owner's shops. Use a slug from `petakopi_list_shops`. |
 | 401 after about an hour | The token refresh failed. Re-authenticate with the client's sign-in command. |
@@ -146,7 +151,7 @@ Every tool except `petakopi_list_shops` needs `shop`, the slug from `petakopi_li
 
 | Tool | Purpose | Key arguments |
 | --- | --- | --- |
-| `petakopi_list_shops` | The owner's shops, their slugs and which reports are ready. Call it first. | None |
+| `petakopi_list_shops` | Every shop the owner has, their slugs, whether AI access is on, and which reports are ready. Call it first. | None |
 | `petakopi_sales_summary` | Net takings, orders, average order, discounts, and splits by channel and POS payment method | `period` (default `this_month`), `month`, `from`, `to`, `compare` (default `true`) |
 | `petakopi_sales_trends` | Takings by business day, weekday or hour | `period` (default `last_30_days`), `group_by`: `day`, `day_of_week`, `hour` (default `day`), `compare` (default `false`) |
 | `petakopi_menu_items` | Items with price, ingredient cost, units, keep and suggested price | `period`: `last_7_days`, `last_30_days`, `this_month`, `last_month`, `month`, `custom` (default `last_30_days`); `sort`: `best_sellers`, `worst_sellers`, `lowest_keep`, `highest_keep`, `needs_price_rise`, `uncosted`; `category`, `label`, `limit` (1 to 100, default 15), `response_format` |
@@ -174,7 +179,7 @@ The server returns its instructions in the `initialize` response. They take prec
 ## Boundaries
 
 - **Read-only.** No tool changes prices, sends messages or edits anything. Send the owner to [petakopi.my/manage](https://petakopi.my/manage) to act.
-- **Owner's shops only.** The token sees only shops the signed-in account owns.
+- **Owner's switched-on shops only.** The token reads only shops the signed-in account owns and has switched on. The connection stays in place while a shop is off.
 - **No customer details.** Tools never return customer names, phone numbers, order notes or feedback text.
 - **Up to 5 minutes old.** Figures can lag behind the Manage pages.
 - **Revocable.** The owner can cut you off under **Manage → AI Apps** at any time. Your next call then returns 401.
