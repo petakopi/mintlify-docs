@@ -3,22 +3,27 @@ title: "Ask AI about your shop"
 description: "Connect Claude or ChatGPT to your petakopi.my shops and ask about sales, menu margins, monthly profit, expenses and loyalty in plain words."
 ---
 
-**Outcome:** you ask an AI assistant "Did we make money last month?" and it answers from your own petakopi.my numbers.
+**Outcome:** you ask an AI assistant "How did we do this month?" and it answers from your own petakopi.my numbers.
 
-petakopi.my has a read-only connection for AI assistants. You sign in once on petakopi.my, approve the connection, and the assistant can then read reports for the shops you own. It cannot change prices, send messages or edit anything.
+petakopi.my has a read-only connection for AI assistants. You sign in once on petakopi.my, approve the connection, and the assistant can read eight reports for the shops you own: sales, menu prices and margins, break-even, monthly profit and loss, expenses, and loyalty and vouchers. It cannot change prices, send messages or edit anything.
 
 To introduce the feature to another owner, send them [petakopi.my/features/ask-ai](https://petakopi.my/features/ask-ai).
 
 ## Connect an assistant
 
-<Columns cols={2}>
-  <Card title="Connect Claude" icon="comment" href="/ai-assistant/claude">
-    claude.ai, Claude Desktop, Claude Code, or the petakopi.my plugin.
+<Columns cols={3}>
+  <Card title="claude.ai or Claude Desktop" icon="comment" href="/ai-assistant/claude">
+    Add petakopi.my as a custom connector.
   </Card>
-  <Card title="Connect ChatGPT" icon="comments" href="/ai-assistant/chatgpt">
-    Add petakopi.my as a custom app in ChatGPT.
+  <Card title="ChatGPT" icon="comments" href="/ai-assistant/chatgpt">
+    Add petakopi.my as a custom plugin.
+  </Card>
+  <Card title="Claude Code" icon="terminal" href="/ai-assistant/claude">
+    One command in your terminal, or the petakopi.my plugin.
   </Card>
 </Columns>
+
+**Which should I pick?** Use claude.ai or ChatGPT, whichever you already pay for. Claude Code is for developers.
 
 Every assistant uses the same address:
 
@@ -26,32 +31,9 @@ Every assistant uses the same address:
 https://petakopi.my/mcp
 ```
 
-## What you can ask
-
-The assistant can read eight reports. You don't need to name them; ask your question and it picks the right ones.
-
-| Report | Ask things like |
-| --- | --- |
-| Your shops | "Which of my shops have profit reports ready?" |
-| Sales summary | "How did we do this week compared with last week?" |
-| Sales by day, weekday or hour | "Which hours are dead on weekdays?" |
-| Menu items, prices and margins | "Which drinks should I raise, and to what?" |
-| Break-even and pricing inputs | "How much do I need to sell a day to cover costs?" |
-| Monthly profit and loss | "Did we cover our costs in September?" |
-| Monthly expenses by category | "Why were costs higher this month?" |
-| Loyalty and voucher health | "Did the Merdeka voucher pay for itself?" |
-
-The answers are only as complete as your setup:
-
-- **Profit and loss** needs a Daily report time. Set one on [Performance](/manage-shop/performance/overview). Sales reports work without it.
-- **Menu margins** need item costs. Items without a cost show as "Add a cost". See [Price your menu](/manage-shop/performance/menu-pricing).
-- **Loyalty** needs a loyalty programme. See [Loyalty card for owners](/loyalty-card/for-owners).
-
-If something is missing, the assistant tells you what to set up and links to the page.
-
 ## What is shared
 
-When you approve the connection, petakopi.my shows the shops the assistant can read and the kinds of data it can see. It can read:
+When you approve the connection, petakopi.my shows the shops the assistant can read and the kinds of data it can see:
 
 - Your shops and how they are set up
 - Sales totals by period, channel and payment method
@@ -64,17 +46,15 @@ When you approve the connection, petakopi.my shows the shops the assistant can r
 
 It never sees customer names, phone numbers, order notes or feedback text. It only sees shops you own.
 
-## Privacy
-
 The reports go to the AI provider you connected, such as Anthropic or OpenAI, and are handled under that provider's terms and your settings there. petakopi.my logs which report was requested and when, so you can see when an app was last used.
 
-## Disconnect an app
+## Switch it off
 
 1. Open **Manage** for your shop.
 2. In the sidebar, tap **AI Apps**.
 3. Find the app in **Connected AI apps** and tap **Revoke**.
 
-The app is disconnected immediately. To use it again, connect it and approve it again. You can also remove the connector inside Claude or ChatGPT.
+The app loses access straight away. To use it again, connect it and approve it again.
 
 {/* TODO: screenshot — Manage → AI Apps with one connected app: its name, the "Read-only" badge, the "Connected … · Last used …" line and the Revoke button
 <Frame>
@@ -85,6 +65,7 @@ The app is disconnected immediately. To use it again, connect it and approve it 
 ## Limits
 
 - **Read-only.** The assistant can read reports but cannot change anything. Make changes in [Manage](https://petakopi.my/manage).
+- **As complete as your setup.** Profit and loss needs a Daily report time on [Performance](/manage-shop/performance/overview). Menu margins need item costs: see [Price your menu](/manage-shop/performance/menu-pricing). Loyalty needs a [loyalty programme](/loyalty-card/for-owners). If something is missing, the assistant says what to set up.
 - **Up to 5 minutes old.** Figures can lag behind the Manage pages by a few minutes.
 - **Loyverse items.** Loyverse receipts count in takings but not in item units, so menu reports count only petakopi.my online and POS orders.
 - **Takings and net sales differ.** Sales reports count an order when it is paid. Profit and loss uses Performance net sales, so the two can differ slightly.

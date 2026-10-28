@@ -5,64 +5,128 @@ description: "Add petakopi.my to claude.ai, Claude Desktop or Claude Code, and u
 
 **Outcome:** Claude can read your shop's reports and answer questions about them.
 
-You need a petakopi.my account that owns at least one shop. Pick where you use Claude:
+<Info>You need a petakopi.my account that owns at least one shop. Keep your petakopi.my email and password handy: you sign in once during setup.</Info>
+
+## Connect
+
+Pick where you use Claude. Most owners pick **claude.ai and Desktop**.
 
 <Tabs>
   <Tab title="claude.ai and Desktop">
-    Add petakopi.my as a custom connector. Connectors you add on claude.ai also appear in Claude Desktop.
+    Custom connectors work on the Free, Pro, Max, Team and Enterprise plans. The Free plan allows one custom connector.
+    {/* source: https://claude.com/docs/connectors/custom/add-unlisted */}
 
-    1. In Claude, open **Customize → Connectors**.
-    2. Click **+ Add**, then **Add custom connector**.
-    3. Name it `petakopi.my` and paste this URL, then click **Continue**:
-       ```text
-       https://petakopi.my/mcp
-       ```
-    4. Keep the sign-in settings Claude detects, click **Continue**, then click **Add**.
-    5. Click **Connect**. A petakopi.my page opens. Sign in if asked.
-    6. Check the shops and the list of what Claude can see, then tap **Approve**.
+    <Steps>
+      <Step title="Open Connectors">
+        On [claude.ai](https://claude.ai) or in Claude Desktop, open **Customize**, then **Connectors**.
+        {/* source: https://claude.com/docs/connectors/getting-started */}
+      </Step>
+      <Step title="Add a custom connector">
+        Click **+ Add**, then **Add custom connector**.
+        {/* source: https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp */}
+      </Step>
+      <Step title="Paste the petakopi.my address">
+        Type `petakopi.my` as the name and paste this address as the URL:
 
-    To use it in a chat, click **+** at the bottom left of the message box, open **Connectors** and switch petakopi.my on.
+        ```text
+        https://petakopi.my/mcp
+        ```
 
-    On a Team or Enterprise plan, an Owner adds the connector once in **Organization settings → Connectors**. Each member then finds it in **Customize → Connectors** and clicks **Connect** to sign in with their own petakopi.my account.
+        Click **Continue**.
+      </Step>
+      <Step title="Keep the sign-in settings">
+        Claude fills in the sign-in settings for you. Keep them, click **Continue**, then click **Add**. If Claude asks how to register its OAuth client, choose **Register automatically**.
+        {/* source: https://claude.com/docs/connectors/custom/add-unlisted#choose-authentication-settings */}
+      </Step>
+      <Step title="Connect and sign in">
+        Click **Connect**. A petakopi.my page opens: in the same tab on claude.ai, or in your browser if you use Claude Desktop. Sign in if asked.
+        {/* source: https://claude.com/docs/connectors/getting-started */}
+      </Step>
+      <Step title="Approve on petakopi.my">
+        The page says the app "wants read-only access to your petakopi.my shops". It lists **Shops it can read** and **What it can see**. Check that your shops are there, then tap **Approve**.
+      </Step>
+      <Step title="Check it is connected">
+        Back in Claude, petakopi.my shows under **Your connectors** as **Connected**.
+        {/* source: https://claude.com/docs/connectors/getting-started */}
+      </Step>
+    </Steps>
 
     {/* TODO: screenshot — the claude.ai "Add custom connector" dialog with the name and https://petakopi.my/mcp filled in
     <Frame>
       <img src="/images/ai-assistant/claude-add-connector.png" alt="Claude's Add custom connector dialog with the petakopi.my URL" />
     </Frame>
     */}
+
+    **On a Team or Enterprise plan**, an Owner adds the connector once in **Organization settings → Connectors**: click **Add**, point at **Custom**, choose **Web**, then enter the name and address. Each member then opens **Customize → Connectors**, finds petakopi.my and clicks **Connect** to sign in with their own petakopi.my account.
+    {/* source: https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp */}
+
+    Once connected, petakopi.my also works in the Claude phone app.
+    {/* source: https://claude.com/docs/connectors/getting-started#where-connectors-work */}
   </Tab>
   <Tab title="Claude Code">
-    1. In your terminal, run:
-       ```bash
-       claude mcp add --transport http petakopi https://petakopi.my/mcp
-       ```
-    2. Start Claude Code and type `/mcp`. Select **petakopi** and choose to authenticate.
-    3. Your browser opens petakopi.my. Sign in if asked, check the shops, then tap **Approve**.
-    4. Back in Claude Code, ask a question such as "How did my shop do last month?"
+    For people who use Claude Code in a terminal.
 
-    {/* TODO: verify the exact /mcp menu wording for authenticating a remote server */}
+    <Steps>
+      <Step title="Add the server">
+        In your terminal, run:
+
+        ```bash
+        claude mcp add --transport http petakopi https://petakopi.my/mcp
+        ```
+        {/* source: https://code.claude.com/docs/en/mcp */}
+      </Step>
+      <Step title="Sign in">
+        Start Claude Code and type `/mcp`. Select **petakopi** and follow the steps in your browser.
+        {/* source: https://code.claude.com/docs/en/mcp */}
+      </Step>
+      <Step title="Approve on petakopi.my">
+        Your browser opens petakopi.my. Sign in if asked, check the shops under **Shops it can read**, then tap **Approve**.
+      </Step>
+    </Steps>
+
+    A yellow note on the approval page says the app runs on your computer. That is expected for Claude Code.
   </Tab>
   <Tab title="petakopi.my plugin">
-    The plugin adds the connection plus a skill that teaches Claude how to read the reports: which ones to run for each question, how to quote ringgit amounts, and Malaysian context such as SST, Ramadan and payday weeks.
-
-    **Claude Code**
-
-    1. Run:
-       ```text
-       /plugin marketplace add petakopi/claude-plugin
-       /plugin install petakopi@petakopi
-       ```
-    2. Type `/mcp`, select the petakopi server and authenticate, then tap **Approve** on petakopi.my.
-
-    Claude uses the skill on its own when you ask about sales, prices or profit. To start it yourself, type `/petakopi:analyse-shop`.
+    The plugin adds the connection plus a skill that teaches Claude how to read the reports: which ones to run for each question, how to quote ringgit amounts, and Malaysian context such as SST, Ramadan and payday weeks. Plugins work on the Pro, Max, Team and Enterprise plans.
+    {/* source: https://support.claude.com/en/articles/13837440-use-plugins-in-claude */}
 
     **claude.ai and Desktop**
 
-    1. Open **Customize → Plugins**, click **Add**, then **Add marketplace**.
-    2. Enter `petakopi/claude-plugin` and add the **petakopi** plugin.
-    3. Open the plugin's **Connectors** tab and connect petakopi.my. Sign in if asked, then tap **Approve**.
+    <Steps>
+      <Step title="Add the petakopi.my marketplace">
+        Open **Customize → Plugins**, click **Add**, then **Add marketplace**. Enter `petakopi/claude-plugin`.
+        {/* source: https://claude.com/docs/plugins/overview#find-and-add-a-plugin */}
+      </Step>
+      <Step title="Add the plugin">
+        Find **petakopi** in the list and click **Add**.
+      </Step>
+      <Step title="Connect petakopi.my">
+        Open the plugin and select its **Connectors** tab. Add and connect petakopi.my, sign in on petakopi.my, then tap **Approve**.
+        {/* source: https://claude.com/docs/plugins/overview#bundled-connectors */}
+      </Step>
+    </Steps>
 
-    {/* TODO: verify the claude.ai Add marketplace field accepts owner/repo, or needs the full https://github.com/petakopi/claude-plugin URL */}
+    **Claude Code**
+
+    <Steps>
+      <Step title="Install the plugin">
+        In Claude Code, run:
+
+        ```text
+        /plugin marketplace add petakopi/claude-plugin
+        /plugin install petakopi@petakopi
+        ```
+
+        Choose **Install for you** when asked.
+        {/* source: https://code.claude.com/docs/en/discover-plugins */}
+      </Step>
+      <Step title="Sign in">
+        Type `/mcp`, select the petakopi server, follow the steps in your browser, then tap **Approve** on petakopi.my.
+      </Step>
+    </Steps>
+
+    Claude uses the skill on its own when you ask about sales, prices or profit. To start it yourself, type `/petakopi:analyse-shop`.
+    {/* source: https://code.claude.com/docs/en/discover-plugins */}
   </Tab>
 </Tabs>
 
@@ -71,6 +135,20 @@ You need a petakopi.my account that owns at least one shop. Pick where you use C
   <img src="/images/ai-assistant/approve-access.png" alt="petakopi.my approval page listing your shops and what the app can see" />
 </Frame>
 */}
+
+## Ask your first question
+
+On claude.ai or Desktop, start a new chat. Click **+** at the bottom left of the message box, open **Connectors** and check that petakopi.my is switched on.
+{/* source: https://claude.com/docs/connectors/getting-started */}
+
+Then ask:
+
+```text
+How did we do this month?
+```
+
+Claude may ask before it runs a report. Click **Always allow** so it stops asking for that report.
+{/* source: https://claude.com/docs/connectors/getting-started */}
 
 ## Guided prompts
 
@@ -82,7 +160,11 @@ petakopi.my comes with three ready-made prompts. Each one runs the right reports
 | Find pricing opportunities | The five best price changes, with the monthly RM effect of each, and the best sellers that still need a cost |
 | Plan next month | A daily sales target, the weekdays and hours that fall short, and a weekly plan that allows for Malaysian holidays and paydays |
 
-In Claude Code, type them as slash commands:
+**On claude.ai and Desktop:** click **+** in the message box, open **Connectors**, point at **petakopi.my**, and pick a prompt.
+{/* source: https://modelcontextprotocol.io/docs/develop/connect-remote-servers */}
+
+**In Claude Code:** type `/` and look for the three prompts under petakopi. You can also type them in full:
+{/* source: https://code.claude.com/docs/en/mcp */}
 
 ```text
 /mcp__petakopi__monthly_profit_review
@@ -90,11 +172,7 @@ In Claude Code, type them as slash commands:
 /mcp__petakopi__plan_next_month
 ```
 
-These names are for the `claude mcp add` connection above. If you installed the plugin, type `/` and look for the same three names under petakopi.
-
-On claude.ai and Desktop, open the **+** menu in the message box, choose petakopi.my, and pick a prompt.
-
-{/* TODO: verify where claude.ai lists a connector's prompts in the + menu */}
+These full names are for the `claude mcp add` connection above. If you installed the plugin, pick the prompts from the `/` list instead.
 
 ## What Claude can see
 
@@ -102,6 +180,38 @@ Claude reads the same eight reports on every surface. It never sees customer nam
 
 ## Disconnect Claude
 
-In petakopi.my, open **Manage → AI Apps** and tap **Revoke** beside the app. Claude loses access immediately. In Claude, you can also remove the connector from **Customize → Connectors**, or run `claude mcp remove petakopi` in Claude Code.
+<Steps>
+  <Step title="Revoke on petakopi.my">
+    Open **Manage** for your shop, tap **AI Apps** in the sidebar, find Claude and tap **Revoke**. Claude loses access straight away.
+  </Step>
+  <Step title="Remove it from Claude (optional)">
+    On claude.ai or Desktop, open **Customize → Connectors**, select petakopi.my, open the three-dot menu and select **Remove**. In Claude Code, run `claude mcp remove petakopi`.
+    {/* source: https://claude.com/docs/connectors/getting-started#manage-or-disconnect-a-connector */}
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="&quot;Couldn't connect&quot; or a 404 error">
+    Check the address is exactly `https://petakopi.my/mcp`. If it is, Ask AI isn't switched on for your account yet. Message us on WhatsApp and we will turn it on.
+  </Accordion>
+  <Accordion title="petakopi.my says the account doesn't own a coffee shop">
+    You signed in with an account that doesn't own a shop. Sign out of petakopi.my in that browser, connect again, and sign in with the account you use in Manage.
+  </Accordion>
+  <Accordion title="Claude says it is signed out or the token expired">
+    Connect again. On claude.ai or Desktop, open **Customize → Connectors**, select petakopi.my, click **Disconnect**, then **Connect** and approve. In Claude Code, type `/mcp`, select petakopi and choose **Re-authenticate**.
+    {/* source: https://claude.com/docs/connectors/getting-started#manage-or-disconnect-a-connector */}
+    {/* source: https://code.claude.com/docs/en/mcp */}
+  </Accordion>
+  <Accordion title="One of my shops is missing">
+    Claude only sees shops your account owns. If a shop is missing from **Shops it can read**, sign in with the account that owns that shop.
+  </Accordion>
+  <Accordion title="Claude doesn't use petakopi.my">
+    Click **+** in the message box, open **Connectors** and switch petakopi.my on for this chat. Then name it in your question, for example "Using petakopi.my, how did we do this month?"
+  </Accordion>
+</AccordionGroup>
+
+<Card title="Still stuck? WhatsApp us" icon="whatsapp" href="https://wa.me/60199171765">Send us your shop's name and the step you are on.</Card>
 
 **Next:** [Connect ChatGPT](/ai-assistant/chatgpt).

@@ -1,44 +1,105 @@
 ---
 title: "Connect ChatGPT"
-description: "Add petakopi.my to ChatGPT as a custom app so it can read your shop's reports."
+description: "Add petakopi.my to ChatGPT as a custom MCP server so it can read your shop's reports."
 ---
 
 **Outcome:** ChatGPT can read your shop's reports and answer questions about them.
 
-ChatGPT adds outside connections like petakopi.my through **Developer mode**. Which plans have it, and where its switch sits, change from time to time; if a step below doesn't match your screen, search ChatGPT's help for "developer mode".
+<Info>You need a petakopi.my account that owns at least one shop, and ChatGPT open in a web browser at [chatgpt.com](https://chatgpt.com). You add petakopi.my on the web.</Info>
+{/* source: https://developers.openai.com/api/docs/guides/custom-mcp-server */}
 
-{/* TODO: verify the current ChatGPT menu names and plan availability for Developer mode and adding an MCP app; OpenAI moved them in Sept–Oct 2026 */}
+ChatGPT calls outside connections like petakopi.my **plugins**. Custom ones work on Business, Enterprise and Edu workspaces. Pro accounts can connect custom servers that only read data, which is all petakopi.my does.
+{/* source: https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt (page blocks automated fetches; checked via search excerpt 2026-10-28) */}
+{/* TODO: check help.openai.com/en/articles/12584461 in a browser: can Plus accounts add a custom MCP server, and does Pro still need Settings → Apps → Advanced settings → Developer mode switched on first? */}
+
+On a **Business** workspace, only admins and owners can add a custom plugin. Ask yours to follow the steps below and publish petakopi.my to the workspace. Each member then installs it and signs in with their own petakopi.my account.
+{/* source: https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt */}
 
 ## Connect
 
-1. In ChatGPT on the web, open **Settings** and switch on **Developer mode**.
-2. Create a new app (OpenAI also calls it a connector) and paste this URL:
-   ```text
-   https://petakopi.my/mcp
-   ```
-3. Name it `petakopi.my` and choose **OAuth** as the sign-in method, if asked.
-4. Save. A petakopi.my page opens. Sign in if asked.
-5. Check the shops and the list of what ChatGPT can see, then tap **Approve**.
-6. In a new chat, add petakopi.my from the tools menu and ask a question such as "How did my shop do last month?"
+<Steps>
+  <Step title="Open Plugins">
+    Go to [chatgpt.com/plugins](https://chatgpt.com/plugins).
+    {/* source: https://developers.openai.com/api/docs/guides/custom-mcp-server */}
+  </Step>
+  <Step title="Add a custom MCP server">
+    Click the **+** button, then **Add custom MCP server**. If you don't see it, turn on **Developer mode** under **Settings → Apps → Advanced settings** and try again.
+    {/* source: https://developers.openai.com/api/docs/guides/custom-mcp-server (Add custom MCP server); Developer mode path from the older developers.openai.com/api/docs/guides/developer-mode page, now 404, see the TODO above */}
+  </Step>
+  <Step title="Name it and paste the address">
+    Type `petakopi.my` as the name. Under **Connection**, paste this as the **Server URL**:
 
-Custom apps work in ChatGPT on the web. They may not appear in the ChatGPT phone apps.
+    ```text
+    https://petakopi.my/mcp
+    ```
+  </Step>
+  <Step title="Choose OAuth">
+    For authentication, choose **OAuth**. Leave the client ID and secret empty: ChatGPT registers itself with petakopi.my.
+    {/* source: https://developers.openai.com/plugins/build/auth */}
+    {/* TODO: check the exact label ChatGPT shows when it asks how to register the OAuth client (DCR vs CIMD); petakopi.my supports dynamic client registration only */}
+  </Step>
+  <Step title="Accept the warning">
+    Read the risk warning and select **I understand and want to continue**. Then select **Create as a plugin**.
+    {/* source: https://developers.openai.com/api/docs/guides/custom-mcp-server */}
+  </Step>
+  <Step title="Install it and sign in">
+    Install the plugin. A petakopi.my page opens. Sign in if asked.
+    {/* source: https://developers.openai.com/api/docs/guides/custom-mcp-server */}
+  </Step>
+  <Step title="Approve on petakopi.my">
+    The page says the app "wants read-only access to your petakopi.my shops". It lists **Shops it can read** and **What it can see**. Check that your shops are there, then tap **Approve**.
+  </Step>
+</Steps>
 
-{/* TODO: screenshot — ChatGPT's new app form with the petakopi.my name and https://petakopi.my/mcp filled in
+{/* TODO: screenshot — ChatGPT's Add custom MCP server form with the petakopi.my name and https://petakopi.my/mcp filled in
 <Frame>
-  <img src="/images/ai-assistant/chatgpt-add-app.png" alt="ChatGPT's new app form with the petakopi.my URL" />
+  <img src="/images/ai-assistant/chatgpt-add-app.png" alt="ChatGPT's Add custom MCP server form with the petakopi.my URL" />
 </Frame>
 */}
 
-## What ChatGPT gets
+## Ask your first question
 
-ChatGPT gets the same eight reports as Claude. It does not get the [guided prompts](/ai-assistant/claude#guided-prompts), so ask in your own words, for example:
+Start a new chat. Type `@` in the message box and pick **petakopi.my**, then ask:
+{/* source: https://developers.openai.com/api/docs/guides/custom-mcp-server */}
 
-- "Review last month's profit and give me three actions with the RM effect."
+```text
+@petakopi.my How did we do this month?
+```
+
+## Ready-made questions
+
+The three guided prompts are a Claude feature. In ChatGPT, paste one of these instead:
+
+- "Review last month's profit and give me three actions with the RM effect of each."
 - "Which items should I raise, and to what?"
-- "Which weekdays and hours fall short of break-even?"
+- "Plan next month: what do I need to sell a day, and which weekdays and hours fall short of break-even?"
 
-It never sees customer names, phone numbers, order notes or feedback text, and it cannot change anything. See [what is shared](/ai-assistant/overview#what-is-shared) and the [limits](/ai-assistant/overview#limits).
+ChatGPT reads the same eight reports as Claude. It never sees customer names, phone numbers, order notes or feedback text, and it cannot change anything. See [what is shared](/ai-assistant/overview#what-is-shared) and the [limits](/ai-assistant/overview#limits).
 
 ## Disconnect ChatGPT
 
-In petakopi.my, open **Manage → AI Apps** and tap **Revoke** beside the app. ChatGPT loses access immediately. You can also delete the app in ChatGPT's settings.
+Open **Manage** for your shop, tap **AI Apps** in the sidebar, find ChatGPT and tap **Revoke**. ChatGPT loses access straight away. To use it again, install the plugin and approve it again.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="&quot;Couldn't connect&quot; or a 404 error">
+    Check the address is exactly `https://petakopi.my/mcp`. If it is, Ask AI isn't switched on for your account yet. Message us on WhatsApp and we will turn it on.
+  </Accordion>
+  <Accordion title="petakopi.my says the account doesn't own a coffee shop">
+    You signed in with an account that doesn't own a shop. Sign out of petakopi.my in that browser, connect again, and sign in with the account you use in Manage.
+  </Accordion>
+  <Accordion title="ChatGPT says it is signed out or the token expired">
+    Connect again: open the plugin at [chatgpt.com/plugins](https://chatgpt.com/plugins), sign in again when asked, and tap **Approve** on petakopi.my.
+  </Accordion>
+  <Accordion title="One of my shops is missing">
+    ChatGPT only sees shops your account owns. If a shop is missing from **Shops it can read**, sign in with the account that owns that shop.
+  </Accordion>
+  <Accordion title="ChatGPT answers without your numbers">
+    Start a new chat, type `@` and pick **petakopi.my** before your question.
+  </Accordion>
+</AccordionGroup>
+
+<Card title="Still stuck? WhatsApp us" icon="whatsapp" href="https://wa.me/60199171765">Send us your shop's name and the step you are on.</Card>
+
+**Next:** [Connect Claude](/ai-assistant/claude).
