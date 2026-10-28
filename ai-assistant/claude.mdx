@@ -1,0 +1,105 @@
+---
+title: "Connect Claude"
+description: "Add petakopi.my to claude.ai, Claude Desktop or Claude Code, and use the guided prompts for profit, pricing and planning."
+---
+
+**Outcome:** Claude can read your shop's reports and answer questions about them.
+
+You need a petakopi.my account that owns at least one shop. Pick where you use Claude:
+
+<Tabs>
+  <Tab title="claude.ai and Desktop">
+    Add petakopi.my as a custom connector. Connectors you add on claude.ai also appear in Claude Desktop.
+
+    1. In Claude, open **Customize → Connectors**.
+    2. Click **+ Add**, then **Add custom connector**.
+    3. Name it `petakopi.my` and paste this URL, then click **Continue**:
+       ```text
+       https://petakopi.my/mcp
+       ```
+    4. Keep the sign-in settings Claude detects, click **Continue**, then click **Add**.
+    5. Click **Connect**. A petakopi.my page opens. Sign in if asked.
+    6. Check the shops and the list of what Claude can see, then tap **Approve**.
+
+    To use it in a chat, click **+** at the bottom left of the message box, open **Connectors** and switch petakopi.my on.
+
+    On a Team or Enterprise plan, an Owner adds the connector once in **Organization settings → Connectors**. Each member then finds it in **Customize → Connectors** and clicks **Connect** to sign in with their own petakopi.my account.
+
+    {/* TODO: screenshot — the claude.ai "Add custom connector" dialog with the name and https://petakopi.my/mcp filled in
+    <Frame>
+      <img src="/images/ai-assistant/claude-add-connector.png" alt="Claude's Add custom connector dialog with the petakopi.my URL" />
+    </Frame>
+    */}
+  </Tab>
+  <Tab title="Claude Code">
+    1. In your terminal, run:
+       ```bash
+       claude mcp add --transport http petakopi https://petakopi.my/mcp
+       ```
+    2. Start Claude Code and type `/mcp`. Select **petakopi** and choose to authenticate.
+    3. Your browser opens petakopi.my. Sign in if asked, check the shops, then tap **Approve**.
+    4. Back in Claude Code, ask a question such as "How did my shop do last month?"
+
+    {/* TODO: verify the exact /mcp menu wording for authenticating a remote server */}
+  </Tab>
+  <Tab title="petakopi.my plugin">
+    The plugin adds the connection plus a skill that teaches Claude how to read the reports: which ones to run for each question, how to quote ringgit amounts, and Malaysian context such as SST, Ramadan and payday weeks.
+
+    **Claude Code**
+
+    1. Run:
+       ```text
+       /plugin marketplace add petakopi/claude-plugin
+       /plugin install petakopi@petakopi
+       ```
+    2. Type `/mcp`, select the petakopi server and authenticate, then tap **Approve** on petakopi.my.
+
+    **claude.ai and Desktop**
+
+    1. Open **Customize → Plugins**, click **Add**, then **Add marketplace**.
+    2. Enter `petakopi/claude-plugin` and add the **petakopi** plugin.
+    3. Open the plugin's **Connectors** tab and connect petakopi.my. Sign in if asked, then tap **Approve**.
+
+    {/* TODO: verify the claude.ai Add marketplace field accepts owner/repo, or needs the full https://github.com/petakopi/claude-plugin URL */}
+  </Tab>
+</Tabs>
+
+{/* TODO: screenshot — the petakopi.my approval page: "<app> wants read-only access to your petakopi.my shops", the "Shops it can read" and "What it can see" lists, and the Approve and Deny buttons
+<Frame>
+  <img src="/images/ai-assistant/approve-access.png" alt="petakopi.my approval page listing your shops and what the app can see" />
+</Frame>
+*/}
+
+## Guided prompts
+
+petakopi.my comes with three ready-made prompts. Each one runs the right reports in order and gives a short answer with a table. You can add a shop and a month; leave them out and Claude uses your only shop and the most recent month.
+
+| Prompt | What you get |
+| --- | --- |
+| Monthly profit review | The month's verdict in RM, the three biggest changes from the month before, anything missing, and three actions for next month |
+| Find pricing opportunities | The five best price changes, with the monthly RM effect of each, and the best sellers that still need a cost |
+| Plan next month | A daily sales target, the weekdays and hours that fall short, and a weekly plan that allows for Malaysian holidays and paydays |
+
+In Claude Code, type them as slash commands:
+
+```text
+/mcp__petakopi__monthly_profit_review
+/mcp__petakopi__pricing_opportunities
+/mcp__petakopi__plan_next_month
+```
+
+These names are for the `claude mcp add` connection above. If you installed the plugin, type `/` and look for the same three names under petakopi.
+
+On claude.ai and Desktop, open the **+** menu in the message box, choose petakopi.my, and pick a prompt.
+
+{/* TODO: verify where claude.ai lists a connector's prompts in the + menu, and the plugin's slash command names in Claude Code */}
+
+## What Claude can see
+
+Claude reads the same eight reports on every surface. It never sees customer names, phone numbers, order notes or feedback text, and it cannot change anything. See [what is shared](/ai-assistant/overview#what-is-shared) and the [limits](/ai-assistant/overview#limits).
+
+## Disconnect Claude
+
+In petakopi.my, open **Manage → AI Apps** and tap **Revoke** beside the app. Claude loses access immediately. In Claude, you can also remove the connector from **Customize → Connectors**, or run `claude mcp remove petakopi` in Claude Code.
+
+**Next:** [Connect ChatGPT](/ai-assistant/chatgpt).

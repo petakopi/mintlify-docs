@@ -113,6 +113,16 @@
             ]
           },
           {
+            "group": "AI assistant",
+            "hidden": true,
+            "expanded": false,
+            "pages": [
+              "ai-assistant/overview",
+              "ai-assistant/claude",
+              "ai-assistant/chatgpt"
+            ]
+          },
+          {
             "group": "Loyalty Card",
             "pages": [
               "loyalty-card/overview",

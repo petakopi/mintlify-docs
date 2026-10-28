@@ -1,0 +1,44 @@
+---
+title: "Connect ChatGPT"
+description: "Add petakopi.my to ChatGPT as a custom app so it can read your shop's reports."
+---
+
+**Outcome:** ChatGPT can read your shop's reports and answer questions about them.
+
+ChatGPT adds outside connections like petakopi.my through **Developer mode**. Which plans have it, and where its switch sits, change from time to time; if a step below doesn't match your screen, search ChatGPT's help for "developer mode".
+
+{/* TODO: verify the current ChatGPT menu names and plan availability for Developer mode and adding an MCP app; OpenAI moved them in Sept–Oct 2026 */}
+
+## Connect
+
+1. In ChatGPT on the web, open **Settings** and switch on **Developer mode**.
+2. Create a new app (OpenAI also calls it a connector) and paste this URL:
+   ```text
+   https://petakopi.my/mcp
+   ```
+3. Name it `petakopi.my` and choose **OAuth** as the sign-in method, if asked.
+4. Save. A petakopi.my page opens. Sign in if asked.
+5. Check the shops and the list of what ChatGPT can see, then tap **Approve**.
+6. In a new chat, add petakopi.my from the tools menu and ask a question such as "How did my shop do last month?"
+
+Custom apps work in ChatGPT on the web. They may not appear in the ChatGPT phone apps.
+
+{/* TODO: screenshot — ChatGPT's new app form with the petakopi.my name and https://petakopi.my/mcp filled in
+<Frame>
+  <img src="/images/ai-assistant/chatgpt-add-app.png" alt="ChatGPT's new app form with the petakopi.my URL" />
+</Frame>
+*/}
+
+## What ChatGPT gets
+
+ChatGPT gets the same eight reports as Claude. It does not get the [guided prompts](/ai-assistant/claude#guided-prompts), so ask in your own words, for example:
+
+- "Review last month's profit and give me three actions with the RM effect."
+- "Which items should I raise, and to what?"
+- "Which weekdays and hours fall short of break-even?"
+
+It never sees customer names, phone numbers, order notes or feedback text, and it cannot change anything. See [what is shared](/ai-assistant/overview#what-is-shared) and the [limits](/ai-assistant/overview#limits).
+
+## Disconnect ChatGPT
+
+In petakopi.my, open **Manage → AI Apps** and tap **Revoke** beside the app. ChatGPT loses access immediately. You can also delete the app in ChatGPT's settings.
