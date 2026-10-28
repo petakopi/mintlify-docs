@@ -119,7 +119,8 @@
             "pages": [
               "ai-assistant/overview",
               "ai-assistant/claude",
-              "ai-assistant/chatgpt"
+              "ai-assistant/chatgpt",
+              "ai-assistant/agent-setup"
             ]
           },
           {

@@ -1,0 +1,203 @@
+---
+title: "Set up by an AI agent"
+description: "Instructions for a coding agent to connect itself to the petakopi.my MCP server, sign the owner in and check which shops it can read."
+---
+
+{/* source: every page is served as Markdown at <page-url>.md, https://www.mintlify.com/docs/ai/markdown-export */}
+{/* source: llms.txt lists pages but excludes pages in hidden groups unless the group sets searchable: true, https://www.mintlify.com/docs/organize/hidden-pages and https://www.mintlify.com/docs/ai/llmstxt */}
+
+<Note>
+  Using Claude Code, Cursor or another coding agent? Paste this link to it and say "set up petakopi.my".
+</Note>
+
+Agent: follow the steps below, then report the shops you can see.
+
+## Facts
+
+| Item | Value |
+| --- | --- |
+| Server URL | `https://petakopi.my/mcp` |
+| Transport | Streamable HTTP. Send JSON-RPC by POST. GET returns 405. The server is stateless: no session id is needed. |
+| Auth | OAuth 2.1 authorization code with PKCE (`S256` only) |
+| Client registration | Dynamic client registration (RFC 7591) at `https://petakopi.my/oauth/register`. Public clients only: send `token_endpoint_auth_method: none` or leave it out. No client secret. |
+| Authorization server metadata | `https://petakopi.my/.well-known/oauth-authorization-server` |
+| Protected resource metadata | `https://petakopi.my/.well-known/oauth-protected-resource/mcp` |
+| Redirect URIs | `http://localhost:<port>/…`, `http://127.0.0.1:<port>/…` or `http://[::1]:<port>/…` on any port, plus `https` on `claude.ai`, `claude.com` and `chatgpt.com`. Registration fails with `invalid_redirect_uri` if any one URI in the request is outside this list. |
+| Scope | `shop:read` only |
+| Tokens | Access tokens last 1 hour. Refresh tokens rotate: each refresh returns a new one, and a reused refresh token gets `invalid_grant`. |
+| `resource` parameter | Optional. If you send it, it must equal `https://petakopi.my/mcp`. |
+| Access | Read-only |
+| 401 response | Carries a `WWW-Authenticate` header that points at the protected resource metadata. Start OAuth discovery from there. |
+| 404 on every endpoint | The feature is not switched on for this account yet. Stop and tell the owner to contact petakopi.my. |
+
+The owner signs in on petakopi.my in a browser and taps **Approve** on a page that lists the shops you can read. You cannot complete this step for them. Tell the owner a browser window will open, and wait.
+
+## Set up, by client
+
+<Tabs>
+  <Tab title="Claude Code">
+    Run:
+
+    ```bash
+    claude mcp add --transport http petakopi https://petakopi.my/mcp
+    ```
+
+    Then ask the owner to type `/mcp` in Claude Code, select **petakopi** and sign in in the browser.
+    {/* source: https://code.claude.com/docs/en/mcp */}
+
+    Plugin alternative: the plugin adds the same server plus a skill for reading the reports. Ask the owner to run:
+
+    ```text
+    /plugin marketplace add petakopi/claude-plugin
+    /plugin install petakopi@petakopi
+    ```
+
+    Then `/mcp` to sign in. The skill starts with `/petakopi:analyse-shop`.
+    {/* source: https://code.claude.com/docs/en/discover-plugins */}
+  </Tab>
+  <Tab title="Cursor">
+    Write `.cursor/mcp.json` in the project, or `~/.cursor/mcp.json` for every project:
+
+    ```json
+    {
+      "mcpServers": {
+        "petakopi": {
+          "url": "https://petakopi.my/mcp"
+        }
+      }
+    }
+    ```
+
+    Leave out `auth`: Cursor registers itself as a public client and signs in with PKCE. Ask the owner to open Cursor's MCP settings and use the sign-in prompt next to **petakopi**.
+    {/* source: https://cursor.com/docs/context/mcp */}
+
+    Cursor's desktop callback is `http://localhost:8787/callback`, which petakopi.my accepts. Cursor may also register `https://www.cursor.com/agents/mcp/oauth/callback` or a `cursor://` address in the same request. If registration fails with `invalid_redirect_uri` naming one of those, petakopi.my does not accept Cursor yet: tell the owner to use Claude Code or claude.ai instead.
+    {/* source: https://forum.cursor.com/t/mcp-oauth-redirect-uri-mismatch-in-cursor-desktop/171867 */}
+    {/* TODO: test Cursor against production; petakopi.my rejects the whole registration if any redirect URI is not loopback or claude.ai/claude.com/chatgpt.com */}
+  </Tab>
+  <Tab title="Codex CLI">
+    Run:
+
+    ```bash
+    codex mcp add petakopi --url https://petakopi.my/mcp
+    ```
+
+    Or add this to `~/.codex/config.toml`:
+
+    ```toml
+    [mcp_servers.petakopi]
+    url = "https://petakopi.my/mcp"
+    ```
+
+    Then sign in:
+
+    ```bash
+    codex mcp login petakopi
+    ```
+
+    petakopi.my supports dynamic client registration only. If login fails during registration, run `codex mcp login petakopi --oauth-client-registration dcr`. Codex listens on `http://127.0.0.1/callback`, which petakopi.my accepts.
+    {/* source: https://learn.chatgpt.com/docs/extend/mcp.md?surface=cli (redirected from https://developers.openai.com/codex/mcp) */}
+  </Tab>
+  <Tab title="Gemini CLI">
+    Run:
+
+    ```bash
+    gemini mcp add --transport http petakopi https://petakopi.my/mcp
+    ```
+
+    Or add this to `.gemini/settings.json` (`httpUrl` is Streamable HTTP; `url` means SSE and will not work):
+
+    ```json
+    {
+      "mcpServers": {
+        "petakopi": {
+          "httpUrl": "https://petakopi.my/mcp"
+        }
+      }
+    }
+    ```
+
+    Leave out the `oauth` block: Gemini CLI finds the metadata from the 401 and registers itself. Then ask the owner to type `/mcp auth petakopi` in Gemini CLI. The default callback is `http://localhost:<random-port>/oauth/callback`, which petakopi.my accepts.
+    {/* source: https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md */}
+  </Tab>
+  <Tab title="Other clients">
+    Most MCP clients accept this shape. The URL field name varies by client: `url`, `httpUrl` or `serverUrl`.
+
+    ```json
+    {
+      "mcpServers": {
+        "petakopi": {
+          "url": "https://petakopi.my/mcp"
+        }
+      }
+    }
+    ```
+
+    {/* TODO: Windsurf uses serverUrl in ~/.codeium/windsurf/mcp_config.json per third-party guides only; verify on docs.windsurf.com */}
+
+    The client must support:
+
+    1. Streamable HTTP transport.
+    2. Discovery from a 401 `WWW-Authenticate` header (RFC 9728), then the authorization server metadata (RFC 8414).
+    3. Dynamic client registration (RFC 7591) as a public client, with a loopback redirect URI.
+    4. Authorization code with PKCE `S256`, scope `shop:read`.
+    5. Refresh tokens that rotate.
+
+    If the client cannot do OAuth, it cannot connect: petakopi.my has no API keys.
+  </Tab>
+</Tabs>
+
+## Verify
+
+Call `petakopi_list_shops` with no arguments.
+
+| Result | Meaning |
+| --- | --- |
+| A table of shops with **Slug**, **Daily report time**, **Menu pricing**, **Loyalty** and **Vouchers** columns | Connected. Report the shop names and slugs to the owner, and which reports are not ready yet. |
+| "You don't manage any shops on petakopi.my yet" | The signed-in account is not an owner. Ask the owner to sign in again with the account they use in Manage. |
+| "Shop not found" from another tool | The slug is not one of the owner's shops. Use a slug from `petakopi_list_shops`. |
+| 401 after about an hour | The token refresh failed. Re-authenticate with the client's sign-in command. |
+
+## What you can call
+
+Every tool except `petakopi_list_shops` needs `shop`, the slug from `petakopi_list_shops`.
+
+**Periods.** Tools that take `period` accept `today`, `yesterday`, `this_week`, `last_week`, `this_month`, `last_month`, `last_7_days`, `last_30_days`, `month` (with `month`) and `custom` (with `from` and `to` as `YYYY-MM-DD`, at most 366 days apart). `month` is `this_month`, `last_month` or `YYYY-MM`.
+
+| Tool | Purpose | Key arguments |
+| --- | --- | --- |
+| `petakopi_list_shops` | The owner's shops, their slugs and which reports are ready. Call it first. | None |
+| `petakopi_sales_summary` | Net takings, orders, average order, discounts, and splits by channel and POS payment method | `period` (default `this_month`), `month`, `from`, `to`, `compare` (default `true`) |
+| `petakopi_sales_trends` | Takings by business day, weekday or hour | `period` (default `last_30_days`), `group_by`: `day`, `day_of_week`, `hour` (default `day`), `compare` (default `false`) |
+| `petakopi_menu_items` | Items with price, ingredient cost, units, keep and suggested price | `period`: `last_7_days`, `last_30_days`, `this_month`, `last_month`, `month`, `custom` (default `last_30_days`); `sort`: `best_sellers`, `worst_sellers`, `lowest_keep`, `highest_keep`, `needs_price_rise`, `uncosted`; `category`, `label`, `limit` (1 to 100, default 15), `response_format` |
+| `petakopi_break_even` | Monthly fixed costs, operations %, and daily sales needed to cover costs and to keep the profit target | `shop` only |
+| `petakopi_profit_and_loss` | The month's net sales, costs, result and verdict: covered, shortfall or incomplete. Needs a Daily report time. | `month` (default `this_month`), `response_format` |
+| `petakopi_expenses` | Operating costs by category: actual, estimated, carried and unknown | `month` (default `this_month`), `compare` (default `true`), `response_format` |
+| `petakopi_loyalty_and_vouchers` | Stamps, rewards, repeat customers and voucher redemptions | `period` (default `last_30_days`), `month`, `from`, `to`, `compare` (default `true`) |
+
+`response_format` is `concise` (default) or `detailed`, which adds line items.
+
+| Prompt | What it does | Arguments |
+| --- | --- | --- |
+| `monthly_profit_review` | Verdict, three biggest changes, missing inputs and three actions for one month | `shop`, `month` (both optional) |
+| `pricing_opportunities` | The five price changes worth most over the last 30 days | `shop` (optional) |
+| `plan_next_month` | Daily sales targets, weak weekdays and hours, and a weekly plan | `shop`, `month` (both optional) |
+
+The server returns its instructions in the `initialize` response. They take precedence over this page. Five rules from them:
+
+1. Start with `petakopi_list_shops`. If the owner has one shop, use it without asking.
+2. Quote RM amounts exactly as the tools print them, for example RM 2,500.00. Do not convert or round them.
+3. State the period, and say "so far" when it is still open.
+4. Never mix takings (sales tools) with net sales (`petakopi_profit_and_loss`) in one sum.
+5. Repeat a tool's **Notes** when they affect the conclusion.
+
+## Boundaries
+
+- **Read-only.** No tool changes prices, sends messages or edits anything. Send the owner to [petakopi.my/manage](https://petakopi.my/manage) to act.
+- **Owner's shops only.** The token sees only shops the signed-in account owns.
+- **No customer details.** Tools never return customer names, phone numbers, order notes or feedback text.
+- **Up to 5 minutes old.** Figures can lag behind the Manage pages.
+- **Revocable.** The owner can cut you off under **Manage → AI Apps** at any time. Your next call then returns 401.
+- **Rate limited.** `/mcp` allows 120 calls a minute per token, then returns 429. Do not call tools in a loop; one call per report answers most questions.
+
+For what the owner sees, read [Ask AI about your shop](/ai-assistant/overview).
