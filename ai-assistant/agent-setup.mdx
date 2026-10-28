@@ -7,7 +7,7 @@ description: "Instructions for a coding agent to connect itself to the petakopi.
 {/* source: llms.txt lists pages but excludes pages in hidden groups unless the group sets searchable: true, https://www.mintlify.com/docs/organize/hidden-pages and https://www.mintlify.com/docs/ai/llmstxt */}
 
 <Note>
-  Using Claude Code, Cursor or another coding agent? Paste this link to it and say "set up petakopi.my".
+  Using Claude Code or another coding agent? Paste this link to it and say "set up petakopi.my".
 </Note>
 
 Agent: follow the steps below, then report the shops you can see.
@@ -54,26 +54,6 @@ The owner signs in on petakopi.my in a browser and taps **Approve** on a page th
 
     Then `/mcp` to sign in. The skill starts with `/petakopi:analyse-shop`.
     {/* source: https://code.claude.com/docs/en/discover-plugins */}
-  </Tab>
-  <Tab title="Cursor">
-    Write `.cursor/mcp.json` in the project, or `~/.cursor/mcp.json` for every project:
-
-    ```json
-    {
-      "mcpServers": {
-        "petakopi": {
-          "url": "https://petakopi.my/mcp"
-        }
-      }
-    }
-    ```
-
-    Leave out `auth`: Cursor registers itself as a public client and signs in with PKCE. Ask the owner to open Cursor's MCP settings and use the sign-in prompt next to **petakopi**.
-    {/* source: https://cursor.com/docs/context/mcp */}
-
-    Cursor's desktop callback is `http://localhost:8787/callback`, which petakopi.my accepts. Cursor may also register `https://www.cursor.com/agents/mcp/oauth/callback` or a `cursor://` address in the same request. If registration fails with `invalid_redirect_uri` naming one of those, petakopi.my does not accept Cursor yet: tell the owner to use Claude Code or claude.ai instead.
-    {/* source: https://forum.cursor.com/t/mcp-oauth-redirect-uri-mismatch-in-cursor-desktop/171867 */}
-    {/* TODO: test Cursor against production; petakopi.my rejects the whole registration if any redirect URI is not loopback or claude.ai/claude.com/chatgpt.com */}
   </Tab>
   <Tab title="Codex CLI">
     Run:
