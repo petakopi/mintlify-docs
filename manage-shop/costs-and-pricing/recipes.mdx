@@ -5,7 +5,7 @@ description: "Build recipes from ingredients and quantities per serving"
 
 A recipe describes the ingredients and quantities used to make a serving. Your storefront product is a separate record with its own selling price and customer choices. You build it by adding lines — each line is `{Item, quantity}` — and the app sums the line costs to give you per-cup COGS.
 
-For Performance, [link recipes to saved products and options](/manage-shop/performance/costing). This does not require Loyverse or change storefront selling prices. The Loyverse sales columns described below belong to the existing integration.
+For Performance, [link recipes to saved products and options](/manage-shop/performance/costing). This does not change storefront selling prices.
 
 ## Create a recipe
 
@@ -32,22 +32,9 @@ Using the [items defined on the Items page](/manage-shop/costs-and-pricing/items
 | Paper cup | 1 | RM 0.30 | RM 0.30 |
 | | | **Per-cup COGS** | **RM 3.10** |
 
-## Minimal and Full views
+## Recipes list
 
-The Recipes index has a **Minimal / Full** toggle at the top right, next to the search box.
-
-- **Minimal** (the default) shows just the recipe names — a clean list for finding and editing.
-- **Full** adds six columns: **COGS**, **Target food cost**, **Quick price**, **Sold this month**, **Revenue**, **Gross margin**. Target food cost and Quick price reflect previously saved targets. Every column header sorts, so you can rank by margin or by what's selling.
-
-<Warning>Everything the numbers below describe lives in **Full** view. If you've just mapped your Loyverse items and the index looks unchanged, you're in Minimal — flip the toggle. Your choice is remembered in that browser.</Warning>
-
-The search box filters by recipe name and works in both views.
-
-## Per-recipe sales (after Loyverse linkage)
-
-If you map Loyverse variants to recipes (see [Loyverse Items](/manage-shop/costs-and-pricing/loyverse-items)), three of the Full-view columns come alive: **Sold this month**, **Revenue**, **Gross margin**.
-
-Without mapping, the Recipes index still works for setup and pricing — you just don't see per-recipe sales numbers. Mapping is incremental: cover your top sellers first, leave rare items unmapped. They'll still count in your overall [Pulse](/manage-shop/pulse/overview) revenue.
+The Recipes index lists each recipe with its cost per serving. Sort by either column, and use the search box to filter by recipe name.
 
 ## What's next
 

@@ -50,8 +50,6 @@
                   "manage-shop/shop-information",
                   "manage-shop/location",
                   "manage-shop/sync-from-google",
-                  "manage-shop/loyverse",
-                  "manage-shop/loyverse-transactions",
                   "manage-shop/customer-feedback"
                 ]
               },
@@ -106,8 +104,7 @@
                 "pages": [
                   "manage-shop/costs-and-pricing/overview",
                   "manage-shop/costs-and-pricing/items",
-                  "manage-shop/costs-and-pricing/recipes",
-                  "manage-shop/costs-and-pricing/loyverse-items"
+                  "manage-shop/costs-and-pricing/recipes"
                 ]
               }
             ]
@@ -197,6 +194,18 @@
     {
       "source": "/manage-shop/costs-and-pricing/calculator",
       "destination": "/manage-shop/performance/overview"
+    },
+    {
+      "source": "/manage-shop/loyverse",
+      "destination": "/manage-shop/overview"
+    },
+    {
+      "source": "/manage-shop/loyverse-transactions",
+      "destination": "/manage-shop/overview"
+    },
+    {
+      "source": "/manage-shop/costs-and-pricing/loyverse-items",
+      "destination": "/manage-shop/costs-and-pricing/recipes"
     }
   ]
 }
