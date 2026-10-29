@@ -90,15 +90,6 @@
                 ]
               },
               {
-                "group": "Pulse",
-                "expanded": false,
-                "pages": [
-                  "manage-shop/pulse/overview",
-                  "manage-shop/pulse/summary",
-                  "manage-shop/pulse/activity"
-                ]
-              },
-              {
                 "group": "Costs & Pricing",
                 "expanded": false,
                 "pages": [
@@ -206,6 +197,10 @@
     {
       "source": "/manage-shop/costs-and-pricing/loyverse-items",
       "destination": "/manage-shop/costs-and-pricing/recipes"
+    },
+    {
+      "source": "/manage-shop/pulse/:slug*",
+      "destination": "/manage-shop/performance/overview"
     }
   ]
 }
