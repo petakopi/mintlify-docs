@@ -1,6 +1,6 @@
 ---
 title: "2. Assign ingredient costs"
-description: "Link products to recipes, replace ingredients, and check option costs."
+description: "Link products to recipes or unit costs, pick a cost rule for each option, and check option costs."
 ---
 
 **Outcome:** each menu selection has an explainable ingredient cost.
@@ -21,11 +21,11 @@ Use the Help link beside each section heading for its explanation. Help opens se
 
 1. Enter each material’s pack price, pack size, and usable yield in Materials.
 2. Create a recipe with the amount consumed per serving, including packaging.
-3. Open **Base cost** and choose **Recipe** or **Bought-in unit cost** under Cost basis.
-4. Select the recipe or enter the cost of one product.
+3. Open **Base cost** and use **Costed from** to pick the recipe, or choose **Unit cost** for a bought-in product.
+4. For **Unit cost**, enter the cost of one product in **Unit cost (RM)**.
 5. Click **Save product costing** to persist the draft.
 
-Creating a recipe alone does not link it to a product. Confirm zero only when the cost really is zero. **Not configured** means missing information and produces an incomplete Preview.
+Creating a recipe alone does not link it to a product. A zero unit cost needs **I confirm this unit cost is zero.**; confirm it only when the cost really is zero. A base with no recipe or unit cost produces an incomplete Preview.
 
 ## Configure option costs
 
@@ -37,39 +37,70 @@ Options needing setup or correction keep their fields visible, including referen
 
 ### Cost rules
 
+An option with no rule chosen counts as **No cost change**.
+
 | Cost rule | Meaning and example |
 | --- | --- |
-| Not configured | You have not reviewed the cost rule. This choice leaves costing incomplete. |
-| No cost change | The base already covers this choice; add no ingredient cost. For example, House Blend uses the beans in the base recipe. |
-| Add ingredients / add-on | Add quantities or an add-on on top of the base. Use this for an extra shot or ice. |
-| Replace an ingredient | Swap one base ingredient, keeping its quantity. For example, replace 18 g House Blend beans with 18 g Single Origin beans. The materials must use the same unit. |
-| Use a different recipe / unit cost | Replace the entire base with a complete alternative recipe or bought-in cost. Use this when the full drink or its quantities change. Additive extras remain separate. |
+| No cost change | The base already covers this choice; add no material cost. For example, House Blend uses the beans in the base recipe. |
+| Costs extra materials | Add materials or an add-on on top of the base. Use this for an extra shot or syrup. |
+| Swaps a material | Swap one recipe material for another, keeping its quantity. For example, swap 18 g House Blend beans for 18 g Single Origin beans. The materials must use the same unit. |
+| Uses a different recipe or unit cost | Replace the entire base with a complete alternative recipe or unit cost. Use this when the full drink or its quantities change. Extras stay separate. |
 
-**Replace an ingredient** changes one ingredient in the resolved base recipe. **Use a different recipe / unit cost** changes the whole base. Neither changes the selling price.
+**Swaps a material** changes one material. **Uses a different recipe or unit cost** changes the whole base. Neither changes the selling price.
 
-### Replace House Blend with Single Origin
+### Which rule?
+
+Pick the first one that fits:
+
+1. **No cost change**: costs the same as the base.
+2. **Costs extra materials**: adds on top, such as an extra shot or syrup.
+3. **Swaps a material**: same drink, one material changes in the same unit, such as a bean or milk choice.
+4. **Uses a different recipe or unit cost**: several things change (cup, ice, milk amount), or it is a different item altogether.
+
+### Swap House Blend for Single Origin
 
 For a base recipe containing 18 g of House Blend beans:
 
 1. Open the bean option group’s tab.
 2. Keep **House Blend** as **No cost change**.
-3. Set **Single Origin** to **Replace an ingredient**.
-4. Choose House Blend beans as the source and Single Origin beans as the replacement.
+3. Set **Single Origin** to **Swaps a material**.
+4. Choose House Blend beans as the source material and Single Origin beans as the replacement material.
 5. Check **Preview**, then save product costing.
 
-The replacement uses the original 18 g. It affects only the selected base recipe; an extra House Blend shot still uses House Blend. You do not need a separate recipe for this swap.
+The swap keeps the original 18 g. It also swaps the material in extras, so an extra shot uses Single Origin beans too. You do not need a separate recipe for this swap.
 
-If several selected choices replace the same source ingredient, the selection remains incomplete. A source missing from the selected recipe or a different material unit also remains incomplete. Ingredient replacements cannot be repeated more than once per drink.
+If several selected choices swap the same source material, the selection remains incomplete. A source missing from the recipe, a different material unit, or a base costed from **Unit cost** also remains incomplete. A swap cannot be repeated more than once per drink.
 
 ### Use a different complete recipe
 
-Choose **Use a different recipe / unit cost** when the complete base changes. Select its full recipe or bought-in unit cost directly under that option. Include packaging in the recipe; leave extra add-ons out so they are added once afterward.
+Choose **Uses a different recipe or unit cost** when the complete base changes. Select its full recipe or unit cost directly under that option. Include packaging in the recipe; leave extra add-ons out so they are added once afterward.
+
+### Example: latte sizes and beans
+
+A Latte has two option groups:
+
+- **Temperature & Size**: **Hot 10oz** is **No cost change** on the base recipe "Latte, Hot". **Cold 14oz** and **Cold 16oz** each use **Uses a different recipe or unit cost** with their own recipe, because cup, ice and milk all change.
+- **Beans**: **House Blend** is **No cost change**. Every other bean is **Swaps a material** from House Blend beans.
+
+A swap applies to whichever recipe the size picked, so one swap per bean covers every size. This works when all three size recipes use the same House Blend material. Without swaps, 4 beans × 3 sizes would need 12 recipes.
+
+### Example: bought-in pastries
+
+For a pastry you buy in and resell, set **Costed from** to **Unit cost**, for example RM 8.40. No material or recipe is needed.
+
+If one product groups two different bought pastries as options, such as Cinnamon Roll **Original** and **Nutella** (Nutella sells for +RM 2.00), set **Nutella** to **Uses a different recipe or unit cost** with a unit cost of RM 9.80. That number is the full cost of a Nutella roll, not RM 8.40 + RM 9.80.
+
+Use a material and recipe instead only when you cost packaging too or the same item feeds several products.
+
+<Note>
+Cost rules are saved per product, not on a shared option group. Another product using the same shared group needs its own costing.
+</Note>
 
 ### Combined recipe exceptions
 
 Use this advanced section when whole-base replacement choices can be selected together, or when a repeated replacement quantity needs its own complete recipe. It appears when relevant or when an existing exception needs review. Mutually exclusive alternatives do not need a combined exception merely because there are several of them.
 
-For example, **Large** and **Oat milk** can together select one **Large Oat Latte** recipe. Choose the exact options and quantities, then assign that complete recipe to the combination. The calculator uses that base once; it does not add a Large recipe to an Oat recipe. Ingredient swaps and extras are handled separately.
+For example, **Large** and **Oat milk** can together select one **Large Oat Latte** recipe. Choose the exact options and quantities, then assign that complete recipe to the combination. The calculator uses that base once; it does not add a Large recipe to an Oat recipe. Material swaps and extras are handled separately.
 
 Existing incomplete or removed-option exceptions remain visible for review or explicit removal. If the product has no active option groups, review them under **Base cost**.
 
