@@ -5,6 +5,70 @@ description: "Latest updates and changes to petakopi.my"
 
 Stay up to date with the latest changes to petakopi.my.
 
+<Update label="2026-11-01" description="v0.19.0" tags={["Mobile"]}>
+### New
+
+- **POS shifts** — Open a shift with your starting cash before selling, and close it by counting the cash in the drawer. The close shows expected cash, counted cash, the difference, net sales after refunds, and top items, and the report is emailed to owners. A shift left open with no sales for 8 hours closes on its own. Shifts are on for every shop.
+- **TNG eWallet and card at the counter** — POS takes TNG and Card as payment methods, and they show on receipts, POS history, and the owner order detail
+- **Update several orders at once** — In Orders, tap Select, pick orders, and complete or cancel them together. Cancelling asks for one reason the customers will see.
+- **Online Banking (FPX)** — Customers paying online can pick DuitNow QR with no fee or Online Banking (FPX), which shows its fee before they pay. On an FPX order, the owner order detail shows the full amount to refund in CHIP, fee included.
+- **POS sale notifications** — Turn on POS sales in Notification settings to get a notification each time a sale is completed on your POS. Tapping it opens the sale. It is off until you turn it on.
+- **Switch modes from Home** — A Customer Mode or Owner Mode quick action on Home switches between the two without going to the Profile tab
+
+### Improved
+
+- **Owner screens** — Orders, Inbox, Home, Loyalty, Coffee Passes, scan results, Devices, Sync, Basic Information, Feedbacks, Links, WhatsApp Messages, Expenses, Location, and POS share one layout, with cards, status pills, and the main action pinned at the bottom
+- **Try again** — When an owner screen fails to load, a Try again button reloads it in place
+- **Up-to-date POS menu** — POS downloads the latest menu when it opens with an empty ticket, when the app comes back to the front, and every 5 minutes. Refreshing by hand asks before clearing a ticket in progress, and the Menu setting is locked while a ticket is open.
+- **POS payment settings** — Payment methods for POS are set on the web only
+- **Charge from the menu** — Pressing Charge from the menu opens the ticket so you can check it before paying
+- **Options** — Required groups show how many to pick, such as Pick 1–3, optional single-choice groups in POS have a None choice, and picked options keep the product's order. Adding a product with a required option missing asks for that option.
+- **Prices** — Store prices, option price ranges, bean prices, and the POS reset warning show amounts like RM 2,500.00
+- **DuitNow choices** — The two DuitNow options are named DuitNow (Automatic) and DuitNow (Manual) so customers can tell them apart
+- **Save QR** — Saving the DuitNow QR puts it in Photos, and opens the share sheet if saving fails
+- **Scroll for more** — The product sheet, cart, checkout, and payment screens show Scroll for more when there is more above the buttons
+- **Back to the cart** — Closing a product you opened from the cart takes you back to the cart
+- **Receipt logos** — The receipt logo is kept on the phone, so receipts print it offline
+- **Order status words** — A finished pickup order shows as collected in My Orders, and a cancelled, refunded order leads with the refund
+- **Inbox** — Backing out of an opened item returns you to the same place in the Inbox
+- **Owner orders from Home** — Opening Orders from Home keeps the shop you picked
+- **Pass actions** — Tapping an issued pass opens it, with Cancel pass and Reactivate inside
+- **Links** — Tapping a link opens it for editing, with Remove link inside the edit sheet
+- **Unsaved profile edits** — Back asks before discarding changes to your profile
+
+### Fixed
+
+- Fixed an issue where Android Back closed the app instead of going back one screen
+- Fixed an issue where Android Back did not close the Home loyalty scanner
+- Fixed an issue where removing the last item from a POS ticket with a voucher crashed the app
+- Fixed an issue where a receipt could print another shop's logo
+- Fixed an issue where POS could print before it knew whether this phone is the print station
+- Fixed an issue where POS showed status check errors when the server could not be reached
+- Fixed an issue where unavailable items were counted in the cart total
+- Fixed an issue where a saved order that no longer existed blocked checkout
+- Fixed an issue where an order paid in cash at pickup showed an unpaid order warning at checkout and a Resume payment button in My Orders
+- Fixed an issue where a contact error stayed on screen after the field was fixed
+- Fixed an issue where the order not confirmed message flashed while an order was sending
+- Fixed an issue where a picked menu category in the store jumped away before you scrolled
+- Fixed an issue where Save stayed disabled until you tapped outside the field you just fixed
+- Fixed an issue where a quick second Back tap opened your profile from Home
+- Fixed an issue where messages at the top of Orders blocked the Back button
+- Fixed an issue where scanner messages showed behind the scanner
+- Fixed an issue where an opened notification still showed as unread
+- Fixed an issue where an order or feedback notification for a shop you no longer manage led to a dead end
+- Fixed an issue where marking a feedback as read made the list jump
+- Fixed an issue where the bean search dropped letters as you typed
+- Fixed an issue where bean altitude showed the same number twice and bean prices could not take two decimals
+- Fixed an issue where picking a Google place replaced or kept the wrong shop name when suggesting a shop
+- Fixed an issue where the bookmark count was wrong after removing a bookmark, and an early tap on the bookmark button was lost
+- Fixed an issue where a journal cup could be saved with nothing in it
+- Fixed an issue where long pass terms could not be scrolled on Android, and cancelled passes still showed a cup count
+- Fixed an issue where the delete pass message did not say its issued passes are deleted too
+- Fixed an issue where the 24-hour sync limit showed as a passing message instead of on the synced card
+- Fixed an issue where the POS sign-in fields hid behind the keyboard
+
+</Update>
+
 <Update label="2026-10-26" description="v0.18.0" tags={["Mobile"]}>
 ### New
 
