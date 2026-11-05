@@ -1,0 +1,67 @@
+---
+title: "Bought vs Used"
+description: "Compare what your invoices say you bought with what your sales and waste log say you used."
+---
+
+**Outcome:** see, per material, how much of what you bought your recipes and waste log can account for over the last 3 complete months.
+
+Open **Performance → Bought vs Used**. You need a Daily report time and confirmed ingredient invoices under **Expenses**. A new shop sees "Come back after your first full month" until one month has closed.
+
+## Match your invoice lines
+
+Invoice lines are written by suppliers, so the page needs to know which material each one is. You match each line once; every confirmed invoice with the same description and unit counts from then on, past and future.
+
+1. Under **Purchases not matched**, find a line, such as "Fresh Milk 1L · ctn · 3 lines · RM 450.00".
+2. Choose **Match** and pick the material, such as **Fresh milk**. Search matches any part of the name.
+3. Check how much one invoice unit holds, such as **1 ctn = 12000 ml**. The box is filled in for you: 1 kg = 1000 g, 1 L = 1000 ml, and anything else (ctn, pack, box) starts at the material's pack size.
+4. Choose **Save match**.
+
+For a line that is not a material, such as bought-in croissants or cleaning cloths, choose **Not a material**. It leaves the unmatched total.
+
+The unit is part of the match. If a supplier writes "carton" instead of "ctn", that line shows as unmatched again, so it never counts with the wrong amount. Open **Matched** to edit or remove a match; the page updates on the next load.
+
+In the invoice editor, each purchase line says what it counts as, such as "Counts as 24 L Fresh milk.", or links back here when it is not matched.
+
+## Read the comparison
+
+Each material shows four figures for the period:
+
+| Figure | What it is |
+| --- | --- |
+| Bought | Matched lines on confirmed invoices, in the material's unit |
+| Used in sales | Recipe amounts for every sale with a cost, after yield |
+| Logged waste | What you logged on the [Waste](/manage-shop/performance/waste) page |
+| Unexplained | Bought minus used minus waste, in units, RM and % of bought |
+
+Example: you bought 60 L of milk; sales recipes account for 52 L and the waste log for 1 L. Unexplained is 7 L. At an average of RM 7.50 per litre, that is RM 52.50.
+
+Materials are sorted by Unexplained RM, largest first. **By month** shows each month on its own; a big buy near a month end makes single months swing, so read the 3-month figure first.
+
+**Used more than bought** means the figures go the other way: stock bought before this period, purchases not matched yet, or recipe amounts set higher than staff pour.
+
+## How much of your sales has a cost
+
+Usage only comes from sales with a cost. The page checks what share of your sales (in RM) has one:
+
+- **70 % and over:** the comparison shows as is.
+- **50 % to under 70 %:** it shows with a **Rough** badge.
+- **Under 50 %:** usage is hidden and only what you bought shows. Cost more of your menu under **Products**.
+
+Keyed-in daily totals have no items, so they count as sales without a cost.
+
+## What to check when Unexplained is big
+
+Check, in this order:
+
+1. Is the match right (1 ctn = 12000 ml)?
+2. Do your recipes match what staff pour (a 200 ml latte poured at 240 ml)?
+3. Is waste logged every day?
+4. Is stock still on the shelf from a big buy?
+
+Free drinks with no sale count here too: log them as **Staff drink** or **Given free** on the Waste page.
+
+## Limits
+
+- There is no opening or closing stock, so building up or running down stock shows as a gap.
+- Unmatched purchases are left out of Bought; the unmatched total says how much.
+- Bought-in products costed by unit cost are left out.
