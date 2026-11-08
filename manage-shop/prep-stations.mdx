@@ -7,60 +7,104 @@ Prep stations let your bar and your kitchen each get their own ticket. Drinks pr
 
 <Info>Prep stations are rolling out shop by shop. If you don't see **Settings → Printing** in the Manage panel yet, ask the petakopi.my team to turn it on for your shop.</Info>
 
-Every shop starts with one station called **Kitchen**. Until you add another, everything prints exactly as it does today.
+## The example on this page
 
-## Set up Bar and Kitchen on the web
+Kopi Kampung has **one** Android phone with **one** Bluetooth printer at the counter. Its menu has three categories:
+
+| Category | Products |
+|---|---|
+| Coffee | Latte, Americano, Spanish Latte |
+| Food | Nasi Lemak, Roti Bakar |
+| Bestsellers | Latte, Nasi Lemak |
+
+The barista wants a slip with only the drinks, and the cook wants a slip with only the food. We'll set that up with one extra station called **Bar**.
+
+## How stations decide what prints where
+
+Every shop starts with one station called **Kitchen**. It is the default: it prints every item that **no other station has claimed**. With only Kitchen, everything prints on one slip, exactly as before.
+
+Adding a station takes its categories out onto their own slip:
+
+| Station | Categories | Prints |
+|---|---|---|
+| Bar | Coffee | Latte, Americano, Spanish Latte |
+| Kitchen (default) | everything not in Bar | Nasi Lemak, Roti Bakar |
+
+Bestsellers has no station, so it doesn't move anything. A Latte still prints at Bar because Coffee claims it.
+
+## Step 1: Add Bar on the web
 
 <Steps>
   <Step title="Open Printing">
-    In the Manage panel, go to **Settings → Printing**.
+    In the Manage panel, go to **Settings → Printing**. You'll see **Kitchen** with a **Default** badge.
   </Step>
-  <Step title="Add a station">
-    Tap **Add prep station**, name it (for example **Bar**) and tick the categories it makes, such as **Coffee** and **Non-coffee**. You can rename **Kitchen** too.
+  <Step title="Add the station">
+    Tap **Add prep station**, name it **Bar** and tick **Coffee**. Leave **Food** and **Bestsellers** unticked; they stay on Kitchen.
   </Step>
-  <Step title="Leave the rest on Kitchen">
-    Any category without a station prints at your first station, shown as **Default (Kitchen)**. Sections like **Bestsellers** can stay that way.
+  <Step title="Check the list">
+    Bar now reads **Coffee · 3 products** and Kitchen reads **Items not in another station · 2 products**. Both say **no phone** until step 2.
   </Step>
 </Steps>
 
-You can also pick a category's station when you edit the category.
+You can also pick a category's station when you edit the category. You don't need a second printer: a station is a group of items, not a printer.
 
 ### Check where a product prints
 
-On the product form, under the categories, a short line tells you where it prints, for example **Prints at Bar · from Coffee**.
+On the product form, under the categories, a short line tells you where it prints, for example **Prints at Bar · from Coffee** on the Latte.
 
-If a product sits in two categories that print at different stations, the line shows both and a **Print at** choice. Pick one so the product prints in one place. Until you do, it follows your category order, and **Settings → Printing** shows how many products still need a station.
+If a product sits in two categories that print at different stations, the line shows both and a **Print at** choice. Say you later add a **Pastry** station and put a Croissant in both Pastry and Coffee: pick **Print at → Pastry** so it prints in one place. Until you do, it follows your category order, and **Settings → Printing** shows how many products still need a station.
 
-## Claim stations on the phone
-
-Each station prints on one Android phone with a Bluetooth printer.
+## Step 2: Switch on both stations on the phone
 
 <Steps>
   <Step title="Open the printer screen">
-    On the phone, go to **Home → Devices → Receipt printer**.
+    On the counter phone, go to **Home → Devices → Receipt printer**.
   </Step>
-  <Step title="Pick this phone's stations">
-    Under **Prep stations**, switch on the stations this phone prints. If another phone already prints one, the app asks before moving it here.
+  <Step title="Switch on Kitchen and Bar">
+    Under **Prep stations**, switch on **both**. One phone can print for every station. If the app says **Kitchen prints on V2419 now. Move it to this phone?**, tap **Move** as long as this is the phone with the printer.
+  </Step>
+  <Step title="Turn on auto print">
+    Under auto print, switch on **Kitchen ticket** for **POS sales**, and for **Online orders** if you take them. "Kitchen ticket" means the prep slips for every station, not only Kitchen.
+  </Step>
+  <Step title="Refresh the POS">
+    Clear any ticket in progress, then tap **Refresh menu & settings** on the POS. The phone also picks up changes on its own within about 5 minutes.
   </Step>
 </Steps>
 
-One phone can hold several stations. With one printer for Bar and Kitchen, switch both on and you get one slip per station, with a gap to tear between them.
+Back on **Settings → Printing**, both Bar and Kitchen now read **Phone: V2419** (your phone's name).
+
+## What prints
+
+A customer orders **1 Latte, 1 Nasi Lemak and 1 Roti Bakar**. The printer gives two slips, one after the other, with blank paper between them to tear (simplified):
+
+```text
+BAR
+1x Latte
+
+~~~~~~~~ tear ~~~~~~~~
+
+KITCHEN
+1x Nasi Lemak
+1x Roti Bakar
+```
+
+An order with only an Americano prints the Bar slip only. The customer receipt, if you print one, still shows the whole order.
 
 ## Paper settings for printers without a cutter
 
-Under **Paper** on the same screen:
+Under **Paper** on the Receipt printer screen:
 
-- **Feed lines before tear**: how much blank paper follows each slip (2, 4, 6 or 8; 4 is the default). Raise it if slips are hard to tear apart.
-- **One item per kitchen ticket**: prints a separate slip for each item, handy when each drink goes on its own cup.
+- **Feed lines before tear**: how much blank paper follows each slip (2, 4, 6 or 8; 4 is the default). If the Bar and Kitchen slips are hard to tear apart, try 6.
+- **One item per kitchen ticket**: prints a separate slip for each item. Two Lattes become two Bar slips, handy when each slip goes on its own cup.
 
 These settings belong to the phone, so they apply to every slip it prints.
 
 ## Ticket status and Retry
 
-**Settings → Printing** shows each station's status:
+**Settings → Printing** shows each station's status, for example **Bar · 2 waiting · 1 failed**:
 
 - **waiting**: tickets queued for that station. When a phone takes the station, tickets from the last 15 minutes print. Older ones are cancelled so the kitchen isn't flooded; use Retry or Reprint on the order if you still need one.
 - **failed**: tickets that didn't reach the printer. Check the printer, then tap **Retry** to send them again.
-- **no phone**: no phone prints this station yet. Its tickets wait until you claim it on a phone.
+- **no phone**: no phone prints this station yet. If you forget to switch on Bar in step 2, Latte slips wait here instead of printing at Kitchen.
 
 If one station's printer is off, the other stations still print as normal.
