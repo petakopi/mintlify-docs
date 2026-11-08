@@ -65,7 +65,8 @@
                 "group": "Point of Sale",
                 "expanded": false,
                 "pages": [
-                  "manage-shop/receipt"
+                  "manage-shop/receipt",
+                  "manage-shop/prep-stations"
                 ]
               }
             ]
