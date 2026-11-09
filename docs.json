@@ -126,6 +126,7 @@
                 ]
               },
               "loyalty-card/for-owners",
+              "loyalty-card/redeem-at-pos",
               "loyalty-card/qr-template",
               "loyalty-card/weekly-recap",
               {
