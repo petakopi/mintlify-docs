@@ -31,6 +31,20 @@ Creating a recipe alone does not link it to a product. A zero unit cost needs **
 
 If another drink has the same option groups, open **Manage → Copy costing from…**, pick that product and click **Copy**. Options with the same group and option name copy exactly what that product has, including **No cost change**. Options it doesn't have keep what they have. Review the rows, then click **Save product costing**; nothing is saved until you do.
 
+### Copy one option group
+
+To copy only one group's rules, click **Copy from…** next to that group's name. It matches by option name only, so it works even when the other product's group has a different name. Only options that have a rule on the other product are copied; options it leaves as **No cost change** keep what they have here. The base cost and other groups stay as they are.
+
+For example, Cafe Latte already swaps beans for each bean option, and Dirty Latte uses a copy of the same group:
+
+1. Open Dirty Latte's Costing page.
+2. Next to **Beans Options**, click **Copy from…**.
+3. Pick **Cafe Latte** and click **Copy**.
+4. Check the bean rows marked **Unsaved changes**. The toast says how many rules were copied, for example "Copied 5 Beans Options rules from Cafe Latte."
+5. Click **Save product costing**.
+
+Options with no same-named option on Cafe Latte keep what they have. A rule set to **Uses a different recipe or unit cost** isn't copied this way; set it on the row, or use **Manage → Copy costing from…**.
+
 ## Configure option costs
 
 Open each **Options: [group name]** tab and review its summaries. For example, Hot can show **No cost change**, while Cold shows **Adds Ice · 150 g · Shared**.
@@ -72,6 +86,18 @@ For a base recipe containing 18 g of House Blend beans:
 5. Check **Preview**, then save product costing.
 
 The swap keeps the original 18 g. It also swaps the material in extras, so an extra shot uses Single Origin beans too. You do not need a separate recipe for this swap.
+
+### Swap one material across many options
+
+When most options in a group swap the same material, set them up in one step:
+
+1. Next to the group's name, click **Swap material…**.
+2. Under **Replace material**, choose the material to replace, for example House Blend beans.
+3. Tick the options to change. Options with no rule are ticked already; options that already have a rule are only changed if you tick them.
+4. Click **Apply**. Each row now asks you to choose a replacement.
+5. Pick each row's replacement under **With material**, then click **Save product costing**.
+
+Save waits until every swap has a replacement. To skip the rows you haven't filled, click **Reset them** in the message.
 
 If several selected choices swap the same source material, the selection remains incomplete. A source missing from the recipe, a different material unit, or a base costed from **Unit cost** also remains incomplete. A swap cannot be repeated more than once per drink.
 
